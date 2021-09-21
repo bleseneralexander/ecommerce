@@ -130,6 +130,22 @@ a{
     background: #fdc500;
 }
 
+p.developer, p.developer a{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+p.developer a{
+    color: #ffffff;
+}
+
+p.developer a:hover{
+    text-decoration: underline;
+}
+
 /** Resposive **/
 @media (max-width: 736px) {
     .login-form .main{

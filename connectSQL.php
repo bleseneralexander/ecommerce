@@ -8,7 +8,7 @@
 
     if($connect){
         mysqli_query($connect, "SET NAME 'UTF8'");
-        echo "Ket noi thanh cong";
+        // echo "Ket noi thanh cong";
     } else {
         echo "Ket noi that bai";
     }

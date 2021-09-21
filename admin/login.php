@@ -1,14 +1,7 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Westside Sneaker Store</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Westside Sneaker Store, Sneaker, Shoes">
-    <meta name="description" content="ecommerce web">
-    <meta name="author" content="chuhood.studio" />
-    <link rel="shortcut icon" type="image/png" href="./../../photo/logo.jpg" />
     <link rel="stylesheet" href="login.css">
 </head>
 
@@ -19,19 +12,19 @@
             <div class="main">
                 <div class="content">
                     <h2>Đăng nhập</h2>
-                    <form>
+                    <form action="login_submit.php" method="POST">
                         <input type="text" name="username" placeholder="Tên đăng nhập" required autofocus="">
                         <input type="password" name="password" placeholder="Mật khẩu" required autofocus="">
-                        <button class="btn_Login" type="submit">Đăng nhập</button>
+                        <button class="btn_Login" type="submit" name="btnLogin">Đăng nhập</button>
                     </form>
                     
                 </div>
                 <div class="form-img">
-                    <img src="./../../photo/teamNKC.png" alt="poster">
+                    <img src="./../photo/teamNKC.png" alt="poster">
                 </div>
             </div>
         </div>
         <p class="developer">Được phát triển bởi <a href="https://chuvoddolyhood.github.io/trannhannghia/">ch.studio</a></p>
     </div>
 </body>
-</html>
+</html> -->

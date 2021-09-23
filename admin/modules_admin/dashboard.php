@@ -179,7 +179,7 @@
           </div>
           <div class="sidebar__link">
             <i class="fa fa-building-o"></i>
-            <a href="#">Quản Lý Khách Hàng</a>
+            <a href="./modules_admin/client_management/client.php">Quản Lý Khách Hàng</a>
           </div>
           <div class="sidebar__link">
             <!-- <i class="fas fa-user-alt"></i> -->

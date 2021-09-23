@@ -7,6 +7,10 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
+    <!-- <link rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" 
+      integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" 
+      crossorigin="anonymous"> -->
     <!-- <link rel="stylesheet" href="./../style/dashboard.css" /> -->
   </head>
   <body id="body">
@@ -28,7 +32,7 @@
             <i class="fa fa-clock-o" aria-hidden="true"></i>
           </a>
           <a href="#">
-            <img width="30" src="assets/avatar.svg" alt="" />
+            <img width="30" src="./photo/avatar.png" alt="" />
             <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
           </a>
         </div>
@@ -37,12 +41,19 @@
       <main>
         <div class="main__container">
           <!-- MAIN TITLE STARTS HERE -->
+          <?php
+            include './modules_admin/config.php';
+            $username = $_SESSION['login_admin'];
+            $sql = "SELECT HoTenNV FROM nhanvien WHERE ChucVu='Quản Lý' AND UserName='$username'";
+            $query = mysqli_query($conn, $sql);
+            $rows = mysqli_fetch_array($query);
+          ?>
 
           <div class="main__title">
-            <img src="assets/hello.svg" alt="" />
+            <!-- <img src="./photo/logo.jpg" alt="" /> -->
             <div class="main__greeting">
               <h1>Dashboard</h1>
-              <p>Xin chào admin</p>
+              <p>Xin chào <?php echo $rows['HoTenNV']?></p>
             </div>
           </div>
 
@@ -171,8 +182,9 @@
             <a href="#">Quản Lý Khách Hàng</a>
           </div>
           <div class="sidebar__link">
+            <!-- <i class="fas fa-user-alt"></i> -->
             <i class="fa fa-wrench"></i>
-            <a href="#">Quản Lý Nhân Viên</a>
+            <a href="./modules_admin/staff_management/staff.php">Quản Lý Nhân Viên</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-archive"></i>
@@ -208,11 +220,22 @@
             <i class="fa fa-briefcase"></i>
             <a href="#">Paygrade</a>
           </div> -->
-          <div class="sidebar__logout">
+
+        <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
-            <a href="#">Đăng Xuất</a>
+            <a href="index.php?logout=logout_admin">Đăng Xuất</a>
           </div>
         </div>
+
+        <?php
+            
+            if(isset($_GET['logout']) && $_GET['logout']=='logout_admin'){
+                unset($_SESSION['login_admin']);
+                //khác session_destroy() vì session_destroy() bỏ tất cả session còn unset chỉ bỏ 1 session đã chọn
+                header('location: ./login.php');
+            }
+        ?>
+
       </div>
     </div>
     <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>

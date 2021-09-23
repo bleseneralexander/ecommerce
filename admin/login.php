@@ -13,8 +13,8 @@
             $rows = mysqli_fetch_array($query);
 
             if($rows['password'] == $password){
-                header('location: ./modules_admin/dashboard/dashboard.php');
-                // header('location: index.php');
+                $_SESSION['login_admin']=$username;
+                header('location: index.php');
             } else {
                 header('location: login.php');
             }   
@@ -29,7 +29,6 @@
     <title>Admin Page</title>
     <link rel="stylesheet" href="./style/login.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Westside Sneaker Store, Sneaker, Shoes">
     <meta name="description" content="ecommerce web">

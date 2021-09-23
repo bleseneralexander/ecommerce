@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./../style/dashboard.css" />
-    <title>CSS GRID DASHBOARD</title>
+    <!-- <link rel="stylesheet" href="./../style/dashboard.css" /> -->
   </head>
   <body id="body">
     <div class="container">
@@ -19,8 +16,8 @@
           <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
         <div class="navbar__left">
-          <a href="#">Subscribers</a>
-          <a href="#">Video Management</a>
+          <!-- <a href="#">Subscribers</a>
+          <a href="#">Video Management</a> -->
           <a class="active_link" href="#">Admin</a>
         </div>
         <div class="navbar__right">
@@ -44,8 +41,8 @@
           <div class="main__title">
             <img src="assets/hello.svg" alt="" />
             <div class="main__greeting">
-              <h1>Hello Codersbite</h1>
-              <p>Welcome to your admin dashboard</p>
+              <h1>Dashboard</h1>
+              <p>Xin chào admin</p>
             </div>
           </div>
 
@@ -59,7 +56,7 @@
                 aria-hidden="true"
               ></i>
               <div class="card_inner">
-                <p class="text-primary-p">Number of Subscribers</p>
+                <p class="text-primary-p">Tổng số khách hàng</p>
                 <span class="font-bold text-title">578</span>
               </div>
             </div>
@@ -67,7 +64,7 @@
             <div class="card">
               <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
               <div class="card_inner">
-                <p class="text-primary-p">Times of Watching</p>
+                <p class="text-primary-p">Số lượng sản phẩm</p>
                 <span class="font-bold text-title">2467</span>
               </div>
             </div>
@@ -78,7 +75,7 @@
                 aria-hidden="true"
               ></i>
               <div class="card_inner">
-                <p class="text-primary-p">Number of Videos</p>
+                <p class="text-primary-p">Số đơn trong tháng</p>
                 <span class="font-bold text-title">340</span>
               </div>
             </div>
@@ -89,7 +86,7 @@
                 aria-hidden="true"
               ></i>
               <div class="card_inner">
-                <p class="text-primary-p">Number of Likes</p>
+                <p class="text-primary-p">Lợi thuận trong tháng</p>
                 <span class="font-bold text-title">645</span>
               </div>
             </div>
@@ -101,8 +98,8 @@
             <div class="charts__left">
               <div class="charts__left__title">
                 <div>
-                  <h1>Daily Reports</h1>
-                  <p>Cupertino, California, USA</p>
+                  <h1>Báo cáo năm</h1>
+                  <p>Ninh Kiều, Cần Thơ</p>
                 </div>
                 <i class="fa fa-usd" aria-hidden="true"></i>
               </div>
@@ -148,8 +145,8 @@
       <div id="sidebar">
         <div class="sidebar__title">
           <div class="sidebar__img">
-            <img src="assets/logo.png" alt="logo" />
-            <h1>Codersbite</h1>
+            <img src="./photo/logo.jpg" alt="logo"/>
+            <h1>Westside Sneaker Store</h1>
           </div>
           <i
             onclick="closeSidebar()"
@@ -164,28 +161,28 @@
             <i class="fa fa-home"></i>
             <a href="#">Dashboard</a>
           </div>
-          <h2>MNG</h2>
+          <h2>QUẢN LÝ</h2>
           <div class="sidebar__link">
             <i class="fa fa-user-secret" aria-hidden="true"></i>
-            <a href="#">Admin Management</a>
+            <a href="#">Quản Lý Admin</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-building-o"></i>
-            <a href="#">Company Management</a>
+            <a href="#">Quản Lý Khách Hàng</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-wrench"></i>
-            <a href="#">Employee Management</a>
+            <a href="#">Quản Lý Nhân Viên</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-archive"></i>
-            <a href="#">Warehouse</a>
+            <a href="#">Quản Lý Hàng Hóa</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-handshake-o"></i>
-            <a href="#">Contracts</a>
+            <a href="#">Quản Lý Đơn Hàng</a>
           </div>
-          <h2>LEAVE</h2>
+          <!-- <h2>LEAVE</h2>
           <div class="sidebar__link">
             <i class="fa fa-question"></i>
             <a href="#">Requests</a>
@@ -210,15 +207,15 @@
           <div class="sidebar__link">
             <i class="fa fa-briefcase"></i>
             <a href="#">Paygrade</a>
-          </div>
+          </div> -->
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
-            <a href="#">Log out</a>
+            <a href="#">Đăng Xuất</a>
           </div>
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="dashboard.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="dashboard.js"></script> -->
   </body>
 </html>

@@ -12,30 +12,30 @@
 </head>
 <body>
     <?php
-        if(isset($_GET['page_layout'])){
-            switch ($_GET['page_layout']) {
+        if(isset($_GET['page_staff'])){
+            switch ($_GET['page_staff']) {
                 case 'list':
-                    include 'list.php';
+                    include './staff_management/list.php';
                     break;
 
                 case 'add':
-                    include 'add.php';
+                    include './add.php';
                     break;
 
                 case 'modify':
-                    include 'modify.php';
+                    include './modify.php';
                     break;
 
                 case 'delete':
-                    include 'delete.php';
+                    include './delete.php';
                     break;
 
                 default:
-                    include 'list.php';
+                    include './staff_management/list.php';
                     break;
             }
         }else {
-            include 'list.php';
+            include './staff_management/list.php';
         }
     ?>
 </body>

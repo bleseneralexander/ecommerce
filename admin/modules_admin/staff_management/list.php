@@ -4,7 +4,7 @@
             <h2>Danh sách nhân viên</h2>
         </div>
         <div class="card-body">
-        <a class="btn btn-primary" href="./staff.php?page_layout=add">Thêm nhân viên</a>
+        <a class="btn btn-primary" href="./staff_management/staff.php?page_staff=add">Thêm nhân viên</a>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -20,7 +20,7 @@
                 <tbody>
                     <tr>
                         <?php 
-                            include './../config.php';
+                            include './config.php';
                             $sql = "SELECT * FROM nhanvien";
                             $query = mysqli_query($conn, $sql);
                             while($rows = mysqli_fetch_array($query)){ ?>
@@ -31,13 +31,13 @@
                                 <td><?php echo $rows["DiaChi"] ?></td>
                                 <td><?php echo $rows["SoDienThoai"] ?></td>
                                 <td>
-                                    <a href="staff.php?page_layout=modify&id= <?php echo $rows["MSNV"] ?>">
+                                    <a href="./staff_management/staff.php?page_staff=modify&id= <?php echo $rows["MSNV"] ?>">
                                         Sửa
                                     </a>
                                 </td>
                                 <td>
                                     <a onclick="return confirm_Del('<?php echo $rows['HoTenNV'] ?>')" 
-                                       href="staff.php?page_layout=delete&id= <?php echo $rows["MSNV"] ?>">
+                                       href="./staff_management/staff.php?page_staff=delete&id= <?php echo $rows["MSNV"] ?>">
                                         Xóa
                                     </a>
                                 </td>

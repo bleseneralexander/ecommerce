@@ -19,7 +19,7 @@
                 <tbody>
                     <tr>
                         <?php 
-                            include './../config.php';
+                            include './config.php';
                             $sql = "SELECT * FROM khachhang k JOIN diachikh d ON k.MSKH=d.MSKH";
                             $query = mysqli_query($conn, $sql);
                             while($rows = mysqli_fetch_array($query)){ ?>
@@ -31,7 +31,7 @@
                                 <td><?php echo $rows["SoFax"] ?></td>
                                 <td><?php echo $rows["DiaChi"] ?></td>
                                 <td>
-                                    <center><a class="btn btn-primary" href="client.php?page_layout=view&id= <?php echo $rows["MSKH"] ?>">Xem</a></center>
+                                    <center><a class="btn btn-primary" href="./client_management/client.php?page_client=view&id= <?php echo $rows["MSKH"] ?>">Xem</a></center>
                                 </td>
                             </tr>
                         <?php } ?>

@@ -12,14 +12,14 @@
 </head>
 <body>
     <?php
-        if(isset($_GET['page_layout'])){
-            switch ($_GET['page_layout']) {
+        if(isset($_GET['page_client'])){
+            switch ($_GET['page_client']) {
                 case 'list':
-                    include 'list.php';
+                    include './client_management/list.php';
                     break;
 
                 case 'view':
-                    include 'view.php';
+                    include './view.php';
                     break;
 
                 // case 'modify':
@@ -31,11 +31,11 @@
                 //     break;
 
                 default:
-                    include 'list.php';
+                    include './client_management/list.php';
                     break;
             }
         }else {
-            include 'list.php';
+            include './client_management/list.php';
         }
     ?>
 </body>

@@ -10,7 +10,7 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
         crossorigin="anonymous">
 </head>
-<body>
+<body class="client_management">
     <?php
         if(isset($_GET['page_staff'])){
             switch ($_GET['page_staff']) {

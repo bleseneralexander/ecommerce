@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Admin Page</title>
-	<link rel="stylesheet" href="./style/dashboard.css" />
+	<link rel="stylesheet" href="./style/index.css" />
 	<link rel="shortcut icon" type="image/png" href="./photo/logo.jpg" />
     <link
       rel="stylesheet"

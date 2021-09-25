@@ -33,7 +33,7 @@
     </div>
     <div class="sidebar__link">
       <i class="fa fa-archive"></i>
-      <a href="#">Quản Lý Hàng Hóa</a>
+      <a href="./modules_admin/content.php?page_layout=product_management">Quản Lý Hàng Hóa</a>
     </div>
     <div class="sidebar__link">
       <i class="fa fa-handshake-o"></i>

@@ -36,13 +36,8 @@
                             </tr>
                         <?php } ?>
                     </tr>
-                </thead>
+                </tbody>
             </table>
         </div>
     </div>
 </div>
-<script>
-    function confirm_Del(name){
-        return confirm("Bạn có chắc muốn xóa nhân viên "+ name + "?");
-    }
-</script>

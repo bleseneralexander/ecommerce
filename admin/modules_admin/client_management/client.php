@@ -22,14 +22,6 @@
                     include './view.php';
                     break;
 
-                // case 'modify':
-                //     include 'modify.php';
-                //     break;
-
-                // case 'delete':
-                //     include 'delete.php';
-                //     break;
-
                 default:
                     include './client_management/list.php';
                     break;

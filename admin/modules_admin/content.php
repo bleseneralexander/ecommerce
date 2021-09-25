@@ -2,7 +2,7 @@
         if(isset($_GET['page_layout'])){
             switch ($_GET['page_layout']) {
                 case 'dashboard':
-                    include './modules_admin/dashboard/dashboard.php';
+                    include './dashboard/dashboard.php'; //Loi
                     break;
 
                 case 'staff_management':
@@ -13,8 +13,12 @@
                     include './client_management/client.php';
                     break;
 
+                case 'product_management':
+                    include './product_management/product.php';
+                    break;    
+
                 default:
-                    include './modules_admin/dashboard/dashboard.php';
+                    include './dashboard/dashboard.php'; //Loi
                     break;
             }
         }else {

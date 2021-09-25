@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starbucks Website</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Westside Sneaker Store</title>
+    <link rel="stylesheet" href="./modules_client/style/style.css">
 </head>
 <body>
     <section>
         <div class="circle"></div>
         <header>
-            <a href="#"><img src="./modules_client/photo/logo.jpg" class="logo"></a>
+            <a href="#"><img src="./modules_client/photo/logo.png" class="logo"></a>
             <div class="toggle" onclick="toggleMenu();"></div>
             <ul class="navigation">
                 <li><a href="#">Trang chủ</a></li>
@@ -22,18 +22,20 @@
         </header>
         <div class="content">
             <div class="textBox">
-                <h2>Your true stripes<br>It's <span>Westside</span></h2>
-                <p>Phong cách, chuyển động của bạn, ôm trọn trong các sọc kẻ.</p>
+                <h2>Cá tính thể thao<br><span>Westside</span></h2>
+                <h5>GIÀY BÓNG ĐÁ PREDATOR FREAK.3 FIRM GROUND</h5>
+                <p>Đôi giày bóng đá nâng đỡ giúp bạn làm chủ thế trận trên sân cỏ tự nhiên.</p>
+                <p>2.400.000₫</p>
                 <a href="#">Xem thêm</a>
             </div>
             <div class="imgBox">
-                <img src="./modules_client/photo/img1.png" class="starbucks">
+                <img src="./modules_client/photo/poster_img1.png" class="starbucks">
             </div>
         </div>
         <ul class="thumb">
-            <li><img src="./modules_client/photo/thumb1.png" onclick="imgSlider('./modules_client/photo/img1.png'); changeCircleColor('#a1a19f')"></li>
-            <li><img src="./modules_client/photo/thumb2.png" onclick="imgSlider('./modules_client/photo/img2.png'); changeCircleColor('#9a3936')"></li>
-            <li><img src="./modules_client/photo/thumb3.png" onclick="imgSlider('./modules_client/photo/img3.png'); changeCircleColor('#aa6147')"></li>
+            <li><img src="./modules_client/photo/thumbnail_img1.png" onclick="imgSlider('./modules_client/photo/poster_img1.png'); changeColor('#9c9c9c')"></li>
+            <li><img src="./modules_client/photo/thumbnail_img2.png" onclick="imgSlider('./modules_client/photo/poster_img2.png'); changeColor('#ad4541')"></li>
+            <li><img src="./modules_client/photo/thumbnail_img3.png" onclick="imgSlider('./modules_client/photo/poster_img3.png'); changeColor('#ded1c0')"></li>
         </ul>
         <ul class="sci">
             <li><a href="#"><img src="./modules_client/photo/facebook.png"></a></li>
@@ -49,9 +51,18 @@
             document.querySelector('.starbucks').src = anything;
         }
 
-        function changeCircleColor(color){
+        function changeColor(color){
             const circle = document.querySelector('.circle');
             circle.style.background = color;
+
+            const name = document.querySelector('.content .textBox h2 span');
+            name.style.color = color;
+
+            const button = document.querySelector('.content .textBox a');
+            button.style.background = color;
+
+            // const name_shoes = document.getElementByID
+            // name_shoes.style.background = color;
         }
 
         function toggleMenu(){

@@ -1,3 +1,5 @@
+<!-- Chung cấp với content.php -->
+
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
@@ -22,6 +24,7 @@
                         <?php 
                             include './config.php';
                             $sql = "SELECT * FROM nhanvien";
+                            $count_nhanvien=1;
                             $query = mysqli_query($conn, $sql);
                             while($rows = mysqli_fetch_array($query)){ ?>
                             <tr>
@@ -30,6 +33,7 @@
                                 <td><?php echo $rows["ChucVu"] ?></td>
                                 <td><?php echo $rows["DiaChi"] ?></td>
                                 <td><?php echo $rows["SoDienThoai"] ?></td>
+                                <?php $count_nhanvien++ ?>
                                 <td>
                                     <a href="./staff_management/staff.php?page_staff=modify&id= <?php echo $rows["MSNV"] ?>">
                                         Sửa
@@ -46,6 +50,7 @@
                     </tr>
                 </thead>
             </table>
+            <p><b><?php echo 'Số lượng nhân viên: '. $count_nhanvien ?></b></p>
         </div>
     </div>
 </div>

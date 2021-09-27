@@ -5,6 +5,10 @@
                     include './dashboard/dashboard.php'; //Loi
                     break;
 
+                case 'admin_management':
+                    include './admin_management/admin.php';
+                    break;
+
                 case 'staff_management':
                     include './staff_management/staff.php';
                     break;
@@ -15,7 +19,11 @@
 
                 case 'product_management':
                     include './product_management/product.php';
-                    break;    
+                    break; 
+                    
+                case 'order_management':
+                    include './order_management/order.php';
+                    break;  
 
                 default:
                     include './dashboard/dashboard.php'; //Loi

@@ -20,7 +20,7 @@
     <h2>QUẢN LÝ</h2>
     <div class="sidebar__link">
       <i class="fa fa-user-secret" aria-hidden="true"></i>
-      <a href="#">Quản Lý Admin</a>
+      <a href="./modules_admin/content.php?page_layout=admin_management">Quản Lý Admin</a>
     </div>
     <div class="sidebar__link">
       <i class="fa fa-building-o"></i>
@@ -37,7 +37,7 @@
     </div>
     <div class="sidebar__link">
       <i class="fa fa-handshake-o"></i>
-      <a href="#">Quản Lý Đơn Hàng</a>
+      <a href="./modules_admin/content.php?page_layout=order_management">Quản Lý Đơn Hàng</a>
     </div>
     <!-- <h2>LEAVE</h2>
     <div class="sidebar__link">
@@ -73,4 +73,3 @@
     </div>
   </div>
 </div>
-<script src="dashboard.js"></script>

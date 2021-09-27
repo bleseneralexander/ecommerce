@@ -1,3 +1,4 @@
+<!-- Chung cấp với staff.php -->
 <?php
     include './../config.php';  
     if(isset($_GET['id'])){
@@ -6,5 +7,5 @@
 
     $sql = "DELETE FROM nhanvien WHERE MSNV = $id";
     $query = mysqli_query($conn, $sql);
-    header("location: staff.php?page_layout=list");
+    header("location: ./../content.php?page_layout=staff_management");
 ?>

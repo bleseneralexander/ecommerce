@@ -1,3 +1,4 @@
+<!-- Chung cấp với content.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +10,11 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
         crossorigin="anonymous">
-    <link rel="stylesheet" href="view.css">
 </head>
 <body class="client_management">
     <?php
         if(isset($_GET['page_product'])){
             switch ($_GET['page_product']) {
-                case 'list':
-                    include './product_management/list.php';
-                    break;
-
                 case 'add':
                     include './add.php';
                     break;
@@ -32,12 +28,11 @@
                     break;
 
                 default:
-                    include './product_management/list.php';
+                    include './../content.php?page_layout=product_management';
                     break;
             }
         }else {
             include './product_management/list.php';
-            include './product_management/view.html';
         }
     ?>
 </body>

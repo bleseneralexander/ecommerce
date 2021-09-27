@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
 @import "dashboard.css";
 @import "staff.css";
+@import "admin.css";
 
 
 /*  styling scrollbars  */
@@ -271,4 +272,10 @@ main {
   background: #f3f4f6;
   grid-area: main;
   overflow-y: auto;
+}
+
+
+.admin_management h1{
+  color: #3b9668;
+  size: 300px;
 }

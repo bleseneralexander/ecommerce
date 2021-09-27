@@ -19,7 +19,7 @@
 
         $sql_modify = "UPDATE nhanvien SET HoTenNV='$HoTenNV', ChucVu='$ChucVu', DiaChi='$DiaChi', SoDienThoai='$SoDienThoai' WHERE MSNV='$id'";
         $query_modify = mysqli_query($conn, $sql_modify);
-        header('location: staff.php?page_layout=list');
+        header("location: ./../content.php?page_layout=staff_management");
     }
 ?>
 

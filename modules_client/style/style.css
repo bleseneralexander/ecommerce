@@ -18,7 +18,7 @@ section{
 }
 
 header{
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
@@ -26,6 +26,9 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    z-index: 20;
+    background-color: #fff;
 }
 
 header .logo{
@@ -247,3 +250,19 @@ header ul li a{
         border-bottom-left-radius: 5px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

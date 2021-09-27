@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Westside Sneaker Store</title>
     <link rel="stylesheet" href="./modules_client/style/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" 
+        integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU" 
+        crossorigin="anonymous">
 </head>
 <body>
     <section>
@@ -16,8 +19,9 @@
             <ul class="navigation">
                 <li><a href="#">Trang chủ</a></li>
                 <li><a href="#">Sản phẩm</a></li>
-                <li><a href="#">Giỏ hàng</a></li>
                 <li><a href="#">Liên hệ</a></li>
+                <li><a href="#">Đăng nhập</a></li>
+                <li><a href="#"><i class="bi bi-bag-plus-fill" style="color:#333; font-size: 130%;" ></i></a></li>
             </ul>
         </header>
         <div class="content">
@@ -44,7 +48,8 @@
         </ul>
     </section>
     <section>
-        <h2>abc</h2>
+        <div>
+            
     </section>  
     <script type="text/javascript">
         function imgSlider(anything){

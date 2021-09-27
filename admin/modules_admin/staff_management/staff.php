@@ -1,3 +1,4 @@
+<!-- Chung cấp với content.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +15,6 @@
     <?php
         if(isset($_GET['page_staff'])){
             switch ($_GET['page_staff']) {
-                case 'list':
-                    include './staff_management/list.php';
-                    break;
-
                 case 'add':
                     include './add.php';
                     break;
@@ -31,7 +28,7 @@
                     break;
 
                 default:
-                    include './staff_management/list.php';
+                    include './../content.php?page_layout=staff_management';
                     break;
             }
         }else {

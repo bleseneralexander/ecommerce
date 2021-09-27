@@ -6,5 +6,8 @@
 
     $sql = "DELETE FROM hanghoa WHERE MSHH = $id";
     $query = mysqli_query($conn, $sql);
-    header("location: product.php?page_product=list");
+    header("location: ./../content.php?page_layout=product_management");
 ?>
+
+
+<!-- Chung cấp với staff.php -->

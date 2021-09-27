@@ -19,6 +19,10 @@
                     include './add.php';
                     break;
 
+                case 'add_availableProduct':
+                    include './add_availableProduct.php';
+                    break;
+
                 case 'modify':
                     include './modify.php';
                     break;

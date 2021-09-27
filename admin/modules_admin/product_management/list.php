@@ -1,4 +1,7 @@
 <!-- Chung cấp với file config.php -->
+<?php
+    include './config.php';           
+?>
 
 <div class="container-fluid">
     <div class="card">
@@ -6,7 +9,7 @@
             <h2>Danh sách hàng hóa</h2>
         </div>
         <div class="card-body">
-        <!-- Button trigger modal -->
+            <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_product_Modal">
                 Nhập hàng
             </button>
@@ -28,9 +31,8 @@
                 <tbody>
                     <tr>
                         <?php 
-                            include './config.php';
                             $sql = "SELECT * FROM hanghoa h JOIN hinhhanghoa img ON h.MSHH=img.MSHH JOIN loaihanghoa l ON h.MaLoaiHang=l.MaLoaiHang ORDER BY h.MSHH ASC ";
-                            $query = mysqli_query($conn, $sql);
+                            $query = mysqli_query($conn, $sql);  
                             $count_hanghoa=1;
                             while($rows = mysqli_fetch_array($query)){ ?>
                             <tr>
@@ -43,9 +45,7 @@
                                 <td><?php echo $rows["TenLoaiHang"] ?></td>
                                 <td> <img src="./../photo/<?php echo $rows["TenHinh"] ?>" alt="<?php echo $rows["TenHinh"] ?>" style="width: 20%"> </td>
                                 <td>
-                                    <a href="./staff_management/staff.php?page_staff=modify&id= <?php echo $rows["MSNV"] ?>">
-                                        Thêm
-                                    </a>
+                                    <button type="button" class="btn btn-success editbtn">Thêm</button>
                                 </td>
                                 <td>
                                     <a href="./staff_management/staff.php?page_staff=modify&id= <?php echo $rows["MSNV"] ?>">
@@ -53,8 +53,9 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a onclick="return confirm_Del('<?php echo $rows['HoTenNV'] ?>')" 
-                                       href="./product_management/product.php?page_product=delete&id= <?php echo $rows["MSHH"] ?>">
+                                    <a onclick="return confirm_Del('<?php echo $rows['TenHH'] ?>')" 
+                                       href="./product_management/product.php?page_product=delete&id= <?php echo $rows['MSHH'] ?>"
+                                       style="background-color: red;color: white;padding: 8px 15px;text-align: center;text-decoration: none;display: inline-block;border-radius: 5px;">
                                         Xóa
                                     </a>
                                 </td>
@@ -74,7 +75,8 @@
 </script>
 
 
-<!-- Modal -->
+<!-- ######################################################### Modal Nhập hàng ######################################################### -->
+
 <div class="modal fade" id="add_product_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -131,10 +133,46 @@
   </div>
 </div>
 
+<!-- ####################################################### Modal Thêm hàng có sẵn ######################################################### -->
+
+<!-- <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">THÊM HÀNG HÓA</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="./product_management/add_availableProduct.php" method="POST"> 
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label">Tên hàng</label>
+                    <input type="text" class="form-control" name="TenHH" disabled>
+                </div>
+                <div>
+                    <label class="form-label">Số lượng</label>
+                    <input type="number" class="form-control" name="SoLuong" min="0" require>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-primary" name="btn_submit">Xác nhận</button>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('.editbtn').on('click', function(){
+            $('#editModal').modal('show');
+        });
+    });
+</script> -->
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
-
-
-
 

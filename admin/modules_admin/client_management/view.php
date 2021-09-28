@@ -59,7 +59,12 @@
                                     <td><?php echo $rows["GiaDatHang"] ?></td>
                                     <td><?php echo $rows["NgayDH"] ?></td>
                                     <td><?php echo $rows["NgayGH"] ?></td>
-                                    <td><?php echo $rows["TrangThaiDH"] ?></td>
+                                    <td id="status_color">
+                                        <?php 
+                                            echo $rows["TrangThaiDH"];
+                                            // onclick="changeColor($rows["TrangThaiDH"])";
+                                            ?>
+                                    </td>
                                     <td><?php echo $rows["HoTenNV"] ?></td>
                                 </tr>
                             <?php } ?>
@@ -70,3 +75,20 @@
         </div>
     </div>
 </div>
+
+
+<!-- Thay đổi màu trạng thái đơn hàng -> chưa làm được  -->
+<script>
+    function changeColor(status){
+        const status_color = document.getElementById("status_color");
+        
+        if(status == "Chưa duyệt")
+            status_color.style.color = 'red';
+        }else if (status == "Đã duyệt") {
+            status_color.style.color = 'green';
+        }else if (status == "Đã giao") {
+            status_color.style.color = 'blue';
+        } else {
+            status_color.style.color = 'yellow';
+        }
+</script>

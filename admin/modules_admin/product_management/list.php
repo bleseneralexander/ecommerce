@@ -135,44 +135,53 @@
 
 <!-- ####################################################### Modal Thêm hàng có sẵn ######################################################### -->
 
-<!-- <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">THÊM HÀNG HÓA</h5>
+            <h5 class="modal-title" id="exampleModalLabel">THÔNG TIN HÀNG HÓA</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="./product_management/add_availableProduct.php" method="POST"> 
             <div class="modal-body">
+                <input type="hidden" name="MSHH_availableProduct" id="MSHH_availableProduct">
                 <div class="mb-3">
-                    <label class="form-label">Tên hàng</label>
-                    <input type="text" class="form-control" name="TenHH" disabled>
+                    <label class="form-label">Tên</label>
+                    <input type="text" class="form-control" id="TenHH" name="TenHH_availableProduct">
                 </div>
                 <div>
                     <label class="form-label">Số lượng</label>
-                    <input type="number" class="form-control" name="SoLuong" min="0" require>
+                    <input type="number" class="form-control" name="SoLuong_availableProduct" min="0" require>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                <button type="submit" class="btn btn-primary" name="btn_submit">Xác nhận</button>
+                <button type="submit" class="btn btn-primary" name="btn_add_availableProduct">Xác nhận</button>
             </div>
         </form>
     </div>
   </div>
 </div>
 
-<script>
-    $(document).ready(function(){
-        $('.editbtn').on('click', function(){
-            $('#editModal').modal('show');
-        });
-    });
-</script> -->
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
 
+<script>
+    $(document).ready(function(){
+        $('.editbtn').on('click', function(){
+
+            $('#editmodal').modal('show');
+
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function(){
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+            $('#MSHH_availableProduct').val(data[0]);
+            $('#TenHH').val(data[1]);
+        });
+    });
+</script>

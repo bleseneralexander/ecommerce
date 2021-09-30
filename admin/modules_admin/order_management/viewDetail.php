@@ -96,15 +96,25 @@
         </div>
         <br/>
         <div class="card">
+            <?php
+                $sql = "SELECT TrangThaiDH FROM dathang WHERE SoDonDH=$id";
+                $query = mysqli_query($conn, $sql);
+                $rows = mysqli_fetch_array($query);
+                $options = $rows['TrangThaiDH'];
+            ?>
             <h4>Cập nhật tình trạng đơn hàng</h4>
-            <select class="form-control" name="TenLoaiHang_modify" id="TenLoaiHang_modify">
-                <option selected>Chọn tình trạng</option>
-                <option value="Giày">Chưa duyệt</option>    
-                <option value="Áo">Đã duyệt</option>
-                <option value="Tất">Đã giao</option>
-                <option value="Bóng">Đã hủy</option>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="TenLoaiHang_modify">
+                <option <?php if($options=="Chưa duyệt") echo 'selected="selected"';  ?> value="Chưa duyệt" >Chưa duyệt</option>
+                <option <?php if($options=="Đã duyệt") echo 'selected="selected"';  ?> value="Đã duyệt">Đã duyệt</option>
+                <option <?php if($options=="Đã giao") echo 'selected="selected"';  ?> value="Đã giao">Đã giao</option>
+                <option <?php if($options=="Đã hủy") echo 'selected="selected"';  ?> value="Đã hủy">Đã hủy</option>
             </select>
-            <button type="submit" class="btn btn-primary" name="btn_modify">Xác nhận</button>
+            <br/>
+            <a 
+                href="./order_management/order.php?page_order=viewDetail&id= <?php echo $rows['SoDonDH'] ?>"
+                style="background-color: green;color: white;padding: 8px 15px;text-align: center;text-decoration: none;display: inline-block;border-radius: 5px;">
+                    Xác nhận
+             </a>
         </div>
     </div>
 </div>

@@ -21,6 +21,7 @@
         $query_add_product = mysqli_query($conn, $sql_add_product);
 
 
+        //Lay MSHH vua them vao CSDL
         $sql_get_MSHH = "SELECT MSHH FROM `hanghoa` WHERE TenHH='$TenHH'";
         $query_get_MSHH = mysqli_query($conn, $sql_get_MSHH);
         $rows_get_MSHH = mysqli_fetch_array($query_get_MSHH);
@@ -28,6 +29,7 @@
         // Bắt buộc phải có biến chuyển dữ liệu mới cho vào INSERT
         $id_proudct = $rows_get_MSHH['MSHH']; 
 
+        //Them hinhanh vao CSDL
         $sql_add_img_product = "INSERT INTO `hinhhanghoa`(`TenHinh`, `MSHH`) VALUES ('$TenAnh', $id_proudct)";
         $query_add_img_product = mysqli_query($conn, $sql_add_img_product);
 

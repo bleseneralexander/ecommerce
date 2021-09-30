@@ -24,7 +24,7 @@
                         <?php 
                             include './config.php';
                             $sql = "SELECT * FROM nhanvien";
-                            $count_nhanvien=1;
+                            $count_nhanvien=0;
                             $query = mysqli_query($conn, $sql);
                             while($rows = mysqli_fetch_array($query)){ ?>
                             <tr>

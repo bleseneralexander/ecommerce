@@ -13,22 +13,10 @@
 </head>
 <body class="order_management">
     <?php
-        if(isset($_GET['page_product'])){
-            switch ($_GET['page_product']) {
-                case 'add':
-                    include './add.php';
-                    break;
-
-                case 'modify':
-                    include './modify.php';
-                    break;
-
-                case 'delete':
-                    include './delete.php';
-                    break;
-
-                default:
-                    include './../content.php?page_layout=order_management';
+        if(isset($_GET['page_order'])){
+            switch ($_GET['page_order']) {
+                case 'viewDetail':
+                    include './viewDetail.php';
                     break;
             }
         }else {

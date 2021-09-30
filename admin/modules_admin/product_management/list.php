@@ -23,6 +23,7 @@
                         <th>Số lượng</th>
                         <th>Loại hàng</th>
                         <th>Hình ảnh</th>
+                        <th>Trạng thái</th>
                         <th>Thêm hàng</th>
                         <th>Sửa thông tin</th>
                         <th>Xóa</th>
@@ -33,7 +34,7 @@
                         <?php 
                             $sql = "SELECT * FROM hanghoa h JOIN hinhhanghoa img ON h.MSHH=img.MSHH JOIN loaihanghoa l ON h.MaLoaiHang=l.MaLoaiHang ORDER BY h.MSHH ASC ";
                             $query = mysqli_query($conn, $sql);  
-                            $count_hanghoa=1;
+                            $count_hanghoa=0;
                             while($rows = mysqli_fetch_array($query)){ ?>
                             <tr>
                                 <?php $count_hanghoa++ ?>
@@ -44,6 +45,11 @@
                                 <td><?php echo $rows["SoLuongHang"] ?></td>
                                 <td><?php echo $rows["TenLoaiHang"] ?></td>
                                 <td> <img src="./../photo/<?php echo $rows["TenHinh"] ?>" alt="<?php echo $rows["TenHinh"] ?>" style="width: 20%"> </td>
+                                <td><?php 
+                                        if($rows["SoLuongHang"]>0)
+                                           echo 'Còn hàng';
+                                        else  echo 'Hết hàng';?>
+                                </td>
                                 <td>
                                     <button type="button" class="btn btn-success editbtn_availableProduct">Thêm</button>
                                 </td>

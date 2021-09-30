@@ -9,29 +9,26 @@
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th>#</th>
+                        <th>Mã đơn hàng</th>
                         <th>Họ tên khách hàng</th>
                         <th>Địa chỉ</th>
                         <th>Số điện thoại</th>
                         <th>Ngày đặt hàng</th>
                         <th>Ngày giao hàng</th>
                         <th>Trạng thái</th>
-                        <th>Nhân viên phụ trách</th>
-                        <th>Duyệt</th>
-                        <th>Hủy</th>
+                        <th>Xem chi tiết</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <?php 
                             include './config.php';
-                            $sql = "SELECT d.SoDonDH, k.HoTenKH, dia.DiaChi, k.SoDienThoai, d.NgayDH, d.NgayGH, d.TrangThaiDH, n.HoTenNV
+                            $sql = "SELECT d.SoDonDH, k.HoTenKH, dia.DiaChi, k.SoDienThoai, d.NgayDH, d.NgayGH, d.TrangThaiDH
                                     FROM khachhang k 
                                         JOIN dathang d ON d.MSKH=k.MSKH
                                         JOIN diachikh dia ON dia.MSKH=k.MSKH
-                                        JOIN nhanvien n ON n.MSNV=d.MSNV
                                         ORDER BY d.SoDonDH ASC;";
-                            $count_nhanvien=1;
+                            $count_order=0;
                             $query = mysqli_query($conn, $sql);
                             while($rows = mysqli_fetch_array($query)){ ?>
                             <tr>
@@ -42,17 +39,12 @@
                                 <td><?php echo $rows["NgayDH"] ?></td>
                                 <td><?php echo $rows["NgayGH"] ?></td>
                                 <td><?php echo $rows["TrangThaiDH"] ?></td>
-                                <td><?php echo $rows["HoTenNV"] ?></td>
-                                <?php $count_nhanvien++ ?>
+                                <?php $count_order++ ?>
                                 <td>
-                                    <a href="./staff_management/staff.php?page_staff=modify&id= <?php echo $rows["MSNV"] ?>">
-                                        Sửa
-                                    </a>
-                                </td>
-                                <td>
-                                    <a onclick="return confirm_Del('<?php echo $rows['HoTenNV'] ?>')" 
-                                       href="./staff_management/staff.php?page_staff=delete&id= <?php echo $rows["MSNV"] ?>">
-                                        Xóa
+                                    <a 
+                                       href="./order_management/order.php?page_order=viewDetail&id= <?php echo $rows['SoDonDH'] ?>"
+                                       style="background-color: green;color: white;padding: 8px 15px;text-align: center;text-decoration: none;display: inline-block;border-radius: 5px;">
+                                        Xem chi tiết
                                     </a>
                                 </td>
                             </tr>
@@ -60,12 +52,7 @@
                     </tr>
                 </thead>
             </table>
-            <p><b><?php echo 'Số lượng nhân viên: '. $count_nhanvien ?></b></p>
+            <p><b><?php echo 'Số lượng đơn hàng: '. $count_order ?></b></p>
         </div>
     </div>
 </div>
-<script>
-    function confirm_Del(name){
-        return confirm("Bạn có chắc muốn xóa nhân viên "+ name + "?");
-    }
-</script>

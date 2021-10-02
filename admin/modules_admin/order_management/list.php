@@ -42,7 +42,7 @@
                                 <?php $count_order++ ?>
                                 <td>
                                     <a 
-                                       href="./order_management/order.php?page_order=viewDetail&id= <?php echo $rows['SoDonDH'] ?>"
+                                       href="./order_management/order.php?page_order=viewDetail&id= <?php echo $rows['SoDonDH'] ?> &usernameAdmin= <?php echo $_GET['usernameAdmin'] ?>"
                                        style="background-color: green;color: white;padding: 8px 15px;text-align: center;text-decoration: none;display: inline-block;border-radius: 5px;">
                                         Xem chi tiết
                                     </a>
@@ -52,7 +52,7 @@
                     </tr>
                 </thead>
             </table>
-            <p><b><?php echo 'Số lượng đơn hàng: '. $count_order ?></b></p>
+            <p><b><?php echo 'Số lượng đơn hàng: '. $count_order;?></b></p>
         </div>
     </div>
 </div>

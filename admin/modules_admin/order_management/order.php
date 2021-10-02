@@ -18,6 +18,9 @@
                 case 'viewDetail':
                     include './viewDetail.php';
                     break;
+                case 'confirmOrder':
+                    include './confirmOrder.php';
+                    break;
             }
         }else {
             include './order_management/list.php';

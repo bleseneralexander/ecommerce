@@ -1,9 +1,9 @@
 <?php
         if(isset($_GET['page_layout'])){
             switch ($_GET['page_layout']) {
-                case 'dashboard':
-                    include './dashboard/dashboard.php'; //Loi
-                    break;
+                // case 'dashboard':
+                //     include './dashboard/dashboard.php'; //Loi
+                //     break;
 
                 case 'admin_management':
                     include './admin_management/admin.php';
@@ -25,9 +25,9 @@
                     include './order_management/order.php';
                     break;  
 
-                default:
-                    include './dashboard/dashboard.php'; //Loi
-                    break;
+                // default:
+                //     include './dashboard/dashboard.php'; //Loi
+                //     break;
             }
         }else {
             include './modules_admin/dashboard/dashboard.php';

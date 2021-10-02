@@ -1,3 +1,10 @@
+<?php
+  $username = $_SESSION['login_admin'];
+  $sql = "SELECT HoTenNV FROM nhanvien WHERE UserName='$username'";
+  $query = mysqli_query($conn, $sql);
+  $rows = mysqli_fetch_array($query);
+?>
+
 <main>
         <div class="main__container">
           <!-- MAIN TITLE STARTS HERE -->
@@ -6,10 +13,9 @@
             <!-- <img src="./photo/logo.jpg" alt="" /> -->
             <div class="main__greeting">
               <h1>Dashboard</h1>
-              <p>Xin chào Trần Nhân Nghĩa</p>
+              <p>Xin chào <?php echo $rows['HoTenNV'] ?></p>
             </div>
           </div>
-
           <!-- MAIN TITLE ENDS HERE -->
 
           <!-- MAIN CARDS STARTS HERE -->

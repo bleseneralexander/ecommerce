@@ -37,7 +37,7 @@
     </div>
     <div class="sidebar__link">
       <i class="fa fa-handshake-o"></i>
-      <a href="./modules_admin/content.php?page_layout=order_management">Quản Lý Đơn Hàng</a>
+      <a href="./modules_admin/content.php?page_layout=order_management&usernameAdmin= <?php echo $_SESSION['login_admin']; ?>">Quản Lý Đơn Hàng</a>
     </div>
     <!-- <h2>LEAVE</h2>
     <div class="sidebar__link">
@@ -68,7 +68,7 @@
 
     <div class="sidebar__logout">
         <i class="fa fa-power-off"></i>
-        <a href="index.php?logout=logout_admin">Đăng Xuất</a>
+        <a href="./../index.php?logout=logout_admin">Đăng Xuất</a> <!--BUG -->
       </div>
     </div>
   </div>

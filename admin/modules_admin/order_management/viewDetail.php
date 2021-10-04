@@ -101,24 +101,26 @@
                 $query = mysqli_query($conn, $sql);
                 $rows = mysqli_fetch_array($query);
                 $options = $rows['TrangThaiDH'];
+                $status;
+                $usernameAdmin = $_GET['usernameAdmin'];
+                
             ?>
             <h4>Cập nhật tình trạng đơn hàng</h4>
-            <form action="./../order_management/order.php?page_order=confirmOrder.php" method="POST">
-                <div class="form-group">
-                    <select class="form-control" name="status_order">
-                        <option <?php if($options=="Chưa duyệt") echo 'selected="selected"';  ?> value="Chưa duyệt" >Chưa duyệt</option>
-                        <option <?php if($options=="Đã duyệt") echo 'selected="selected"';  ?> value="Đã duyệt">Đã duyệt</option>
-                        <option <?php if($options=="Đã giao") echo 'selected="selected"';  ?> value="Đã giao">Đã giao</option>
-                        <option <?php if($options=="Đã hủy") echo 'selected="selected"';  ?> value="Đã hủy">Đã hủy</option>
-                    </select>
-                </div>
-                <br/>
-                <a name="btn_submit"
-                    href="./../order_management/order.php?page_order=confirmOrder&id= <?php echo $id ?>&usernameAdmin= <?php echo $_GET['usernameAdmin'] ?>"
-                    style="background-color: green;color: white;padding: 8px 15px;text-align: center;text-decoration: none;display: inline-block;border-radius: 5px;">
+            <div class="form-group">
+                <select class="form-control" name="status_order">
+                    <option <?php if($options=="Chưa duyệt"){echo 'selected="selected"'; $status=1;}   ?> value="Chưa duyệt" >Chưa duyệt</option>
+                    <option <?php if($options=="Đã duyệt"){echo 'selected="selected"'; $status=2;}  ?> value="Đã duyệt">Đã duyệt</option>
+                    <option <?php if($options=="Đã giao"){echo 'selected="selected"'; $status=3;}  ?> value="Đã giao">Đã giao</option>
+                    <option <?php if($options=="Đã hủy"){echo 'selected="selected"'; $status=4;}  ?> value="Đã hủy">Đã hủy</option>
+                </select>
+            </div>
+            <br/>
+
+            <a name="btn_submit"
+                href="./../order_management/order.php?page_order=confirmOrder&id= <?php echo $id ?>&usernameAdmin= <?php echo $usernameAdmin ?>&status= <?php echo $status?>"
+                style="background-color: green;color: white;padding: 8px 15px;text-align: center;text-decoration: none;display: inline-block;border-radius: 5px;">
                         Xác nhận
-                </a>
-            </form>
+            </a>
             
         </div>
     </div>

@@ -11,97 +11,15 @@
         crossorigin="anonymous">
 </head>
 <body>
-    <section>
-        <div class="circle"></div>
-        <header>
-            <a href="#"><img src="./modules_client/photo/logo.png" class="logo"></a>
-            <div class="toggle" onclick="toggleMenu();"></div>
-            <ul class="navigation">
-                <li><a href="#">Trang chủ</a></li>
-                <li><a href="#">Sản phẩm</a></li>
-                <li><a href="#">Liên hệ</a></li>
-                <li><a href="#">Đăng nhập</a></li>
-                <li><a href="#"><i class="bi bi-bag-plus-fill" style="color:#333; font-size: 130%;" ></i></a></li>
-            </ul>
-        </header>
-        <div class="content">
-            <div class="textBox">
-                <h2>Cá tính thể thao<br><span>Westside</span></h2>
-                <h5 class="name-shoe">GIÀY BÓNG ĐÁ PREDATOR FREAK.3 FIRM GROUND</h5>
-                <p class="description-shoe">Đôi giày bóng đá nâng đỡ giúp bạn làm chủ thế trận trên sân cỏ tự nhiên.</p>
-                <p class="price-shoe">2.400.000₫</p>
-                <a href="#">Xem thêm</a>
-            </div>
-            <div class="imgBox">
-                <img src="./modules_client/photo/poster_img1.png" class="starbucks">
-            </div>
-        </div>
-        <ul class="thumb">
-            <li><img src="./modules_client/photo/thumbnail_img1.png" 
-                onclick="imgSlider('./modules_client/photo/poster_img1.png'); 
-                        changeColor('#9c9c9c'); 
-                        changeContent('GIÀY BÓNG ĐÁ PREDATOR FREAK.3 FIRM GROUND', 'Đôi giày bóng đá nâng đỡ giúp bạn làm chủ thế trận trên sân cỏ tự nhiên.', '2.400.000₫') ">
-            </li>
-            <li><img src="./modules_client/photo/thumbnail_img2.png" 
-                onclick="imgSlider('./modules_client/photo/poster_img2.png'); 
-                        changeColor('#ad4541'); 
-                        changeContent('GIÀY BÓNG ĐÁ SÂN CỎ TỰ NHIÊN PREDATOR FREAK.3', 'Đôi giày bóng đá cổ thấp giúp bạn làm chủ trận đấu trên sân cỏ tự nhiên.', '1.900.000₫')">
-            </li>
-            <li><img src="./modules_client/photo/thumbnail_img3.png" 
-                onclick="imgSlider('./modules_client/photo/poster_img3.png'); 
-                        changeColor('#ded1c0'); 
-                        changeContent('GIÀY ĐÁ BÓNG X GHOSTED.1 FIRM GROUND', 'Đôi giày bóng đá siêu nhẹ cho những đường bóng tốc độ ánh sáng.', '3.150.000₫')">
-            </li>
-        </ul>
-        <ul class="sci">
-            <li><a href="#"><img src="./modules_client/photo/facebook.png"></a></li>
-            <li><a href="#"><img src="./modules_client/photo/twitter.png"></a></li>
-            <li><a href="#"><img src="./modules_client/photo/instagram.png"></a></li>
-        </ul>
-    </section>
+    
+    
+    <?php
+        include './modules_client/header.php';
+        include './modules_client/main.php';
+		include './modules_client/footer.php';
+	?>
 
-    <div class="footer">
-        <div class="content">
-            <div class="contact">
-                <h3>LIÊN HỆ CHO CHÚNG TÔI</h3>
-                <ul>
-                    <li>Email:</li>
-                    <li>Fax:</li>
-                </ul>
-            </div>
-            <div class="address">
-                <h3>Địa chỉ</h3>
-                <ul>
-                    <li>Chi nhánh 1: Số 3A/200 Đường Nguyễn Văn Hưởng, Phường Thảo Điền, Quận 2, TP. Hồ Chí Minh</li>
-                    <li>Chi nhánh 2: Số 170 Đường Nguyễn Thị Minh Khai, Phường Tân An, Quận Ninh Kiều, TP. Cần Thơ</li>
-                    <li>Chi nhánh 3: Số 301 Đường 3/2, Phường Xuân Khánh, Quận Ninh Kiều, TP. Cần Thơ</li>
-                    <li>Chi nhánh 4: Số 40 Đường số 3, KDC Thới Nhựt 2, Phường An Khánh, Quận Ninh Kiều, TP. Cần Thơ</li>
-                </ul>
-            </div>
-        </div>
-        <div class="content">
-            <div class="contact">
-                <h3>LIÊN HỆ CHO CHÚNG TÔI</h3>
-                <ul>
-                    <li>Email:</li>
-                    <li>Fax:</li>
-                </ul>
-            </div>
-        <div class="social">
-            <P>Copyright © 2021 • All rights reserved</P>
-            <div class="icon_social_contact">
-                <a href="https://www.facebook.com/westsidesneakerstore">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-        </div>
-    </div>
+    
 
     <script type="text/javascript">
         function imgSlider(anything){

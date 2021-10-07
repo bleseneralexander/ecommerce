@@ -113,7 +113,7 @@
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script src="loginForm.js"></script>
 </body>
 
 </html>

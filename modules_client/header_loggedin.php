@@ -1,9 +1,9 @@
 <?php
-	// if(isset($_GET['ac']) && $_GET['ac']=='logout'){
-	// 	unset($_SESSION['login']);
-	// 	//khác session_destroy() vì session_destroy() bỏ tất cả session còn unset chỉ bỏ 1 session đã chọn
-	// 	header('location: ./../index.php');
-	// }
+	if(isset($_GET['ac']) && $_GET['ac']=='logout'){
+		unset($_SESSION['login']);
+		//khác session_destroy() vì session_destroy() bỏ tất cả session còn unset chỉ bỏ 1 session đã chọn
+		header('location: ./../index.php');
+	}
 ?>
 
 <header>

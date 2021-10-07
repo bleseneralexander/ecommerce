@@ -14,7 +14,15 @@
     
     
     <?php
-        include './modules_client/header.php';
+        include './admin/modules_admin/config.php';
+        session_start();
+        // session_destroy();
+        if(!isset($_SESSION['login'])){
+            include './modules_client/header_login.php';
+        }else{
+            include './modules_client/header_loggedin.php';
+        }
+        
         include './modules_client/main.php';
 		include './modules_client/footer.php';
 	?>

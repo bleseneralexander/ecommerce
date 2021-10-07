@@ -5,7 +5,6 @@
         <li><a href="#">Trang chủ</a></li>
         <li><a href="#">Sản phẩm</a></li>
         <li><a href="#">Liên hệ</a></li>
-        <li><a href="#">Đăng nhập</a></li>
-        <li><a href="#"><i class="bi bi-bag-plus-fill" style="color:#333; font-size: 130%;" ></i></a></li>
+        <li><a href="./modules_client/header/login.php">Đăng nhập</a></li>
     </ul>
 </header>

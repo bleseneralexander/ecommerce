@@ -6,13 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./../style/login.css" />
-  <title>Sign in & Sign up Form</title>
+  <title>Log in</title>
 </head>
 
 <body>
   <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
+        <!-- Đăng nhập -->
         <form action="#" class="sign-in-form">
           <h2 class="title">Đăng nhập</h2>
           <div class="input-field">
@@ -40,21 +41,31 @@
             </a>
           </div>
         </form>
-        <form action="#" class="sign-up-form">
+
+        <!-- Đăng ký -->
+        <form action="./signin.php" class="sign-up-form">
           <h2 class="title">Đăng ký</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Tên đăng nhập" />
+            <input type="text" name="name_client" placeholder="Họ và tên" required/>
           </div>
           <div class="input-field">
-            <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" />
+            <i class="fas fa-phone"></i>
+            <input type="text" name="phoneNumber_client" placeholder="Số điện thoại" required/>
+          </div>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" name="username_client" placeholder="Tên đăng nhập" required/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Mật khẩu" />
+            <input type="password" name="password_client" id="password_client" placeholder="Mật khẩu" required/>
           </div>
-          <input type="submit" class="btn" value="Đăng ký" />
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="passwordAgain_client" id="passwordAgain_client" placeholder="Nhập lại mật khẩu" required/>
+          </div>
+          <input type="submit" class="btn" value="Đăng ký" name="btn_signin"/>
           <p class="social-text">Đăng ký bằng phương thức khác</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -79,7 +90,7 @@
         <div class="content">
           <h3>Nếu bạn chưa có tài khoản ?</h3>
           <p>
-            Hãy đăng ký để chúng tôi có thể mang đến cho bạn nhiều trải nghiệm thú vị khi mua hàng.
+            Hãy đăng ký để chúng tôi có thể mang đến cho bạn nhiều trải nghiệm thú vị khi mua sắm.
           </p>
           <button class="btn transparent" id="sign-up-btn">
             Đăng ký

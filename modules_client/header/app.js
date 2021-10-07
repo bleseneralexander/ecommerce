@@ -9,3 +9,13 @@ sign_up_btn.addEventListener("click", () => {
 sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
+
+// function validate(){
+//   var password = document.getElementById("password_client").value;
+//   var repassword = document.getElementById("passwordAgain_client").value;
+
+//   if(password!=repassword){
+//     flag = false;
+//     alert('*Nhập lại Password không đúng');
+//   }
+// }

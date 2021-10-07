@@ -11,8 +11,6 @@
         crossorigin="anonymous">
 </head>
 <body>
-    
-    
     <?php
         session_start();
         // session_destroy();
@@ -25,8 +23,6 @@
         include './modules_client/main.php';
 		include './modules_client/footer.php';
 	?>
-
-    
 
     <script type="text/javascript">
         function imgSlider(anything){

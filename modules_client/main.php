@@ -36,3 +36,7 @@
         <li><a href="#"><img src="./modules_client/photo/instagram.png"></a></li>
     </ul>
 </section>
+
+<?php
+    include './modules_client/main/product_list.php';
+?>

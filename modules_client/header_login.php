@@ -4,7 +4,7 @@
     <ul class="navigation">
         <li><a href="#">Trang chủ</a></li>
         <li><a href="#">Sản phẩm</a></li>
-        <li><a href="#">Liên hệ</a></li>
+        <li><a href="#footer">Liên hệ</a></li>
         <li><a href="./modules_client/header/loginForm.php">Đăng nhập</a></li>
     </ul>
 </header>

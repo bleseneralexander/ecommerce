@@ -14,12 +14,11 @@
     
     
     <?php
-        include './admin/modules_admin/config.php';
         session_start();
         // session_destroy();
         if(!isset($_SESSION['login'])){
             include './modules_client/header_login.php';
-        }else{
+        } else {
             include './modules_client/header_loggedin.php';
         }
         

@@ -1,10 +1,10 @@
 <?php
     include './../../admin/modules_admin/config.php';
-    if(isset($_GET['btn_signin'])){
-        $name_client = $_GET['name_client'];
-        $phoneNumber_client = $_GET['phoneNumber_client'];
-        $username_client = $_GET['username_client'];
-        $password_client = md5($_GET['password_client']);
+    if(isset($_POST['btn_signin'])){
+        $name_client = $_POST['name_client'];
+        $phoneNumber_client = $_POST['phoneNumber_client'];
+        $username_client = $_POST['username_client'];
+        $password_client = md5($_POST['password_client']);
 
         // echo $name_client;
         // echo $phoneNumber_client;

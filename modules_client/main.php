@@ -31,7 +31,7 @@
         </li>
     </ul>
     <ul class="sci">
-        <li><a href="#"><img src="./modules_client/photo/facebook.png"></a></li>
+        <li><a href="https://www.facebook.com/westsidesneakerstore"><img src="./modules_client/photo/facebook.png"></a></li>
         <li><a href="#"><img src="./modules_client/photo/twitter.png"></a></li>
         <li><a href="#"><img src="./modules_client/photo/instagram.png"></a></li>
     </ul>

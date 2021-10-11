@@ -27,9 +27,9 @@
                     include './delete.php';
                     break;
 
-                default:
-                    include './../content.php?page_layout=staff_management';
-                    break;
+                // default:
+                //     include './../content.php?page_layout=staff_management';
+                //     break;
             }
         }else {
             include './staff_management/list.php';

@@ -14,7 +14,13 @@
         // echo $Gia.'<br/>';
         // echo $SoLuong.'<br/>';
         // echo $product_image;
-        
+
+
+        //Lay hinhanh tu MSHH
+        // $sql_get_hinhanh = "SELECT * FROM hanghoa h JOIN hinhanhhang img ON h.MSHH=img.MSHH";
+        // $query_get_hinhanh = mysqli_query($conn, $sql_get_hinhanh);
+        // $rows_get_hinhanh = mysqli_fetch_array($query_get_hinhanh);
+        // $tenhinhanh = $rows_get_hinhanh['hinhanh'];
         
         $sql_add_product = "INSERT INTO `hanghoa`(`TenHH`, `QuyCach`, `Gia`, `SoLuongHang`,`MaLoaiHang`) 
             VALUES ('$TenHH','$QuyCach',$Gia,$SoLuong,$TenLoaiHang)";

@@ -3,22 +3,20 @@
     session_start();
     if(isset($_POST['btnLogin'])){
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
 
-        if($_POST['username'] == '' || $_POST['password'] == ''){
-            echo 'Xin nhap du thong tin';
+
+        $sql = "SELECT password FROM nhanvien WHERE UserName='$username'";
+        $query = mysqli_query($conn, $sql);
+        $rows = mysqli_fetch_array($query);
+
+        if($rows['password'] == $password){
+            $_SESSION['login_admin']=$username;
+            header('location: index.php');
         } else {
-            $sql = "SELECT password FROM nhanvien WHERE UserName='$username'";
-            $query = mysqli_query($conn, $sql);
-            $rows = mysqli_fetch_array($query);
-
-            if($rows['password'] == $password){
-                $_SESSION['login_admin']=$username;
-                header('location: index.php');
-            } else {
-                header('location: login.php');
-            }   
-        }
+            header('location: login.php');
+        }   
+        
     }
 ?>
 

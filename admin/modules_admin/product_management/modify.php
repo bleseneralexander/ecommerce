@@ -3,9 +3,11 @@
     if(isset($_POST["btn_modify"])){
         $MSHH = $_POST["MSHH_modify"];
         $TenHH = $_POST["TenHH_modify"];
+        $MoTa = $_POST["MoTa_modify"];
         $TenLoaiHang = $_POST['TenLoaiHang_modify'];
         $QuyCach = $_POST['QuyCach_modify'];
         $Gia = $_POST['Gia_modify'];
+        $GiamGia = $_POST['GiamGia_modify'];
         $TenAnh = $_FILES['TenAnh_modify']['name'];
 
         // echo $TenHH.'<br/>';
@@ -21,7 +23,7 @@
         $MaLoaiHang = $rows_get_MaLoaiHang['MaLoaiHang']; 
         
         //Cap nhat hanghoa
-        $sql_modify_product = "UPDATE `hanghoa` SET `TenHH`='$TenHH',`QuyCach`='$QuyCach',`Gia`=$Gia,`MaLoaiHang`=$MaLoaiHang WHERE MSHH=$MSHH";
+        $sql_modify_product = "UPDATE `hanghoa` SET `TenHH`='$TenHH',`MoTa`='$MoTa',`QuyCach`='$QuyCach',`Gia`=$Gia,`GiamGia`=$GiamGia,`MaLoaiHang`=$MaLoaiHang WHERE MSHH=$MSHH";
         $query_modify_product = mysqli_query($conn, $sql_modify_product);
 
         //Cap nhat hinhanh vao CSDL

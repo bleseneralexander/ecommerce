@@ -18,9 +18,11 @@
                     <tr>
                         <th>MSHH</th>
                         <th>Tên hàng</th>
+                        <th>Mô tả</th>
                         <th>Quy cách</th>
                         <th>Giá</th>
-                        <th>Số lượng</th>
+                        <th>Giảm giá</th>
+                        <th>Tổng số lượng</th>
                         <th>Loại hàng</th>
                         <th>Hình ảnh</th>
                         <th>Trạng thái</th>
@@ -32,23 +34,44 @@
                 <tbody>
                     <tr>
                         <?php 
-                            $sql = "SELECT * FROM hanghoa h JOIN hinhhanghoa img ON h.MSHH=img.MSHH JOIN loaihanghoa l ON h.MaLoaiHang=l.MaLoaiHang ORDER BY h.MSHH ASC ";
-                            $query = mysqli_query($conn, $sql);  
+                            $sql = "SELECT h.MSHH, h.TenHH, h.MoTa, h.QuyCach, h.Gia, h.GiamGia, img.TenHinh, l.TenLoaiHang
+                                    FROM hanghoa h JOIN hinhhanghoa img ON h.MSHH=img.MSHH 
+                                                    JOIN loaihanghoa l ON h.MaLoaiHang=l.MaLoaiHang
+                                    ORDER BY h.MSHH ASC ";
+                            $query = mysqli_query($conn, $sql);
                             $count_hanghoa=0;
-                            while($rows = mysqli_fetch_array($query)){ ?>
+
+                            while($rows= mysqli_fetch_array($query)){ ?>
                             <tr>
                                 <?php $count_hanghoa++ ?>
                                 <td><?php echo $rows["MSHH"] ?></td>
                                 <td><?php echo $rows["TenHH"] ?></td>
+                                <td><?php echo $rows["MoTa"] ?></td>
                                 <td><?php echo $rows["QuyCach"] ?></td>
                                 <td><?php echo $rows["Gia"] ?></td>
-                                <td><?php echo $rows["SoLuongHang"] ?></td>
+                                <td><?php echo $rows["GiamGia"] ?></td>
+                                <td>
+                                    <a href="./product_management/product.php?page_product=quantity&id= <?php echo $rows['MSHH'] ?>"
+                                        title="Xem chi tiết số lượng từng size"
+                                        style="color: blue;text-align: center;text-decoration: none;">
+                                        <?php
+                                            //Lay tong so luong hang hoa theo MSHH
+                                            $MSHH = $rows['MSHH'];
+                                            $sql_get_SoLuongHH = "SELECT SUM(SoLuongHang) AS SoLuongHang FROM `size` WHERE MSHH='$MSHH'";
+                                            $query_get_SoLuongHH = mysqli_query($conn, $sql_get_SoLuongHH);
+                                            $rows_get_SoLuongHH = mysqli_fetch_array($query_get_SoLuongHH);
+                                            echo $rows_get_SoLuongHH['SoLuongHang'];
+                                        ?>
+                                    </a>
+                                </td>
                                 <td><?php echo $rows["TenLoaiHang"] ?></td>
-                                <td> <img src="./../photo/<?php echo $rows["TenHinh"] ?>" alt="<?php echo $rows["TenHinh"] ?>" style="width: 20%"> </td>
-                                <td><?php 
-                                        if($rows["SoLuongHang"]>0)
+                                <td> <img src="./../photo/<?php echo $rows["TenHinh"] ?>" alt="<?php echo $rows["TenHinh"] ?>" style="width: 40%"> </td>
+                                <td>
+                                    <?php
+                                        if($rows_get_SoLuongHH['SoLuongHang']>0)
                                            echo 'Còn hàng';
-                                        else  echo 'Hết hàng';?>
+                                        else  echo 'Hết hàng';
+                                    ?>
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-success editbtn_availableProduct">Thêm</button>
@@ -184,6 +207,10 @@
                     <input type="text" class="form-control" name="TenHH_modify" id="TenHH_modify" require>
                         <div class="form-text">Tên hàng phải in hoa.</div>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Mô tả</label>
+                    <input type="text" class="form-control" name="MoTa_modify" id="MoTa_modify" require>
+                </div>
                 <div class="form-group">
                     <label for="">Loại</label>
                     <select class="form-control" name="TenLoaiHang_modify" id="TenLoaiHang_modify">
@@ -207,6 +234,10 @@
                 <div>
                     <label class="form-label">Giá</label>
                     <input type="number" class="form-control" name="Gia_modify" id="Gia_modify" min="1000" require>
+                </div>
+                <div>
+                    <label class="form-label">Giảm giá</label>
+                    <input type="text" class="form-control" name="GiamGia_modify" id="GiamGia_modify" require>
                 </div>
                 <div class="form-group">
                     <label for="">Ảnh</label><br />
@@ -261,11 +292,13 @@
 
             $('#MSHH_modify').val(data[0]);
             $('#TenHH_modify').val(data[1]);
-            $('#QuyCach_modify').val(data[2]);
-            $('#Gia_modify').val(data[3]);
-            $('#TenLoaiHang_modify').val(data[5]);
+            $('#MoTa_modify').val(data[2]);
+            $('#QuyCach_modify').val(data[3]);
+            $('#Gia_modify').val(data[4]);
+            $('#GiamGia_modify').val(data[5]);
+            $('#TenLoaiHang_modify').val(data[7]);
             // $('#TenAnh_modify').val(data[6]);
-            $('#TenAnh_modify').attr('src', $(this).attr(data[6]));
+            $('#TenAnh_modify').attr('src', $(this).attr(data[8]));
         });
     });
 </script>

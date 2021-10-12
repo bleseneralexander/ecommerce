@@ -31,9 +31,12 @@
                     include './delete.php';
                     break;
 
-                default:
-                    include './../content.php?page_layout=product_management';
+                case 'quantity':
+                    include './quantity.php';
                     break;
+                // default:
+                //     include './../content.php?page_layout=product_management';
+                //     break;
             }
         }else {
             include './product_management/list.php';

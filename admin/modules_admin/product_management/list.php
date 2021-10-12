@@ -26,7 +26,6 @@
                         <th>Loại hàng</th>
                         <th>Hình ảnh</th>
                         <th>Trạng thái</th>
-                        <th>Thêm hàng</th>
                         <th>Sửa thông tin</th>
                         <th>Xóa</th>
                     </tr>
@@ -51,7 +50,7 @@
                                 <td><?php echo $rows["Gia"] ?></td>
                                 <td><?php echo $rows["GiamGia"] ?></td>
                                 <td>
-                                    <a href="./product_management/product.php?page_product=quantity&id= <?php echo $rows['MSHH'] ?>"
+                                    <a href="./product_management/product.php?page_product=quantity&id= <?php echo $rows['MSHH']?>"
                                         title="Xem chi tiết số lượng từng size"
                                         style="color: blue;text-align: center;text-decoration: none;">
                                         <?php
@@ -72,9 +71,6 @@
                                            echo 'Còn hàng';
                                         else  echo 'Hết hàng';
                                     ?>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-success editbtn_availableProduct">Thêm</button>
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-warning modifybtn">Sửa</button>
@@ -115,19 +111,24 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label class="form-label">Tên hàng</label>
-                    <input type="text" class="form-control" name="TenHH" require>
+                    <input type="text" class="form-control" name="TenHH" required>
                         <div class="form-text">Tên hàng phải in hoa.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mô tả</label>
+                    <input type="text" class="form-control" name="MoTa" required>
                 </div>
                 <div class="form-group">
                     <label for="">Loại</label>
-                    <select class="form-control" name="TenLoaiHang">
-                        <option selected>Chọn loại</option>
+                    <select class="form-control" name="TenLoaiHang" onchange="typeChanged(this)">
+                        <option value="" selected>Chọn loại</option>
                         <option value="1">Giày</option>    
                         <option value="2">Áo</option>
                         <option value="3">Tất</option>
                         <option value="4">Bóng</option>
                         <option value="5">Quần</option>
                     </select>
+                    <p style="color: red" id="show_message"></p>
                 </div>
                 <div class="form-group">
                     <label for="">Quy cách</label>
@@ -140,15 +141,180 @@
                 </div>
                 <div>
                     <label class="form-label">Giá</label>
-                    <input type="number" class="form-control" name="Gia" min="1000" require>
-                </div>
-                <div>
-                    <label class="form-label">Số lượng</label>
-                    <input type="number" class="form-control" name="SoLuong" min="0" require>
+                    <input type="number" class="form-control" name="Gia" min="1000" required>
+                </div><br/>
+                <div class="mb-3">
+                    <label class="form-label">Giảm giá</label>
+                    <input type="text" class="form-control" name="GiamGia" required>
                 </div>
                 <div class="form-group">
                     <label for="">Ảnh</label><br />
                     <input type="file" name="TenAnh" required>
+                </div>
+                <div>
+                    <label class="form-label">Số lượng</label>
+                    <table class="table" id="shoes" style="visibility: collapse;">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Size</th>
+                                <th>Số lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <tr>
+                                    <td>34</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="Shoes_34_SoLuong" min="0" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>35</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="Shoes_35_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>36</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="Shoes_36_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>37</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="Shoes_37_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>38</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="Shoes_38_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>39</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="Shoes_39_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>40</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="Shoes_40_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>41</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="Shoes_41_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>42</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="Shoes_42_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>43</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="Shoes_43_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>44</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="Shoes_44_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>45</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="Shoes_45_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table" id="all_product" style="visibility: collapse;">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Size</th>
+                                <th>Số lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <tr>
+                                    <td>XS</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="product_XS_SoLuong" min="0" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>S</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="product_S_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>M</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="product_M_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>L</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="product_L_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>XL</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="product_XL_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>2XL</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="product_2XL_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table" id="football" style="visibility: collapse;">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Size</th>
+                                <th>Số lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="football_3_SoLuong" min="0" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="football_4_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>
+                                        <input type="number" class="form-control" value="0" name="football_5_SoLuong" min="0" required>
+                                    </td> 
+                                </tr>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="modal-footer">
@@ -160,35 +326,28 @@
   </div>
 </div>
 
-<!-- ####################################################### Modal Thêm hàng có sẵn ######################################################### -->
+<script>
+    function typeChanged(obj) {
+        var message = document.getElementById('show_message');
+        var value = obj.value;
+        if (value === ''){
+            message.innerHTML = "Bạn chưa chọn loại hàng";
+        }else if (value === '1'){ //Giay
+            document.getElementById("all_product").style.visibility = "collapse";
+            document.getElementById("shoes").style.visibility = "visible";
+            document.getElementById("football").style.visibility = "collapse";
+        }else if (value === '4'){ //Bong
+            document.getElementById("all_product").style.visibility = "collapse";
+            document.getElementById("shoes").style.visibility = "collapse";
+            document.getElementById("football").style.visibility = "visible";
+        }else{
+            document.getElementById("all_product").style.visibility = "visible";
+            document.getElementById("shoes").style.visibility = "collapse";
+            document.getElementById("football").style.visibility = "collapse";
+        }
+    }
+</script>
 
-<div class="modal fade" id="editmodal_availableProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">THÔNG TIN HÀNG HÓA</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form action="./product_management/add_availableProduct.php" method="POST"> 
-            <div class="modal-body">
-                <input type="hidden" name="MSHH_availableProduct" id="MSHH_availableProduct">
-                <div class="mb-3">
-                    <label class="form-label">Tên</label>
-                    <input type="text" class="form-control" id="TenHH" name="TenHH_availableProduct">
-                </div>
-                <div>
-                    <label class="form-label">Số lượng</label>
-                    <input type="number" class="form-control" name="SoLuong_availableProduct" min="0" require>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                <button type="submit" class="btn btn-primary" name="btn_add_availableProduct">Xác nhận</button>
-            </div>
-        </form>
-    </div>
-  </div>
-</div>
 
 <!-- ######################################################### Modal Sua thong tin hàng ######################################################### -->
 
@@ -256,25 +415,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
-
-<!-- NHẬP THÊM HÀNG CÓ SẴN -->
-<script>
-    $(document).ready(function(){
-        $('.editbtn_availableProduct').on('click', function(){
-
-            $('#editmodal_availableProduct').modal('show');
-
-            $tr = $(this).closest('tr');
-            var data = $tr.children("td").map(function(){
-                return $(this).text();
-            }).get();
-
-            console.log(data);
-            $('#MSHH_availableProduct').val(data[0]);
-            $('#TenHH').val(data[1]);
-        });
-    });
-</script>
 
 <!-- CHỈNH SỬA THÔNG TIN HÀNG HÓA -->
 <script>

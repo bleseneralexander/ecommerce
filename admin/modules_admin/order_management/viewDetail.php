@@ -7,7 +7,7 @@
         $sql_get_statusOrder="SELECT `TrangThaiDH` FROM `dathang` WHERE SoDonDH = $id";
         $query_get_statusOrder = mysqli_query($conn, $sql_get_statusOrder);
         $rows_get_statusOrder = mysqli_fetch_array($query_get_statusOrder);
-        $status = $rows_get_statusOrder["TrangThaiDH"];
+        // $status = $rows_get_statusOrder["TrangThaiDH"];
 
 
         //Neu trang thai don hang la Da duyet, Da giao, Da huy
@@ -28,7 +28,7 @@
 <div class="container-fluid">
     <div class="jumbotron">
         <!-- Neu trang thai don hang la Chua Duyet se ko co ten nhan vien trong CSDL. Nguoc lai se co  -->
-        <?php if($status == 'Chưa duyệt'){ ?>
+        <?php $status = $rows_get_statusOrder["TrangThaiDH"]; if($status == 'Chưa duyệt'){ ?>
             <div>
                 <div class="card">
                     <?php
@@ -183,23 +183,73 @@
                 $query = mysqli_query($conn, $sql);
                 $rows = mysqli_fetch_array($query);
                 $options = $rows['TrangThaiDH'];
-                $status;
+                $option_status = 0;
+                $status_update = "";
                 $usernameAdmin = $_GET['usernameAdmin'];
-                
             ?>
+
             <h4>Cập nhật tình trạng đơn hàng</h4>
             <div class="form-group">
-                <select class="form-control" name="status_order">
-                    <option <?php if($options=="Chưa duyệt"){echo 'selected="selected"'; $status=1;}   ?> value="Chưa duyệt" >Chưa duyệt</option>
-                    <option <?php if($options=="Đã duyệt"){echo 'selected="selected"'; $status=2;}  ?> value="Đã duyệt">Đã duyệt</option>
-                    <option <?php if($options=="Đã giao"){echo 'selected="selected"'; $status=3;}  ?> value="Đã giao">Đã giao</option>
-                    <option <?php if($options=="Đã hủy"){echo 'selected="selected"'; $status=4;}  ?> value="Đã hủy">Đã hủy</option>
-                </select>
+                <form name="myForm" method="post" action="">
+                    <select name="status_update" class="form-control" onchange="myForm.submit();">
+                        <option 
+                            <?php
+                                if (isset($_POST['status_update']) && $_POST['status_update'] == "Chưa duyệt") {
+                                    $option_status = 1;
+                                    echo 'selected="selected"';
+                                } else if (!$option_status && $options=="Chưa duyệt"){
+                                    echo 'selected="selected"';
+                                }   
+                            ?> 
+                            value="Chưa duyệt" 
+                        >
+                            Chưa duyệt
+                        </option>
+                        <option 
+                            <?php
+                                if (isset($_POST['status_update']) && $_POST['status_update'] == "Đã duyệt") {
+                                    $option_status = 1;
+                                    echo 'selected="selected"';
+                                } else if (!$option_status && $options=="Đã duyệt"){
+                                    echo 'selected="selected"';
+                                }   
+                            ?> 
+                            value="Đã duyệt" 
+                        >
+                            Đã duyệt
+                        <option 
+                            <?php
+                                if (isset($_POST['status_update']) && $_POST['status_update'] == "Đã giao") {
+                                    $option_status = 1;
+                                    echo 'selected="selected"';
+                                } else if (!$option_status && $options=="Đã giao"){
+                                    echo 'selected="selected"';
+                                }   
+                            ?> 
+                            value="Đã giao" 
+                        >
+                            Đã giao
+                        </option>
+                        <option 
+                            <?php
+                                if (isset($_POST['status_update']) && $_POST['status_update'] == "Đã hủy") {
+                                    $option_status = 1;
+                                    echo 'selected="selected"';
+                                } else if (!$option_status && $options=="Đã hủy"){
+                                    echo 'selected="selected"';
+                                }   
+                            ?> 
+                            value="Đã hủy" 
+                        >
+                            Đã hủy
+                        </option>
+                    </select>
+                </form>
             </div>
             <br/>
-
+            
             <a name="btn_submit"
-                href="./../order_management/order.php?page_order=confirmOrder&id= <?php echo $id ?>&usernameAdmin= <?php echo $usernameAdmin ?>&status= <?php echo $status?>"
+                href="./../order_management/order.php?page_order=confirmOrder&id= <?php echo $id ?>&usernameAdmin= <?php echo $usernameAdmin ?>&status_update= <?php echo $_POST['status_update'] ?>"
                 style="background-color: green;color: white;padding: 8px 15px;text-align: center;text-decoration: none;display: inline-block;border-radius: 5px;">
                         Xác nhận
             </a>

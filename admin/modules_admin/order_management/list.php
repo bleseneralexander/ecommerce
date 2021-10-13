@@ -26,7 +26,7 @@
                             $sql = "SELECT d.SoDonDH, k.HoTenKH, dia.DiaChi, k.SoDienThoai, d.NgayDH, d.NgayGH, d.TrangThaiDH
                                     FROM khachhang k 
                                         JOIN dathang d ON d.MSKH=k.MSKH
-                                        JOIN diachikh dia ON dia.MSKH=k.MSKH
+                                        JOIN diachikh dia ON d.MaDC=dia.MaDC
                                         ORDER BY d.SoDonDH ASC;";
                             $count_order=0;
                             $query = mysqli_query($conn, $sql);

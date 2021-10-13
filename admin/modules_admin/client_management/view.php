@@ -26,6 +26,7 @@
                         <th scope="col">Tên hàng</th>
                         <th scope="col">Hình ảnh</th>
                         <th scope="col">Số lượng</th>
+                        <th scope="col">Size</th>
                         <th scope="col">Giá gốc</th>
                         <th scope="col">Giảm giá</th>
                         <th scope="col">Tổng tiền</th>
@@ -38,14 +39,13 @@
                     <tbody>
                         <tr>
                             <?php
-                                $sql="SELECT d.SoDonDH, d.NgayDH, d.NgayGH, d.TrangThaiDH, c.SoLuong, c.GiaDatHang, c.GiamGia, h.TenHH, n.HoTenNV, img.TenHinh, k.HoTenKH, h.Gia
+                                $sql="SELECT d.SoDonDH, d.NgayDH, d.NgayGH, d.TrangThaiDH, c.SoLuong, c.GiaDatHang, c.GiamGia, c.TongTien, c.Size, h.TenHH, n.HoTenNV, img.TenHinh
                                         FROM dathang d 
                                             JOIN chitietdathang c ON c.SoDonDH=d.SoDonDH
                                             JOIN hanghoa h ON c.MSHH=h.MSHH
                                             JOIN nhanvien n ON d.MSNV=n.MSNV
                                             JOIN hinhhanghoa img ON h.MSHH=img.MSHH
-                                            JOIN khachhang k ON k.MSKH=d.MSKH
-                                        WHERE k.MSKH = $id;";
+                                        WHERE d.MSKH = $id;";
                 
                                 $query_info_order = mysqli_query($conn, $sql);
                                 while($rows = mysqli_fetch_array($query_info_order)){ ?>
@@ -54,9 +54,10 @@
                                     <td><?php echo $rows["TenHH"] ?></td>
                                     <td><img src="./../../photo/<?php echo $rows["TenHinh"] ?>" alt="<?php echo $rows["TenHinh"] ?>" style="width: 20%"></td>
                                     <td><?php echo $rows["SoLuong"] ?></td>
-                                    <td><?php echo $rows["Gia"] ?></td>
-                                    <td><?php echo $rows["GiamGia"] ?></td>
+                                    <td><?php echo $rows["Size"] ?></td>
                                     <td><?php echo $rows["GiaDatHang"] ?></td>
+                                    <td><?php echo $rows["GiamGia"] ?></td>
+                                    <td><?php echo $rows["TongTien"] ?></td>
                                     <td><?php echo $rows["NgayDH"] ?></td>
                                     <td><?php echo $rows["NgayGH"] ?></td>
                                     <td id="status_color">

@@ -1,5 +1,5 @@
 <?php
-    include './../../admin/modules_admin/config.php';
+    include './admin/modules_admin/config.php';
     
 ?>
 
@@ -15,7 +15,9 @@
             <div class = "product">
                 <div class = "product-content">
                     <div class = "product-img">
-                        <img src="./../../admin/photo/<?php echo $rows["TenHinh"] ?>" alt="<?php echo $rows["TenHinh"] ?>">
+                        <a href="./modules_client/product/product.php?page_product=detail">
+                            <img src="./admin/photo/<?php echo $rows["TenHinh"] ?>" alt="<?php echo $rows["TenHinh"] ?>">
+                        </a>
                     </div>
                     <div class = "product-btns">
                         <button type = "button" class = "btn-cart"> Thêm vào giỏ hàng
@@ -28,7 +30,7 @@
                 </div>
 
                 <div class = "product-info">
-                    <a href = "#" class = "product-name"><?php echo $rows["TenHH"] ?></a>
+                    <a href = "./modules_client/product/product.php?page_product=detail&MSHH= <?php echo $rows["MSHH"] ?>" class = "product-name"><?php echo $rows["TenHH"] ?></a>
                     <p class = "product-price"><?php echo $rows["Gia"] ?>₫</p>
                     <p class = "product-price-sale"><?php echo $rows["Gia"] ?>₫</p>
                 </div>

@@ -9,8 +9,8 @@
     <a href="#"><img src="./modules_client/photo/logo.png" class="logo"></a>
     <div class="toggle" onclick="toggleMenu();"></div>
     <ul class="navigation">
-        <li><a href="#">Trang chủ</a></li>
-        <li><a href="./modules_client/product/product.php">Sản phẩm</a></li>
+        <li><a href="./index.php">Trang chủ</a></li>
+        <li><a href="./index.php?page_layout=product">Sản phẩm</a></li>
         <li><a href="#footer">Liên hệ</a></li>
         <li><a class="modal-btn" style="cursor: pointer;"><?php echo $_SESSION['login']; ?></a></li>
         <li><a href="#"><i class="bi bi-bag-plus-fill" style="color:#333; font-size: 130%;" ></i></a></li>

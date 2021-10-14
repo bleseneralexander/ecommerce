@@ -20,8 +20,19 @@
         } else {
             include './modules_client/header_loggedin.php';
         }
+
+        //Chia luồng
+        if(isset($_GET['page_layout'])){
+            switch ($_GET['page_layout']) {
+                case 'product':
+                    include './modules_client/product/product.php';
+                    break;
+            }
+        }else {
+            include './modules_client/main.php';
+        }
         
-        include './modules_client/main.php';
+        
 		include './modules_client/footer.php';
 	?>
 </body>

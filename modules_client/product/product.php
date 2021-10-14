@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product</title>
     <link rel="stylesheet" href="./../style/style.css">
     <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" 
@@ -14,7 +14,16 @@
 <body>
     <?php
         include './../header_loggedin.php';
-        include './list_product.php';
+        if(isset($_GET['page_product'])){
+            switch ($_GET['page_product']) {
+                case 'detail':
+                    include './detail_product.php';
+                    break;
+            }
+        }else {
+            include './modules_client/product/list_product.php';
+        }
+        
     ?>
 
     

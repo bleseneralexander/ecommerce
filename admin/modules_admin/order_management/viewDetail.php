@@ -186,6 +186,13 @@
                 $option_status = 0;
                 $status_update = "";
                 $usernameAdmin = $_GET['usernameAdmin'];
+                echo $usernameAdmin;
+
+                $sql_get_MSNV = "SELECT `MSNV` FROM `nhanvien` WHERE UserName = '$usernameAdmin'";
+                $query_get_MSNV = mysqli_query($conn, $sql_get_MSNV);
+                $rows_get_MSNV = mysqli_fetch_array($query_get_MSNV);
+                $MSNV = $rows_get_MSNV['MSNV'];
+                echo $MSNV.'abc';
             ?>
 
             <h4>Cập nhật tình trạng đơn hàng</h4>
@@ -249,7 +256,7 @@
             <br/>
             
             <a name="btn_submit"
-                href="./../order_management/order.php?page_order=confirmOrder&id= <?php echo $id ?>&usernameAdmin= <?php echo $usernameAdmin ?>&status_update= <?php echo $_POST['status_update'] ?>"
+                href="./../order_management/order.php?page_order=confirmOrder&id= <?php echo $id ?>&usernameAdmin= <?php echo $_GET['usernameAdmin'] ?>&status_update= <?php echo $_POST['status_update'] ?>"
                 style="background-color: green;color: white;padding: 8px 15px;text-align: center;text-decoration: none;display: inline-block;border-radius: 5px;">
                         Xác nhận
             </a>

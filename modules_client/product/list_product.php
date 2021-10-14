@@ -8,7 +8,7 @@
         <div class = "product-items">
             <!-- single product -->
             <?php
-                $sql = "SELECT * FROM hanghoa h JOIN hinhhanghoa img ON h.MSHH=img.MSHH WHERE img.PNG=1 ORDER BY h.MSHH ASC ";
+                $sql = "SELECT * FROM hanghoa h JOIN hinhhanghoa img ON h.MSHH=img.MSHH ORDER BY h.MSHH ASC ";
                 $query = mysqli_query($conn, $sql);
                 while($rows = mysqli_fetch_array($query)){
             ?>

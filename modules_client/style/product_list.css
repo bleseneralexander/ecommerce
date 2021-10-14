@@ -21,8 +21,7 @@ img{
     margin: 0 auto;
 }
 .lg-title,
-.md-title,
-.sm-title{
+.md-title{
     font-family: 'Roboto', sans-serif;
     padding: 0.6rem 0;
     text-transform: capitalize;
@@ -96,6 +95,7 @@ img{
     cursor: pointer;
     border: none;
     transition: all 0.6s ease;
+    font-size: 10px;
 }
 .btn-cart{
     background: black;
@@ -115,14 +115,7 @@ img{
     background: white;
     padding: 2rem;
 }
-.product-info-top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.rating span{
-    color: var(--carribean-green);
-}
+
 .product-name{
     color: black;
     display: block;
@@ -131,7 +124,7 @@ img{
     text-transform: uppercase;
     font-weight: bold;
 }
-.product-price{
+/* .product-price{
     padding-top: 0.6rem;
     padding-right: 0.6rem;
     display: inline-block;
@@ -139,6 +132,19 @@ img{
 .product-price:first-of-type{
     text-decoration: line-through;
     color: var(--carribean-green);
+} */
+.product-price{
+    text-decoration: line-through;
+    color: var(--carribean-green);
+    padding-top: 0.6rem;
+    padding-right: 0.6rem;
+    display: inline-block;
+}
+
+.product-price-sale{
+    padding-top: 0.6rem;
+    padding-right: 0.6rem;
+    display: inline-block;
 }
 .product-img img{
     transition: transform 0.6s ease;
@@ -152,7 +158,7 @@ img{
 .product:hover .product-btns{
     opacity: 1;
 }
-.off-info .sm-title{
+.off-info {
     background: var(--carribean-green);
     color: white;
     display: inline-block;

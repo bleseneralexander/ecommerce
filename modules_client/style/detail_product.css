@@ -111,6 +111,13 @@ main {
     text-align: center;
     line-height: 2.3rem;
     border-radius: 0.5rem;
+    cursor: pointer;
+  }
+
+  .size-total:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    transition: all 1.0s ease;
   }
   
   .size-total.active {
@@ -120,6 +127,7 @@ main {
   
   .size-total:not(:last-child) {
     margin-right: 1.0rem;
+    margin-bottom: 1.0rem;
   }
   
   .count-content {

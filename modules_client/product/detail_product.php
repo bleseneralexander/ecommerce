@@ -38,7 +38,13 @@
                 <div class="size">
                     <h3 class="size-title">Size</h3>
                     <div class="size-content">
-                        <span class="size-total active">8.6</span>
+                        <?php
+                            $query_size = mysqli_query($conn, $sql);
+                            while($rows_size = mysqli_fetch_array($query_size)){
+                        ?>
+                        <span class="size-total active"><?php echo $rows_size['MaSize'] ?></span>
+                        <?php }?>
+                        <!-- <span class="size-total active">8.6</span> -->
                         <span class="size-total">9</span>
                         <span class="size-total">9.5</span>
                     </div>

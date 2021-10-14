@@ -19,7 +19,9 @@
             <div class = "product">
                 <div class = "product-content">
                     <div class = "product-img">
-                    <img src="./admin/photo/<?php echo $rows["TenHinh"] ?>" alt="<?php echo $rows["TenHinh"] ?>">
+                        <a href="index.php?page_layout=detail&MSHH=<?php echo $rows["MSHH"] ?>">
+                            <img src="./admin/photo/<?php echo $rows["TenHinh"] ?>" alt="<?php echo $rows["TenHinh"] ?>">
+                        </a>
                     </div>
                     <div class = "product-btns">
                         <button type = "button" class = "btn-cart"> Thêm vào giỏ hàng
@@ -32,7 +34,7 @@
                 </div>
 
                 <div class = "product-info">
-                    <a href = "#" class = "product-name"><?php echo $rows["TenHH"] ?></a>
+                    <a href = "index.php?page_layout=detail&MSHH=<?php echo $rows["MSHH"] ?>" class = "product-name"><?php echo $rows["TenHH"] ?></a>
                     <p class = "product-price"><?php echo $rows["Gia"] ?>₫</p>
                     <p class = "product-price-sale"><?php echo $GiamGia=$rows["Gia"]-($rows["Gia"]*$rows["GiamGia"]) ?>₫</p>
                 </div>

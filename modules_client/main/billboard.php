@@ -7,7 +7,7 @@
             <h5 class="name-shoe">GIÀY BÓNG ĐÁ PREDATOR FREAK.3 FIRM GROUND</h5>
             <p class="description-shoe">Đôi giày bóng đá nâng đỡ giúp bạn làm chủ thế trận trên sân cỏ tự nhiên.</p>
             <p class="price-shoe">2.400.000₫</p>
-            <a href="#">Xem thêm</a>
+            <a href="index.php?page_layout=product">Xem thêm</a>
         </div>
         <div class="imgBox">
             <img src="./modules_client/photo/poster_img1.png" class="starbucks">

@@ -10,22 +10,21 @@
     <div class="toggle" onclick="toggleMenu();"></div>
     <ul class="navigation">
         <li><a href="#">Trang chủ</a></li>
-        <li><a href="#">Sản phẩm</a></li>
+        <li><a href="./modules_client/product/product.php">Sản phẩm</a></li>
         <li><a href="#footer">Liên hệ</a></li>
-        <li><a href="#"><?php echo $_SESSION['login']; ?></a></li>
-        <li><a href="./index.php?logout=logoutclient">Đăng xuất</a></li>
-        <!-- <li class="modal-btn">Của bạn</li> -->
+        <li><a class="modal-btn" style="cursor: pointer;"><?php echo $_SESSION['login']; ?></a></li>
         <li><a href="#"><i class="bi bi-bag-plus-fill" style="color:#333; font-size: 130%;" ></i></a></li>
     </ul>
 </header>
 
 
-<div class="modal-bg">
+<div class="modal-bg" style="z-index: 10; cursor: pointer;">
   <div class="modal">
     <h2>subscribe</h2>
     <label>Name: </label>
-    <input type="text">
+    <label><?php echo $_SESSION['login']; ?></label>
     <span class="modal-close">X</spsan>
+    <a href="./index.php?logout=logoutclient">Đăng xuất</a>
   </div>
 </div>
 

@@ -64,6 +64,9 @@ img{
     margin: 2rem;
     position: relative;
 }
+.product-items{
+    padding-top: 3rem;
+}
 .product-content{
     background: var(--gray);
     padding: 3rem 0.5rem 2rem 0.5rem;

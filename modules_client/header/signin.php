@@ -15,7 +15,7 @@
             VALUES ('$name_client', '$phoneNumber_client', '$username_client','$password_client')";
 
         $query = mysqli_query($conn, $sql_add);
-        header("location: ./../../index.php");
+        header("location: ./loginForm.php");
         
     }
 ?>

@@ -250,11 +250,6 @@ header ul li a{
 }
 
 #footer .copyright p{
-    /* border-top: 1px solid rgb(255, 255, 255); */
-    /* border-bottom: 1px solid rgb(0, 0, 0); */
-}
-
-#footer .copyright p{
     text-align: center;
     line-height: 5vh;
     font-size: 11px;

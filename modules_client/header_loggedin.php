@@ -1,9 +1,8 @@
 <?php
-	// if(isset($_GET['ac']) && $_GET['ac']=='logout'){
-	// 	unset($_SESSION['login']);
-	// 	//khác session_destroy() vì session_destroy() bỏ tất cả session còn unset chỉ bỏ 1 session đã chọn
-	// 	header('location: ./../index.php');
-	// }
+  if(isset($_GET['logout']) && $_GET['logout']=='logoutclient'){
+    unset($_SESSION['login']);
+    header('location:index.php');
+  }
 ?>
 
 <header>
@@ -13,7 +12,8 @@
         <li><a href="#">Trang chủ</a></li>
         <li><a href="#">Sản phẩm</a></li>
         <li><a href="#footer">Liên hệ</a></li>
-        <li><a href="#">Của bạn</a></li>
+        <li><a href="#"><?php echo $_SESSION['login']; ?></a></li>
+        <li><a href="./index.php?logout=logoutclient">Đăng xuất</a></li>
         <!-- <li class="modal-btn">Của bạn</li> -->
         <li><a href="#"><i class="bi bi-bag-plus-fill" style="color:#333; font-size: 130%;" ></i></a></li>
     </ul>

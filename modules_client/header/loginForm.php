@@ -6,15 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./../style/login.css" />
-  <!-- <link rel="stylesheet" href="./../style/style.css" /> -->
   <title>Log in</title>
 </head>
 
 <body>
-  <?php
-    // include './../header_login.php';
-  ?>
-
   <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
@@ -97,8 +92,11 @@
           <p>
             Hãy đăng ký để chúng tôi có thể mang đến cho bạn nhiều trải nghiệm thú vị khi mua sắm.
           </p>
-          <button class="btn transparent" id="sign-up-btn">
+          <button class="btn transparent" id="sign-up-btn" style="margin-right: 1vw">
             Đăng ký
+          </button>
+          <button class="btn transparent homepage" id="back-homepage-btn">
+            <a href="./../.." style="text-decoration: none; color:#fff">Về Trang chủ</a>
           </button>
         </div>
         <img src="./../photo/purchase.svg" class="image" alt="" />
@@ -109,8 +107,11 @@
           <p>
             Hãy click vào nút đăng nhập để chúng tôi có thể tiến hành thu nhập những góp ý và xác nhận đơn hàng của bạn.
           </p>
-          <button class="btn transparent" id="sign-in-btn">
+          <button class="btn transparent" id="sign-in-btn" style="margin-right: 1vw">
             Đăng nhập
+          </button>
+          <button class="btn transparent" id="back-homepage-btn">
+            <a href="./../.."style="text-decoration: none; color:#fff">Về Trang chủ</a>
           </button>
         </div>
         <img src="./../photo/cart.svg" class="image" alt="" />

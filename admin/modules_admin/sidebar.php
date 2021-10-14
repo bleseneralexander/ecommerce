@@ -66,9 +66,16 @@
             <a href="#">Paygrade</a>
           </div> -->
 
+    <?php
+      if(isset($_GET['logout']) && $_GET['logout']=='logoutadmin'){
+        unset($_SESSION['login_admin']);
+       
+        header('location:login.php');
+      }
+    ?>
     <div class="sidebar__logout">
         <i class="fa fa-power-off"></i>
-        <a href="./../index.php?logout=logout_admin">Đăng Xuất</a> <!--BUG -->
+        <a href="./index.php?logout=logoutadmin">Đăng Xuất</a> <!--BUG -->
       </div>
     </div>
   </div>

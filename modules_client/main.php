@@ -14,6 +14,9 @@
             case 'order': //Xem đơn mua hàng và lịch sử mua
                 include './modules_client/order/order.php';
                 break;
+            case 'cart': //Xem đơn mua hàng và lịch sử mua
+                include './modules_client/cart/cart.php';
+                break;    
         }
     }else {
         include './modules_client/main/billboard.php';

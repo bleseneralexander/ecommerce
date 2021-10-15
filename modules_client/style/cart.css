@@ -1,13 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Quicksand', sans-serif;
-}
-
-.background{
+.background-cart{
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -19,13 +12,13 @@
 }
 
 
-.container{
+.container-cart{
     justify-content: center;
     align-items: center;
     width: 90vw;
 }
 
-.content{
+.content-cart{
     background-color: #ffffff;
     padding: 3vh;
     box-shadow: 15px 0 35px rgba(0, 0, 0, 0.1),
@@ -34,24 +27,24 @@
     border-radius: 20px;
 }
 
-.content h1{
+.content-cart h1{
     text-align: center;
     margin-bottom: 3vh;
 }
 
-.content table{
+.content-cart table{
     background-color: #efefef;
     width: 100%;
     padding: 3vh;
     border-radius: 20px;
 }
 
-.content .image{
+.content-cart .image{
     width: 10vw;
     padding-left: 2vw;
 }
 
-.content tr td img{
+.content-cart tr td img{
     width: 60%;
 }
 
@@ -60,7 +53,7 @@
     width: 50%;
 }
 
-.content table td{
+.content-cart table td{
     text-align: center;
     padding: 1vh;
 }
@@ -118,6 +111,8 @@
 
 .money_order .title{
     margin-right: 2vw;
+    font-weight: 500;
+    font-size: 18px;
 }
 
 .money_order .money{

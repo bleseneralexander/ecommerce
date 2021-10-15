@@ -12,7 +12,7 @@
         <li><a href="./index.php">Trang chủ</a></li>
         <li><a href="./index.php?page_layout=product">Sản phẩm</a></li>
         <li><a href="#footer">Liên hệ</a></li>
-        <li><a class="modal-btn" style="cursor: pointer;"><?php echo $_SESSION['login']; ?></a></li>
+        <li title="<?php echo $_SESSION['login']; ?>"><a class="modal-btn" style="cursor: pointer;"><i class="fas fa-user" style="color:#333; font-size: 130%;"></i></a></li>
         <li><a href="#"><i class="bi bi-bag-plus-fill" style="color:#333; font-size: 130%;" ></i></a></li>
     </ul>
 </header>
@@ -20,11 +20,11 @@
 
 <div class="modal-bg" style="z-index: 10; cursor: pointer;">
   <div class="modal">
-    <h2>subscribe</h2>
-    <label>Name: </label>
-    <label><?php echo $_SESSION['login']; ?></label>
-    <span class="modal-close">X</spsan>
+    <label><b><?php echo $_SESSION['login']; ?></b></label>
+    <a href="./index.php?page_layout=profile&username=<?php echo $_SESSION['login']; ?>">Hồ sơ của tôi</a>
+    <a href="./index.php?page_layout=order">Đơn mua</a>
     <a href="./index.php?logout=logoutclient">Đăng xuất</a>
+    <span class="modal-close">X</spsan>
   </div>
 </div>
 

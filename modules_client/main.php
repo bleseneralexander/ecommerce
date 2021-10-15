@@ -8,6 +8,12 @@
             case 'detail':
                 include './modules_client/product/detail_product.php';
                 break;
+            case 'profile':
+                include './modules_client/profile/profile.php';
+                break;
+            case 'order':
+                include './modules_client/product/detail_product.php';
+                break;
         }
     }else {
         include './modules_client/main/billboard.php';

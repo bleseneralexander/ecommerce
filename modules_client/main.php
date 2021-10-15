@@ -2,17 +2,17 @@
     //Chia luồng
     if(isset($_GET['page_layout'])){
         switch ($_GET['page_layout']) {
-            case 'product':
+            case 'product': //danh sách hàng hóa
                 include './modules_client/product/list_product.php';
                 break;
-            case 'detail':
+            case 'detail': //chi tiết từng hàng hóa
                 include './modules_client/product/detail_product.php';
                 break;
-            case 'profile':
+            case 'profile': //Xem thông tin cơ bản của khách hàng
                 include './modules_client/profile/profile.php';
                 break;
-            case 'order':
-                include './modules_client/product/detail_product.php';
+            case 'order': //Xem đơn mua hàng và lịch sử mua
+                include './modules_client/order/order.php';
                 break;
         }
     }else {

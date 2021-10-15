@@ -22,7 +22,7 @@
   <div class="modal">
     <label><b><?php echo $_SESSION['login']; ?></b></label>
     <a href="./index.php?page_layout=profile&username=<?php echo $_SESSION['login']; ?>">Hồ sơ của tôi</a>
-    <a href="./index.php?page_layout=order">Đơn mua</a>
+    <a href="./index.php?page_layout=order&username=<?php echo $_SESSION['login']; ?>">Đơn mua</a>
     <a href="./index.php?logout=logoutclient">Đăng xuất</a>
     <span class="modal-close">X</spsan>
   </div>

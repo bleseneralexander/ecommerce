@@ -1,31 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Quicksand', sans-serif;
-}
-
-.background{
+.background-order{
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 25vh 0 10vh;
     overflow: hidden;
+    /* font-family: 'Quicksand', sans-serif; */
     /* background-color: #efefefef; */
     background-image: linear-gradient(-45deg, #fcf4b0 0%, #ffffff 100%);
 }
 
 
-.container{
+.container-order{
     justify-content: center;
     align-items: center;
     width: 90vw;
 }
 
-.content{
+.content-order{
     background-color: #ffffff;
     padding: 3vh;
     box-shadow: 15px 0 35px rgba(0, 0, 0, 0.1),
@@ -34,7 +28,7 @@
     border-radius: 20px;
 }
 
-.content h1{
+.content-order h1{
     text-align: center;
     margin-bottom: 8vh;
 }
@@ -56,7 +50,7 @@
 }
 
 
-.content table{
+.content-order table{
     background-color: #efefef;
     width: 100%;
     padding: 3vh;
@@ -64,12 +58,12 @@
     
 }
 
-.content .image{
+.content-order .image{
     width: 10vw;
     padding-left: 2vw;
 }
 
-.content tr td img{
+.content-order tr td img{
     width: 60%;
 }
 
@@ -78,7 +72,7 @@
     width: 50%;
 }
 
-.content table td{
+.content-order table td{
     text-align: center;
     padding: 1vh;
 }

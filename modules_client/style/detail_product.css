@@ -12,7 +12,7 @@ main {
   color: var(--primary);
   height: 120vh; /*Chinh lai 100vh*/
   background-image: linear-gradient(-45deg, #f7ea75 0%, #ffffff 100%);
-  padding-top: 4.5rem;
+  padding-top: 2.0rem;
   padding-right: 4rem;
 }
   
@@ -112,6 +112,7 @@ main {
     line-height: 2.3rem;
     border-radius: 0.5rem;
     cursor: pointer;
+    user-select: none;
   }
 
   .size-total:hover {
@@ -145,6 +146,15 @@ main {
     color: var(--white);
     padding: 0.5rem;
     cursor: pointer;
+    user-select: none;
+  }
+
+  .count-content input {
+    width: 15px;
+    text-align: center;
+    background-color: var(--primary);
+    color: var(--white);
+    border: var(--primary);
   }
   
   .price-footer {

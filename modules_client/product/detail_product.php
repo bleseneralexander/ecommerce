@@ -42,11 +42,16 @@
                             $query_size = mysqli_query($conn, $sql);
                             while($rows_size = mysqli_fetch_array($query_size)){
                         ?>
-                        <span class="size-total active"><?php echo $rows_size['MaSize'] ?></span>
+                        <span class="size-total" onclick="
+                    chooseSize()"><?php echo $rows_size['MaSize'] ?></span>
                         <?php }?>
-                        <!-- <span class="size-total active">8.6</span> -->
-                        <span class="size-total">9</span>
-                        <span class="size-total">9.5</span>
+
+                        <!-- demo active size -->
+                        <!-- <span class="size-total">7</span>
+                        <span class="size-total">8</span>
+                        <span class="size-total active">9</span>
+                        <span class="size-total">10</span>
+                        <span class="size-total">11</span> -->
                     </div>
                 </div>
 
@@ -54,9 +59,9 @@
                 <div class="count">
                     <h3 class="count-title">Số lượng</h3>
                     <div class="count-content">
-                        <span>-</span>
-                        <span>1</span>
-                        <span>+</span>
+                        <span onmousedown="mouseDown_dec()" onmouseup="mouseUp()" onmouseleave="mouseLeave()" class="btn-adjust-amount">-</span>
+                        <input id="input-amount" value="1" class="input-amount" readonly></input>	
+                        <span onmousedown="mouseDown_inc(10)" onmouseup="mouseUp()" onmouseleave="mouseLeave()" class="btn-adjust-amount">+</span>
                     </div>
                 </div>
             </div>
@@ -80,3 +85,43 @@
         </div>
     </div>
 </main>
+
+
+<script type="text/javascript">
+    //Choose size
+    const sizes = document.querySelectorAll('.size-total');
+    function changeSize(){
+        sizes.forEach(size => size.classList.remove('active'));
+        this.classList.add('active');
+    }   
+    sizes.forEach(size => size.addEventListener('click', changeSize));
+    window.addEventListener('resize', changeHeight);
+
+    //add product's amount:
+    var timeout;
+    function mouseDown_inc(max){
+        value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
+        if(value + 1 >= max){
+            document.getElementById('input-amount').value = max;
+        }else{
+            document.getElementById('input-amount').value = value + 1;  
+        }
+        timeout = setTimeout(function() { mouseDown_inc(); }, 150);
+    }
+
+    function mouseDown_dec(){
+        value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
+        if(value - 1 <=0){
+            document.getElementById('input-amount').value = '1';
+        }else{
+            document.getElementById('input-amount').value = value - 1;
+        }
+        timeout = setTimeout(function() { mouseDown_dec(); }, 150);
+    }
+
+    function mouseUp() { clearTimeout(timeout); }
+
+    function mouseLeave() { clearTimeout(timeout); } 
+</script>
+
+

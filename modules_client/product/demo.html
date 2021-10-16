@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                var arr=[];
+                arr = $('.huy1');
+                arr.each(function(){
+                    var e = $(this),
+                    href = e.prop('href');
+                    name = e.prop('innerHTML');
+                    $.get("./shop_now.php", {'name': name, 'href' : href}, function(data){ alert(data);
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>content</div>
+    <p class="huy">Click me to get link</p>
+    <a class="huy1" href="https://google.com">google</a>
+    <a class="huy2" href="https://youtube.com">youtube</a>
+    <button>click</button>
+</body>
+</html>

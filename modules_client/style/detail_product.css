@@ -179,7 +179,14 @@ main {
   .price-title-sale {
     font-weight: 600;
     font-size: 2.0rem;
-    
+  }
+
+  .sale {
+    font-weight: 600;
+    font-size: 1.0rem;
+    background-color: #df1e1e;
+    color: #ffffff;
+    padding: 0.2rem;
   }
 
 .product-button{

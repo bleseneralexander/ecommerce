@@ -1,15 +1,22 @@
 <?php
+	if(!isset($_SESSION['login'])){
+		header('location: ./modules_client/header/loginForm.php');
+	}
+?>
+
+<?php
     include './admin/modules_admin/config.php';
     if(isset($_GET['username'])){
         $username = $_GET['username'];
-
-        $sql_cart = "SELECT h.TenHH, img.TenHinh, g.Size, g.GiaDatHang, g.SoLuong, g.GiamGia, g.TongTien, SUM(g.TongTien) AS TongSoTien
+    } else {
+        $username = $_SESSION['login'];
+    }
+    $sql_cart = "SELECT h.TenHH, img.TenHinh, g.Size, g.GiaDatHang, g.SoLuong, g.GiamGia, g.TongTien, SUM(g.TongTien) AS TongSoTien
         FROM giohang g JOIN khachhang k ON g.MSKH=k.MSKH
                         JOIN hanghoa h ON g.MSHH=h.MSHH
                         JOIN hinhhanghoa img ON h.MSHH=img.MSHH
         WHERE k.UserName='$username'";
-        $query_cart = mysqli_query($conn, $sql_cart);
-    }
+    $query_cart = mysqli_query($conn, $sql_cart);
 ?>
 
 <div class="background-cart">

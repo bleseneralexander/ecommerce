@@ -29,7 +29,7 @@
             <!-- INFORMATION -->
             <div class="shoe-info">
                 <span class="info-subtitle"><?php echo $rows['TenLoaiHang'] ?></span>
-                <h1 class="info-title"><?php echo $rows['TenHH'] ?></h1>
+                <h1 class="info-title" id="abc"><?php echo $rows['TenHH'] ?></h1>
                 <p class="info-description"><?php echo $rows['MoTa'] ?></p>
             </div>
 
@@ -69,22 +69,25 @@
             <!-- PRICE -->
             <div class="price-footer">
                 <div class="price">
+                    <span class="sale">Giảm <?php echo $rows['GiamGia']*100 ?>%</span>
                     <span class="price-title"><?php echo $rows['Gia'] ?>₫</span>
                     <span class="price-title-sale"><?php echo $GiamGia=$rows["Gia"]-($rows["Gia"]*$rows["GiamGia"]) ?>₫</span>
                 </div>
 
                 <div class="product-button">
-                    <button type="button" class="btn-cart"> Thêm vào giỏ hàng
-                        <span><i class="fas fa-plus"></i></span>
-                    </button>
-                    <button type="button" class="btn-buy"> Mua ngay
+                    <button type="button" class="btn-cart" onclick="window.location.href='./index.php?page_layout=cart'">Thêm vào giỏ hàng
                         <span><i class="fas fa-shopping-cart"></i></span>
                     </button>
+                    <!-- <button type="button" class="btn-buy" onclick="value_show()"> Mua ngay
+                        <span><i class="fas fa-plus"></i></span>
+                    </button> -->
                 </div>
             </div>
         </div>
     </div>
 </main>
+
+<input type="hidden" value="<?php echo $MSHH?>" id="MSHH">
 
 
 <script type="text/javascript">
@@ -122,6 +125,39 @@
     function mouseUp() { clearTimeout(timeout); }
 
     function mouseLeave() { clearTimeout(timeout); } 
+
+    
+    //lay thong tin hang hoa
+    function value_show(){
+        MSHH = document.getElementById('MSHH').value;
+        count_value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
+        size = document.querySelector(".active").innerHTML;
+        GiaDatHang = document.querySelector(".price-title").innerHTML;
+        GiamGia = document.querySelector(".sale").innerHTML;
+        TongTien = document.querySelector(".price-title-sale").innerHTML;
+
+
+        alert("MSHH: "+MSHH +
+            "so luong: "+count_value +
+            "size: " + size + 
+            "Gia dat hang: "+GiaDatHang +
+            "Giam gia "+GiamGia +
+            "TongTien: "+TongTien);
+
+        $.get("./modules_client/product/shop_now.php", {'MSHH': MSHH}, function(data){ alert(data);});
+
+        // $.ajax({
+        //     type: "POST",
+        //     url: './modules_client/product/shop_now.php',
+        //     data: "userID=" + MSHH,
+        //     success: function(data){
+        //         alert("success!");
+        //     }
+        // });
+    }
+
+    
+    
 </script>
 
 

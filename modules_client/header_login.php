@@ -1,5 +1,5 @@
 <header>
-    <a href="#"><img src="./modules_client/photo/logo.png" class="logo"></a>
+    <a href="./index.php"><img src="./modules_client/photo/logo.png" class="logo"></a>
     <div class="toggle" onclick="toggleMenu();"></div>
     <ul class="navigation">
         <li><a href="./index.php">Trang chủ</a></li>

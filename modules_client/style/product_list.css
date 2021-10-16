@@ -81,39 +81,8 @@ img{
     border-radius: 50%;
     transition: background 0.5s ease;
 }
-.product-btns{
-    display: flex;
-    justify-content: center;
-    margin-top: 1.4rem;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-}
-.btn-cart, .btn-buy{
-    background: transparent;
-    border: 1px solid black;
-    padding: 0.8rem 0;
-    width: 125px;
-    font-family: inherit;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: none;
-    transition: all 0.6s ease;
-    font-size: 10px;
-}
-.btn-cart{
-    background: black;
-    color: white;
-}
-.btn-cart:hover{
-    background: var(--carribean-green);
-}
-.btn-buy{
-    background: white;
-}
-.btn-buy:hover{
-    background: var(--carribean-green);
-    color: #fff;
-}
+
+
 .product-info{
     background: white;
     padding: 2rem;
@@ -158,9 +127,7 @@ img{
 .product:hover .product-img{
     background: var(--carribean-green);
 }
-.product:hover .product-btns{
-    opacity: 1;
-}
+
 .off-info {
     background: var(--carribean-green);
     color: white;

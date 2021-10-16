@@ -19,14 +19,6 @@
                             <img src="./admin/photo/<?php echo $rows["TenHinh"] ?>" alt="<?php echo $rows["TenHinh"] ?>">
                         </a>
                     </div>
-                    <div class = "product-btns">
-                        <button type = "button" class = "btn-cart"> Thêm vào giỏ hàng
-                            <span><i class = "fas fa-plus"></i></span>
-                        </button>
-                        <button type = "button" class = "btn-buy"> Mua ngay
-                            <span><i class = "fas fa-shopping-cart"></i></span>
-                        </button>
-                    </div>
                 </div>
 
                 <div class = "product-info">
@@ -54,14 +46,6 @@
                         <a href="index.php?page_layout=detail&MSHH=<?php echo $rows["MSHH"] ?>">
                             <img src="./admin/photo/<?php echo $rows["TenHinh"] ?>" alt="<?php echo $rows["TenHinh"] ?>">
                         </a>
-                    </div>
-                    <div class = "product-btns">
-                        <button type = "button" class = "btn-cart"> Thêm vào giỏ hàng
-                            <span><i class = "fas fa-plus"></i></span>
-                        </button>
-                        <button type = "button" class = "btn-buy"> Mua ngay
-                            <span><i class = "fas fa-shopping-cart"></i></span>
-                        </button>
                     </div>
                 </div>
 

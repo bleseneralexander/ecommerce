@@ -14,15 +14,15 @@
                 break;
 
             case 'client_management':
-                include './modules_admin/client_management/client.php';
+                include './modules_admin/client_management/list.php';
                 break;
 
             case 'product_management':
-                include './modules_admin/product_management/product.php';
+                include './modules_admin/product_management/list.php';
                 break; 
                     
             case 'order_management':
-                include './modules_admin/order_management/order.php';
+                include './modules_admin/order_management/list.php';
                 break;  
             }
     }else {

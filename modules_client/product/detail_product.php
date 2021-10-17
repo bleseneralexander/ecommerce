@@ -144,7 +144,7 @@
             "Giam gia "+GiamGia +
             "TongTien: "+TongTien);
 
-        $.get("./modules_client/product/shop_now.php", {'MSHH': MSHH}, function(data){ alert(data);});
+        // $.get("./modules_client/product/shop_now.php", {'MSHH': MSHH}, function(data){ alert(data);});
 
         // $.ajax({
         //     type: "POST",

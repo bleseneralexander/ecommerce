@@ -1,6 +1,6 @@
 <div class="profile-background">
     <?php 
-        include './modules_client/profile/option_profile.php';
+        // include './modules_client/profile/option_profile.php';
         include './modules_client/profile/profile_form.php';
         //Chia luồng
         // if(isset($_GET['option'])){
@@ -16,6 +16,7 @@
         //             break;
         //     }
         // }else {
+        //     include './modules_client/profile/option_profile.php';
         //     include './modules_client/profile/profile_form.php';
         // }
     ?>

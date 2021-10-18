@@ -145,13 +145,16 @@ main {
   margin-top: 30px;
 }
 
+.charts__right__cards h1{
+  font-size: 25px;
+}
+
 .card1 {
   background: #d1ecf1;
   color: #35a4ba;
   text-align: center;
   padding: 25px;
   border-radius: 5px;
-  font-size: 14px;
 }
 
 .card2 {
@@ -160,7 +163,6 @@ main {
   text-align: center;
   padding: 25px;
   border-radius: 5px;
-  font-size: 14px;
 }
 
 .card3 {
@@ -169,7 +171,6 @@ main {
   text-align: center;
   padding: 25px;
   border-radius: 5px;
-  font-size: 14px;
 }
 
 .card4 {
@@ -178,7 +179,6 @@ main {
   text-align: center;
   padding: 25px;
   border-radius: 5px;
-  font-size: 14px;
 }
 
 @media (max-width: 855px) {

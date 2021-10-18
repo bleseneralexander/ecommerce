@@ -1,59 +1,51 @@
-// This is for able to see chart. We are using Apex Chart. U can check the documentation of Apex Charts too..
-var options = {
-    series: [
-      {
-        name: "Net Profit",
-        data: [10, 44, 55, 57, 56, 61, 58, 63, 60, 66, 10, 90],
+// // This is for able to see chart. We are using Apex Chart. U can check the documentation of Apex Charts too..
+  var options = {
+    series: [{
+      name: "Áo",
+      data: [10, 44, 55, 57, 56, 61, 58, 63, 60, 66, 10, 90],
       },
       {
-        name: "Revenue",
+        name: "Quần",
         data: [40, 76, 85, 101, 98, 87, 105, 91, 114, 94, 80, 4],
       },
       {
-        name: "Free Cash Flow",
-        data: [30, 35, 41, 36, 26, 45, 48, 52, 53, 41, 2, 9],
+        name: "Giày",
+        data: [60, 85, 41, 36, 76, 45, 58, 52, 53, 41, 2, 34],
       },
-    ],
+      {
+        name: "Tất",
+        data: [40, 35, 48, 36, 86, 45, 78, 92, 53, 41, 2, 9],
+      },
+      {
+        name: "Bóng",
+        data: [30, 135, 41, 36, 26, 45, 48, 54, 53, 41, 6, 9],
+      }],
     chart: {
-      type: "bar",
-      height: 250, // make this 250
-      sparkline: {
-        enabled: true, // make this true
-      },
+    height: 250,
+    type: 'line',
+    zoom: {
+      enabled: false
+    }
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    curve: 'straight'
+  },
+  // title: {
+  //   text: 'Product Trends by Month',
+  //   align: 'left'
+  // },
+  grid: {
+    row: {
+      colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+      opacity: 0.5
     },
-    plotOptions: {
-      bar: {
-        horizontal: false,
-        columnWidth: "55%",
-        endingShape: "rounded",
-      },
-    },
-    dataLabels: {
-      enabled: false,
-    },
-    stroke: {
-      show: true,
-      width: 2,
-      colors: ["transparent"],
-    },
-    xaxis: {
-      categories: ["Jan","Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    },
-    yaxis: {
-      title: {
-        text: "$ (thousands)",
-      },
-    },
-    fill: {
-      opacity: 1,
-    },
-    tooltip: {
-      y: {
-        formatter: function (val) {
-          return "$ " + val + " thousands";
-        },
-      },
-    },
+  },
+  xaxis: {
+    categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+  }
   };
   
   var chart = new ApexCharts(document.querySelector("#apex1"), options);
@@ -78,3 +70,5 @@ var options = {
       sidebarOpen = false;
     }
   }
+
+

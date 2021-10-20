@@ -1,9 +1,3 @@
-<?php
-  if(isset($_GET['logout']) && $_GET['logout']=='logoutadmin'){
-    unset($_SESSION['login_admin']);
-    header('location:index.php');
-  }
-?>
 <div id="sidebar">
   <div class="sidebar__title">
     <div class="sidebar__img">
@@ -71,12 +65,6 @@
             <i class="fa fa-briefcase"></i>
             <a href="#">Paygrade</a>
           </div> -->
-
-    
-      <div class="sidebar__logout">
-        <i class="fa fa-power-off"></i>
-        <a href="./index.php?logout=logoutadmin">Đăng Xuất</a> <!--BUG -->
-      </div>
     </div>
   </div>
 </div>

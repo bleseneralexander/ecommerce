@@ -1,3 +1,10 @@
+<?php
+  if(isset($_GET['logout']) && $_GET['logout']=='logoutadmin'){
+    unset($_SESSION['login_admin']);
+    header('location:index.php');
+  }
+?>
+
 <nav class="navbar">
   <div class="nav_icon" onclick="toggleSidebar()">
     <i class="fa fa-bars" aria-hidden="true"></i>
@@ -14,19 +21,22 @@
     <a href="#">
       <i class="fa fa-clock-o" aria-hidden="true"></i>
     </a>
-    <!-- <a class="modal-btn" href="#">
+    <a class="modal-btn" href="#">
       <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-    </a> -->
-    <button class="modal-btn">Modal</button>
+    </a>
   </div>
 </nav>
 
 
 <div class="modal-bg">
   <div class="modal">
-    <h2>subscribe</h2>
-    <label>Name: </label>
-    <input type="text">
+    <h1>Admin</h1>
+    <h4><?php echo $_SESSION['login_admin'] ?></h4>
+    <!-- <a href="#">Hồ sơ của tôi</a> -->
+    <div class="sidebar__logout">
+      <i class="fa fa-power-off"></i>
+      <a href="./index.php?logout=logoutadmin">Đăng Xuất</a>
+    </div>
     <span class="modal-close">X</spsan>
   </div>
 </div>

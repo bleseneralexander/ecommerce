@@ -53,6 +53,7 @@ main {
     text-decoration: none;
     display: inline-block;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .btn_delete{
@@ -72,10 +73,11 @@ main {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    border-radius: 5px; 
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/* ================= MODAL ================= */
+/* ================= MODAL ADD ================= */
 .modal-bg-add{
   position: fixed;
   width: 100%;
@@ -158,6 +160,5 @@ main {
     cursor: pointer;
     color: #000000;
   }
-
 
 

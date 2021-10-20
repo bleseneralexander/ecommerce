@@ -15,6 +15,6 @@
             VALUES ('$HoTenNV','$ChucVu','$DiaChi','$SoDienThoai')";
 
         $query = mysqli_query($conn, $sql_add);
-        header("location: ./../content.php?page_layout=staff_management");
+        header("location: ./../../index.php?page_layout=staff_management");
     }
 ?>

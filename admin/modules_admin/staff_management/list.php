@@ -69,10 +69,38 @@
 </script>
 
 <!-- ############################# Modal Thêm nhân viên ######################################## -->
-
 <div class="modal-bg-add">
   <div class="modal-add">
-    <h2>abc</h2>       
+    <h2>Thêm nhân viên</h2>
+    <form action="./modules_admin/staff_management/add.php" enctype="multipart/form-data" method="POST"> 
+      <div class="modal-body">
+          <div class="mb-3">
+              <label class="form-label">Họ tên</label>
+              <input type="text" class="form-control" name="HoTenNV" require>
+          </div>
+          <div class="form-group">
+              <label for="">Chức vụ</label>
+              <select class="form-control" name="ChucVu">
+                  <option selected>Chọn chức vụ</option>
+                  <option value = "Quản lý" >Quản Lý</option>
+                  <option value = "Nhân viên bán hàng" >Nhân viên bán hàng</option>
+                  <option value = "Nhân viên giao hàng" >Nhân viên giao hàng</option>
+              </select>
+          </div>
+          <div class="mb-3">
+              <label class="form-label">Địa chỉ</label>
+              <input type="text" class="form-control" name="DiaChi" require>
+          </div>
+          <div class="mb-3">
+              <label class="form-label">Số điện thoại</label>
+              <input type="text" class="form-control" name="SoDienThoai" require>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="modal-close-add-btn">Đóng</button>
+          <button type="submit" class="btn btn-primary" name="btn_submit">Thêm</button>
+      </div>
+    </form>  
     <span class="modal-close-add">X</spsan>
   </div>
 </div>
@@ -81,6 +109,7 @@
   var modalBtn_add = document.querySelector('.btn_add'); //sua ten
   var modalBg_add = document.querySelector('.modal-bg-add');
   var modalClose_add = document.querySelector('.modal-close-add');
+  var btn_Close_add = document.querySelector('.modal-close-add-btn');
 
   modalBtn_add.addEventListener('click', function(){
     modalBg_add.classList.add('bg-active-add');
@@ -89,13 +118,47 @@
   modalClose_add.addEventListener('click', function(){
     modalBg_add.classList.remove('bg-active-add');
   });
+
+  btn_Close_add.addEventListener('click', function(){
+    modalBg_add.classList.remove('bg-active-add');
+  });
 </script>
 
 <!-- ############################# Modal Sửa nhân viên ######################################## -->
 
 <div class="modal-bg-modify">
   <div class="modal-modify">
-    <h2>abc</h2>       
+    <h2>Chỉnh sửa thông tin nhân viên</h2>
+    <form action="./staff_management/staff.php?page_staff=modify" method="POST"> 
+        <div class="modal-body">
+            <input type="hidden" name="MSNV_modify" id="MSNV_modify">
+            <div class="mb-3">
+                <label class="form-label">Họ tên</label>
+                <input type="text" class="form-control" name="HoTenNV_modify" id="HoTenNV_modify" require>
+            </div>
+            <div class="form-group">
+                <label for="">Chức vụ</label>
+                <select class="form-control" name="ChucVu_modify" id="ChucVu_modify">
+                    <option selected>Chọn chức vụ</option>
+                    <option value = "Quản lý">Quản Lý</option>
+                    <option value = "Nhân viên bán hàng">Nhân viên bán hàng</option>
+                    <option value = "Nhân viên giao hàng">Nhân viên giao hàng</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Địa chỉ</label>
+                <input type="text" class="form-control" name="DiaChi_modify" id="DiaChi_modify" require>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Số điện thoại</label>
+                <input type="text" class="form-control" name="SoDienThoai_modify" id="SoDienThoai_modify" require>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button type="submit" class="btn btn-primary" name="btn_modify">Xác nhận</button>
+        </div>
+    </form>       
     <span class="modal-close-modify">X</spsan>
   </div>
 </div>
@@ -113,3 +176,26 @@
     modalBg_modify.classList.remove('bg-active-modify');
   });
 </script>
+
+<!-- CHỈNH SỬA THÔNG TIN NHÂN VIÊN -->
+<!-- <script>
+    $(document).ready(function(){
+        $('.modifybtn').on('click', function(){
+
+            $('#modify_product_Modal').modal('show');
+
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function(){
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+
+            $('#MSNV_modify').val(data[0]);
+            $('#HoTenNV_modify').val(data[1]);
+            $('#ChucVu_modify').val(data[2]);
+            $('#DiaChi_modify').val(data[3]);
+            $('#SoDienThoai_modify').val(data[4]);
+        });
+    });
+</script> -->

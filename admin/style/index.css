@@ -5,6 +5,7 @@
 
 @import "dashboard.css";
 @import "staff.css";
+@import "product.css";
 /* @import "admin.css"; */
 
 
@@ -313,8 +314,9 @@ body {
 }
 
 /* ================================================Content */
-
-.admin_management h1{
-  color: #3b9668;
-  size: 300px;
+main {
+  background: #f6f5f3;
+  grid-area: main;
+  overflow-y: auto;
+  /* font-family: 'Roboto', sans-serif; */
 }

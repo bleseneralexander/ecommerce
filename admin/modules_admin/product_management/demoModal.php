@@ -1,12 +1,25 @@
-<!-- chung cap voi product -->
-<?php
-    include './modules_admin/config.php';  
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-    }
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
+        crossorigin="anonymous">
+</head>
+<body>
+    <!-- chung cap voi product -->
+    <?php
+        include './../config.php';  
+        $id = 1;
+        // if(isset($_GET['id'])){
+        //     $id = $_GET['id'];
+        // }
+    ?>
 
-<main>
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
@@ -53,44 +66,42 @@
                 <p><b><?php echo 'Số lượng size: '. $count_soLuong ?></b></p>
             </div>
         </div>
-    </div>
-    
-    
-    <div class="modal fade" id="editmodal_availableProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">THÔNG TIN HÀNG HÓA</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
-            </div>
-            <form action="./modules_admin/product_management/add_availableProduct.php" method="POST"> 
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label">MSHH</label>
-                        <input type="text" value="<?php echo $id?>" class="form-control" id="MSHH_availableProduct" name="MSHH_availableProduct">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Size</label>
-                        <input type="text" class="form-control" id="Size_availableProduct" name="Size_availableProduct">
-                    </div>
-                    <div>
-                        <label class="form-label">Số lượng</label>
-                        <input type="number" class="form-control" name="SoLuong_availableProduct" min="0" require>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn btn-primary" name="btn_add_availableProduct">Xác nhận</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-</main>
+    </div>  
+</body>
+</html>
 
 <!-- ####################################################### Modal Thêm hàng có sẵn ######################################################### -->
 
-
+<div class="modal fade" id="editmodal_availableProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">THÔNG TIN HÀNG HÓA</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+        </div>
+        <form action="./product.php?page_product=add_availableProduct&MSHH=<?php echo $id?>" method="POST"> 
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label">MSHH</label>
+                    <input type="text" value="<?php echo $id?>" class="form-control" id="MSHH_availableProduct" name="MSHH_availableProduct">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Size</label>
+                    <input type="text" class="form-control" id="Size_availableProduct" name="Size_availableProduct">
+                </div>
+                <div>
+                    <label class="form-label">Số lượng</label>
+                    <input type="number" class="form-control" name="SoLuong_availableProduct" min="0" require>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-primary" name="btn_add_availableProduct">Xác nhận</button>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
@@ -101,7 +112,7 @@
     $(document).ready(function(){
         $('.editbtn_availableProduct').on('click', function(){
 
-            // $('#editmodal_availableProduct').modal('show');
+            $('#editmodal_availableProduct').modal('show');
 
             $tr = $(this).closest('tr');
             var data = $tr.children("td").map(function(){

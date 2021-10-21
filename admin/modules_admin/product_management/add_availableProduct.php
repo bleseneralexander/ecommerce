@@ -21,7 +21,7 @@
 
 
         if($sql_update){
-            header("location: ./../content.php?page_layout=product_management");
+            header("location: ./../../index.php?page_layout=quantityOfProduct&id=$MSHH_availableProduct");
             echo '<script> alert("Saved");</script>';
         } else {
             echo '<script> alert("Not Saved");</script>';

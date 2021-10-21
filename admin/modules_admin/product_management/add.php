@@ -118,9 +118,7 @@
                 // echo "<br>";
                 $sql_add_soLuong_into_Size = "INSERT INTO `size`(`MaSize`, `MSHH`, `SoLuongHang`) VALUES ('$size',$id_proudct,$SoLuongHang)";
                 $query_add_soLuong_into_Size = mysqli_query($conn, $sql_add_soLuong_into_Size);
-              }
-            
-
+            }
         } else if($TenLoaiHang=='4'){
             //Bóng
             foreach($size_footballs as $size => $SoLuongHang) {
@@ -128,7 +126,7 @@
                 // echo "<br>";
                 $sql_add_soLuong_into_Size = "INSERT INTO `size`(`MaSize`, `MSHH`, `SoLuongHang`) VALUES ('$size',$id_proudct,$SoLuongHang)";
                 $query_add_soLuong_into_Size = mysqli_query($conn, $sql_add_soLuong_into_Size);
-              }
+            }
         } else {
             //Còn lại
             foreach($size_products as $size => $SoLuongHang) {
@@ -136,12 +134,11 @@
                 // echo "<br>";
                 $sql_add_soLuong_into_Size = "INSERT INTO `size`(`MaSize`, `MSHH`, `SoLuongHang`) VALUES ('$size',$id_proudct,$SoLuongHang)";
                 $query_add_soLuong_into_Size = mysqli_query($conn, $sql_add_soLuong_into_Size);
-              }
+            }
         }
-        
 
         if($sql_add_img_product && $sql_add_product && $sql_add_soLuong_into_Size){
-            header("location: ./../content.php?page_layout=product_management");
+            header("location: ./../../index.php?page_layout=product_management");
             echo '<script> alert("Saved");</script>';
         } else {
             echo '<script> alert("Not Saved");</script>';

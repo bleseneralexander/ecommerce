@@ -19,6 +19,10 @@
 
             case 'product_management':
                 include './modules_admin/product_management/list.php';
+                break;
+
+            case 'quantityOfProduct':
+                include './modules_admin/product_management/quantity.php';
                 break; 
                     
             case 'order_management':

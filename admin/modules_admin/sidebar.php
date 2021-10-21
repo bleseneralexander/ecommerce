@@ -28,7 +28,8 @@
     </div>
     <div class="sidebar__link">
       <!-- <i class="fas fa-user-alt"></i> -->
-      <i class="fa fa-wrench"></i>
+      <!-- <i class="fa fa-wrench"></i> -->
+      <i class="fa fa-briefcase"></i>
       <a href="./index.php?page_layout=staff_management">Quản Lý Nhân Viên</a>
     </div>
     <div class="sidebar__link">
@@ -36,7 +37,8 @@
       <a href="./index.php?page_layout=product_management">Quản Lý Hàng Hóa</a>
     </div>
     <div class="sidebar__link">
-      <i class="fa fa-handshake-o"></i>
+      <!-- <i class="fa fa-handshake-o"></i> -->
+      <i class="fa fa-money"></i>
       <a href="./index.php?page_layout=order_management">Quản Lý Đơn Hàng</a>
     </div>
     <!-- <h2>LEAVE</h2>
@@ -68,3 +70,14 @@
     </div>
   </div>
 </div>
+
+<!-- <script type="text/javascript">
+    //Choose size
+    const options = document.querySelectorAll('.sidebar__link');
+    function changeOption(){
+      options.forEach(option => option.classList.remove('active_menu_link'));
+        this.classList.add('active_menu_link');
+    }   
+    options.forEach(option => option.addEventListener('click', changeOption));
+    window.addEventListener('resize', changeHeight);
+</script> -->

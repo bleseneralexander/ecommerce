@@ -17,6 +17,10 @@
                 include './modules_admin/client_management/list.php';
                 break;
 
+            case 'viewHistory':
+                include './modules_admin/client_management/view.php';
+                break;
+
             case 'product_management':
                 include './modules_admin/product_management/list.php';
                 break;

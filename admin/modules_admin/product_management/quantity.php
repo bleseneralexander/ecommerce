@@ -43,7 +43,7 @@
                                     <td><?php echo $rows["MaSize"] ?></td>
                                     <td><?php echo $rows["SoLuongHang"] ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-success editbtn_availableProduct">Thêm hàng</button>
+                                        <button type="button" class="editbtn_availableProduct">Thêm hàng</button>
                                     </td>
                                 </tr>
                             <?php } ?>

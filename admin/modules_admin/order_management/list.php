@@ -42,7 +42,7 @@
                                     <?php $count_order++ ?>
                                     <td>
                                         <a 
-                                        href="./order_management/order.php?page_order=viewDetail&id= <?php echo $rows['SoDonDH'] ?> &usernameAdmin= <?php echo $_GET['usernameAdmin'] ?>"
+                                        href="./index.php?page_layout=order_detail&id= <?php echo $rows['SoDonDH'] ?>"
                                         style="background-color: green;color: white;padding: 8px 15px;text-align: center;text-decoration: none;display: inline-block;border-radius: 5px;">
                                             Xem chi tiết
                                         </a>

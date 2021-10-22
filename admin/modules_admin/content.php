@@ -27,7 +27,11 @@
                     
             case 'order_management':
                 include './modules_admin/order_management/list.php';
-                break;  
+                break;
+                 
+            case 'order_detail':
+                include './modules_admin/order_management/viewDetail.php';
+                break; 
             }
     }else {
         include './modules_admin/dashboard/dashboard.php';

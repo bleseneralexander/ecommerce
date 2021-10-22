@@ -1,31 +1,24 @@
 <?php
     include './../config.php';  
-    if(isset($_GET['usernameAdmin'])){
+    if(isset($_GET['id'])){
         //Lay so don hang
         $SoDonHang = $_GET['id'];
-        echo $SoDonHang;
+        // echo $SoDonHang;
 
         //Lay MSNV
-        $username = $_GET['usernameAdmin'];
-        echo $username;
+        $username = $_GET['id_admin'];
+        // echo $username;
 
         //Lay trang thai
         $status_update = $_GET['status_update'];
-        echo $status_update;
+        // echo $status_update;
 
-        //BUG: Khong nhan dduoc gia tri username de truy xuat CSDL
-        $sql_get_MSNV = "SELECT * FROM `nhanvien` WHERE UserName = "."'$username'";
+        $sql_get_MSNV = "SELECT MSNV FROM `nhanvien` WHERE UserName = '$username'";
         $query_get_MSNV = mysqli_query($conn, $sql_get_MSNV);
         $rows_get_MSNV = mysqli_fetch_array($query_get_MSNV);
         $MSNV = $rows_get_MSNV['MSNV'];
-        echo $MSNV;
-  
-
-        // $sql_get_MSNV = "SELECT `MSKH` FROM `dathang` WHERE SoDonDH = $SoDonHang";
-        // $query_get_MSNV = mysqli_query($conn, $sql_get_MSNV);
-        // $rows_get_MSNV = mysqli_fetch_array($query_get_MSNV);
-        // $MSNV = $rows_get_MSNV['MSKH'];
         // echo $MSNV;
+  
 
 
 
@@ -43,9 +36,16 @@
         } else if ($status_update == 'Đã giao'){
             $sql_update_order = "UPDATE dathang SET TrangThaiDH='Đã giao' WHERE SoDonDH=$SoDonHang";
         } else{
-            echo 'Vui lòng chọn lại';
+            echo '<script>Vui lòng chọn lại</script>';
         }
         $query_update_order = mysqli_query($conn, $sql_update_order);
+
+        if($sql_update_order){
+            header("location: ./../../index.php?page_layout=order_detail&id=$SoDonHang");
+            echo '<script> alert("Saved");</script>';
+        } else {
+            echo '<script> alert("Not Saved");</script>';
+        }
 
     }
 

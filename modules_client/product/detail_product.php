@@ -7,7 +7,7 @@
                     FROM hanghoa h JOIN hinhhanghoa img ON h.MSHH=img.MSHH 
                     JOIN loaihanghoa l ON h.MaLoaiHang=l.MaLoaiHang 
                     JOIN size s ON h.MSHH=s.MSHH
-                    WHERE h.MSHH=$MSHH
+                    WHERE h.MSHH=$MSHH AND s.SoLuongHang>0
                     ORDER BY h.MSHH ASC";
         $query = mysqli_query($conn, $sql);
         $rows = mysqli_fetch_array($query);
@@ -42,8 +42,7 @@
                             $query_size = mysqli_query($conn, $sql);
                             while($rows_size = mysqli_fetch_array($query_size)){
                         ?>
-                        <span class="size-total" onclick="
-                    chooseSize()"><?php echo $rows_size['MaSize'] ?></span>
+                        <span class="size-total"><?php echo $rows_size['MaSize'] ?></span>
                         <?php }?>
 
                         <!-- demo active size -->
@@ -63,6 +62,7 @@
                         <input id="input-amount" value="1" class="input-amount" readonly></input>	
                         <span onmousedown="mouseDown_inc(10)" onmouseup="mouseUp()" onmouseleave="mouseLeave()" class="btn-adjust-amount">+</span>
                     </div>
+                    <p id="txtHint">Có <span id="txtAmount"></span> sản phẩm</p>
                 </div>
             </div>
 
@@ -78,9 +78,9 @@
                     <button type="button" class="btn-cart" onclick="window.location.href='./index.php?page_layout=cart'">Thêm vào giỏ hàng
                         <span><i class="fas fa-shopping-cart"></i></span>
                     </button>
-                    <!-- <button type="button" class="btn-buy" onclick="value_show()"> Mua ngay
+                    <button type="button" class="btn-buy" onclick="value_show()"> Mua ngay
                         <span><i class="fas fa-plus"></i></span>
-                    </button> -->
+                    </button>
                 </div>
             </div>
         </div>
@@ -93,12 +93,16 @@
 <script type="text/javascript">
     //Choose size
     const sizes = document.querySelectorAll('.size-total');
+    const hint = document.getElementById('txtHint');
     function changeSize(){
         sizes.forEach(size => size.classList.remove('active'));
         this.classList.add('active');
+
+        hint.classList.add('active');
+        showAmountOfSize();
     }   
     sizes.forEach(size => size.addEventListener('click', changeSize));
-    window.addEventListener('resize', changeHeight);
+    // window.addEventListener('resize', changeHeight);
 
     //add product's amount:
     var timeout;
@@ -156,7 +160,29 @@
         // });
     }
 
-    
+    function showAmountOfSize() {
+        size = document.querySelector(".active").innerHTML;
+        // alert("size: " + size);
+
+        //call ajax
+        var ajax = new XMLHttpRequest();
+        var method = "GET";
+        var url = "./modules_client/product/showAmount.php?size="+size+"&MSHH="+<?php echo $MSHH?>;
+        var asynchronous = true;
+        ajax.open(method, url, asynchronous);
+
+        //send
+        ajax.send();
+
+        //receive
+        ajax.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                var response = this.responseText;
+                document.getElementById("txtAmount").innerHTML = response; 
+            }
+        }
+        return false;
+    }
     
 </script>
 

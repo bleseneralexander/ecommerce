@@ -156,6 +156,17 @@ main {
     color: var(--white);
     border: var(--primary);
   }
+
+  #txtHint{
+    font-size: 0.8rem;
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    visibility: collapse;
+  }
+
+  #txtHint.active{
+    visibility: visible;
+  }
   
   .price-footer {
     margin-top: 2rem;

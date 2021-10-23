@@ -32,9 +32,12 @@
             
             $sql_add_product = "INSERT INTO giohang (`MaGioHang`, `MSKH`, `MSHH`, `SoLuong`, `Size`, `GiaDatHang`, `GiamGia`, `TongTien`) VALUES ($MaGioHang,$MSKH,$MSHH,$SoLuong,'$size',$GiaDatHang,$GiamGia,$TongTien)";
             $query_add_product = mysqli_query($conn, $sql_add_product);
-            echo 'Da them thanh cong';
+            // echo 'Đã thêm vào giỏ hàng';
+            
         } else {
-            echo 'Chua co gio hang';
+            $sql_add_product = "INSERT INTO giohang (`MSKH`, `MSHH`, `SoLuong`, `Size`, `GiaDatHang`, `GiamGia`, `TongTien`) VALUES ($MSKH,$MSHH,$SoLuong,'$size',$GiaDatHang,$GiamGia,$TongTien)";
+            $query_add_product = mysqli_query($conn, $sql_add_product);
+            // echo 'Đã thêm vào giỏ hàng';
         }
         
     }

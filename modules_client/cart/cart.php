@@ -11,7 +11,7 @@
     } else {
         $username = $_SESSION['login'];
     }
-    $sql_cart = "SELECT h.TenHH, img.TenHinh, g.Size, g.GiaDatHang, g.SoLuong, g.GiamGia, g.TongTien
+    $sql_cart = "SELECT h.MSHH, h.TenHH, img.TenHinh, g.Size, g.GiaDatHang, g.SoLuong, g.GiamGia, g.TongTien
         FROM giohang g JOIN khachhang k ON g.MSKH=k.MSKH
                         JOIN hanghoa h ON g.MSHH=h.MSHH
                         JOIN hinhhanghoa img ON h.MSHH=img.MSHH
@@ -40,6 +40,7 @@
                     ?>
                     <tr>
                         <td> <?php echo ++$STT ?> </td>
+                        <input type="hidden" name="" id="" value="<?php echo $row_order['MSHH'] ?>">
                         <td class="image"><img src="./admin/photo/<?php echo $row_order['TenHinh'] ?>"></td>
                         <td class="titleProduct" style="text-align: left;"><?php echo $row_order['TenHH'] ?></td>
                         <td><?php echo $row_order['Size'] ?></td>
@@ -53,29 +54,11 @@
                         </td>
                         <td><?php echo $row_order['GiamGia']*100 ?>%</td>
                         <td><?php echo $row_order['TongTien'] ?></td>
-                        <td>Xóa</td>
+                        <td>
+                            <a class="btn_delete_product" href="./modules_client/cart/delete_product.php?MSHH=<?php echo $row_order['MSHH']?>&username=<?php echo $username ?>"> Xóa</a>
+                        </td>
                     </tr>
                     <?php } ?>
-
-                    <!-- <tr>
-                        <td>2</td>
-                        <td class="image"><img src="./../../admin/photo/giay_10.png" alt=""></td>
-                        <td class="titleProduct" style="text-align: left;">Giày Nike Air Force 1</td>
-                        <td>45</td>
-                        <td>2000000</td>
-                        <td>
-                            <div class="count-content">
-                                <span>-</span>
-                                <span>1</span>
-                                <span>+</span>
-                            </div>
-                        </td>
-                        <td>0</td>
-                        <td>2000000</td>
-                        <td>Xóa</td>
-                    </tr> -->
-
-
                 </table>
             </div>
 
@@ -88,13 +71,13 @@
                     $query_get_TongSoTien = mysqli_query($conn, $sql_get_TongSoTien);
                     $row_get_TongSoTien = mysqli_fetch_array($query_get_TongSoTien);
                 ?>
-                <a href="#" class="cancel_order">Hủy đơn hàng</a>
+                <a href="./modules_client/cart/cancel.php?username=<?php echo $username ?>" class="cancel_order">Hủy đơn hàng</a>
                 <div class="money_order">
                     <div>
                         <p class="title">Tổng thanh toán</p>
                         <p>(<?php echo $STT ?> sản phẩm)</p>
                     </div>
-                    <p class="money"><?php echo $row_get_TongSoTien['TongSoTien']  ?>đ</p>
+                    <p class="money"><?php echo $row_get_TongSoTien['TongSoTien']  ?>₫</p>
                 </div>
                 <a href="#" class="buy">Mua Hàng</a>
             </div>

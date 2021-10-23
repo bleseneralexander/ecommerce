@@ -75,12 +75,12 @@
                 </div>
 
                 <div class="product-button">
-                    <button type="button" class="btn-cart" onclick="window.location.href='./index.php?page_layout=cart'">Thêm vào giỏ hàng
+                    <button type="button" class="btn-cart" onclick="add_cart()" >Thêm vào giỏ hàng
                         <span><i class="fas fa-shopping-cart"></i></span>
                     </button>
-                    <button type="button" class="btn-buy" onclick="value_show()"> Mua ngay
+                    <!-- <button type="button" class="btn-buy" onclick="window.location.href='./index.php?page_layout=cart'"> Mua ngay
                         <span><i class="fas fa-plus"></i></span>
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>
@@ -99,6 +99,7 @@
         sizes.forEach(size => size.classList.remove('active'));
         this.classList.add('active');
 
+        //show hint: số lượng sản phẩm theo size
         hint.classList.add('active');
         showAmountOfSize();
     }   
@@ -157,7 +158,7 @@
     }
     
     //lay thong tin hang hoa
-    function value_show(){
+    function add_cart(){
         username_client = document.getElementById('username_client').value;
         MSHH = document.getElementById('MSHH').value;
         count_value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
@@ -175,25 +176,16 @@
 
         //send
         ajax.send();
-
+        
         //receive
         ajax.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
                 var response = this.responseText;
-                alert(response);
-                // document.getElementById("txtAmount").innerHTML = response; 
+                // alert(response);
+                window.location.href='./index.php?page_layout=cart';
             }
         }
         return false;
-
-
-        // alert("MSHH: "+MSHH +
-        //     "so luong: "+count_value +
-        //     "size: " + size + 
-        //     "Gia dat hang: "+GiaDatHang +
-        //     "Giam gia "+GiamGia +
-        //     "TongTien: "+TongTien);
-
     }
 
 </script>

@@ -16,6 +16,7 @@
     justify-content: center;
     align-items: center;
     width: 90vw;
+    margin-top: 7rem;
 }
 
 .content-cart{
@@ -58,7 +59,11 @@
     padding: 1vh;
 }
 
-
+.btn_delete_product{
+    color: red;
+    cursor: pointer;
+    text-decoration: none;
+}
 /* ============= CASH ============= */
 
 .cash{
@@ -119,3 +124,4 @@
     font-size: 25px;
     font-weight: 600;
 }
+

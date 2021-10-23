@@ -60,7 +60,7 @@
                     <div class="count-content">
                         <span onmousedown="mouseDown_dec()" onmouseup="mouseUp()" onmouseleave="mouseLeave()" class="btn-adjust-amount">-</span>
                         <input id="input-amount" value="1" class="input-amount" readonly></input>	
-                        <span onmousedown="mouseDown_inc(10)" onmouseup="mouseUp()" onmouseleave="mouseLeave()" class="btn-adjust-amount">+</span>
+                        <span onmousedown="mouseDown_inc()" onmouseup="mouseUp()" onmouseleave="mouseLeave()" class="btn-adjust-amount">+</span>
                     </div>
                     <p id="txtHint">Có <span id="txtAmount"></span> sản phẩm</p>
                 </div>
@@ -106,9 +106,36 @@
     sizes.forEach(size => size.addEventListener('click', changeSize));
     // window.addEventListener('resize', changeHeight);
 
+    //show so luong sau khi bam size
+    var response_amount;
+    function showAmountOfSize() {
+        size = document.querySelector(".active").innerHTML;
+        // alert("size: " + size);
+
+        //call ajax
+        var ajax = new XMLHttpRequest();
+        var method = "GET";
+        var url = "./modules_client/product/showAmount.php?size="+size+"&MSHH="+<?php echo $MSHH?>;
+        var asynchronous = true;
+        ajax.open(method, url, asynchronous);
+
+        //send
+        ajax.send();
+
+        //receive
+        ajax.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                response_amount = this.responseText;
+                document.getElementById("txtAmount").innerHTML = response_amount; 
+            }
+        }
+        return false;
+    }
+
     //add product's amount:
     var timeout;
-    function mouseDown_inc(max){
+    function mouseDown_inc(){
+        max = response_amount; //Gia tri so luong lon nhat trong counter = so luong hang hoa theo size
         value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
         if(value + 1 >= max){
             document.getElementById('input-amount').value = max;
@@ -132,45 +159,33 @@
 
     function mouseLeave() { clearTimeout(timeout); } 
 
-    //show so luong sau khi bam size
-    function showAmountOfSize() {
-        size = document.querySelector(".active").innerHTML;
-        // alert("size: " + size);
-
-        //call ajax
-        var ajax = new XMLHttpRequest();
-        var method = "GET";
-        var url = "./modules_client/product/showAmount.php?size="+size+"&MSHH="+<?php echo $MSHH?>;
-        var asynchronous = true;
-        ajax.open(method, url, asynchronous);
-
-        //send
-        ajax.send();
-
-        //receive
-        ajax.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status == 200){
-                var response = this.responseText;
-                document.getElementById("txtAmount").innerHTML = response; 
-            }
-        }
-        return false;
-    }
-    
     //lay thong tin hang hoa
     function add_cart(){
+        //===CHƯA LÀM ĐƯỢC KIỂM TRA CHỌN SIZE MỚI BẤM NÚT THÊM HÀNG HÓA===
+
+        // var hint ="";
+        // hint = document.getElementById("txtHint").innerHTML;
+        // size = document.querySelector(".active").innerHTML;
+        // alert(hint);
+
+        // if(hint != ""){
+        //     alert("co size");
+        // } else {
+        //     alert("ko co size");
+        // }
+
         username_client = document.getElementById('username_client').value;
         MSHH = document.getElementById('MSHH').value;
         count_value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
         size = document.querySelector(".active").innerHTML;
         GiaDatHang = document.getElementById("price-title").innerHTML;
         GiamGia = document.getElementById("sale").innerHTML;
-        TongTien = document.getElementById("price-title-sale").innerHTML;
+        GiaSauGiam = document.getElementById("price-title-sale").innerHTML;
 
         //call ajax
         var ajax = new XMLHttpRequest();
         var method = "GET";
-        var url = "./modules_client/product/add_cart.php?username="+username_client+"&MSHH="+MSHH+"&SoLuong="+count_value+"&size="+size+"&GiaDatHang="+GiaDatHang+"&GiamGia="+GiamGia+"&TongTien="+TongTien;
+        var url = "./modules_client/product/add_cart.php?username="+username_client+"&MSHH="+MSHH+"&SoLuong="+count_value+"&size="+size+"&GiaDatHang="+GiaDatHang+"&GiamGia="+GiamGia+"&GiaSauGiam="+GiaSauGiam;
         var asynchronous = true;
         ajax.open(method, url, asynchronous);
 

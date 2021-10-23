@@ -15,6 +15,9 @@
     <div class="container-order">
         <div class="content-order">
             <h1>Danh sách đơn hàng</h1>
+            <?php
+                if(mysqli_num_rows($query_order)>0){
+            ?>
             <div class="order">
                 <div class="info_order">
                     <div class="title_order">
@@ -58,6 +61,9 @@
                     <?php } ?>
                 </table>
             </div>
+            <?php } else {?>
+                <div> <p style="text-align: center">Bạn chưa có đơn hàng nào trước đây.</p> </div>
+            <?php } ?>
 
                 <!-- <div class="order">
                     <div class="info_order">

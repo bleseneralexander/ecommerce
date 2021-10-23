@@ -7,7 +7,8 @@
         $size = $_GET['size'];
         $GiaDatHang = $_GET['GiaDatHang'];
         $GiamGia = (double) $_GET['GiamGia']/100;
-        $TongTien = $_GET['TongTien'];
+        $GiaSauGiam = $_GET['GiaSauGiam'];
+        $TongTien = $GiaSauGiam * $SoLuong;
         
         // echo $username;
         // echo 'MSHH: '.$MSHH;
@@ -26,7 +27,7 @@
         //Kiem tra gio hang ton tai
         $sql_check_cart_available = "SELECT * FROM `giohang` WHERE MSKH=$MSKH";
         $query_check_cart_available = mysqli_query($conn, $sql_check_cart_available);
-        if(mysqli_num_rows($query_check_cart_available)){
+        if(mysqli_num_rows($query_check_cart_available)>0){
             $row_check_cart_available = mysqli_fetch_array($query_check_cart_available);
             $MaGioHang = $row_check_cart_available['MaGioHang'];
             

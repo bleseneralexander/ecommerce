@@ -11,7 +11,7 @@
     } else {
         $username = $_SESSION['login'];
     }
-    $sql_cart = "SELECT h.TenHH, img.TenHinh, g.Size, g.GiaDatHang, g.SoLuong, g.GiamGia, g.TongTien, SUM(g.TongTien) AS TongSoTien
+    $sql_cart = "SELECT h.TenHH, img.TenHinh, g.Size, g.GiaDatHang, g.SoLuong, g.GiamGia, g.TongTien
         FROM giohang g JOIN khachhang k ON g.MSKH=k.MSKH
                         JOIN hanghoa h ON g.MSHH=h.MSHH
                         JOIN hinhhanghoa img ON h.MSHH=img.MSHH

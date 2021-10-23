@@ -130,6 +130,10 @@ main {
     margin-right: 1.0rem;
     margin-bottom: 1.0rem;
   }
+
+  .count{
+    min-width: 7.5rem;
+  }
   
   .count-content {
     background-color: var(--primary);
@@ -198,6 +202,8 @@ main {
     background-color: #df1e1e;
     color: #ffffff;
     padding: 0.2rem;
+    width: 6rem;
+    text-align: center;
   }
 
 .product-button{

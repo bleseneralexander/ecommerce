@@ -69,9 +69,9 @@
             <!-- PRICE -->
             <div class="price-footer">
                 <div class="price">
-                    <span class="sale">Giảm <?php echo $rows['GiamGia']*100 ?>%</span>
-                    <span class="price-title"><?php echo $rows['Gia'] ?>₫</span>
-                    <span class="price-title-sale"><?php echo $GiamGia=$rows["Gia"]-($rows["Gia"]*$rows["GiamGia"]) ?>₫</span>
+                    <p class="sale">Giảm <span id="sale"><?php echo $rows['GiamGia']*100 ?></span>%</p>
+                    <p class="price-title"><span id="price-title"><?php echo $rows['Gia'] ?></span>₫</p>
+                    <p class="price-title-sale"><span id="price-title-sale"><?php echo $GiamGia=$rows["Gia"]-($rows["Gia"]*$rows["GiamGia"]) ?></span>₫</p>
                 </div>
 
                 <div class="product-button">
@@ -88,6 +88,7 @@
 </main>
 
 <input type="hidden" value="<?php echo $MSHH?>" id="MSHH">
+<input type="hidden" value="<?php echo $_SESSION['login']?>" id="username_client">
 
 
 <script type="text/javascript">
@@ -130,36 +131,7 @@
 
     function mouseLeave() { clearTimeout(timeout); } 
 
-    
-    //lay thong tin hang hoa
-    function value_show(){
-        MSHH = document.getElementById('MSHH').value;
-        count_value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
-        size = document.querySelector(".active").innerHTML;
-        GiaDatHang = document.querySelector(".price-title").innerHTML;
-        GiamGia = document.querySelector(".sale").innerHTML;
-        TongTien = document.querySelector(".price-title-sale").innerHTML;
-
-
-        alert("MSHH: "+MSHH +
-            "so luong: "+count_value +
-            "size: " + size + 
-            "Gia dat hang: "+GiaDatHang +
-            "Giam gia "+GiamGia +
-            "TongTien: "+TongTien);
-
-        // $.get("./modules_client/product/shop_now.php", {'MSHH': MSHH}, function(data){ alert(data);});
-
-        // $.ajax({
-        //     type: "POST",
-        //     url: './modules_client/product/shop_now.php',
-        //     data: "userID=" + MSHH,
-        //     success: function(data){
-        //         alert("success!");
-        //     }
-        // });
-    }
-
+    //show so luong sau khi bam size
     function showAmountOfSize() {
         size = document.querySelector(".active").innerHTML;
         // alert("size: " + size);
@@ -184,6 +156,46 @@
         return false;
     }
     
+    //lay thong tin hang hoa
+    function value_show(){
+        username_client = document.getElementById('username_client').value;
+        MSHH = document.getElementById('MSHH').value;
+        count_value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
+        size = document.querySelector(".active").innerHTML;
+        GiaDatHang = document.getElementById("price-title").innerHTML;
+        GiamGia = document.getElementById("sale").innerHTML;
+        TongTien = document.getElementById("price-title-sale").innerHTML;
+
+        //call ajax
+        var ajax = new XMLHttpRequest();
+        var method = "GET";
+        var url = "./modules_client/product/add_cart.php?username="+username_client+"&MSHH="+MSHH+"&SoLuong="+count_value+"&size="+size+"&GiaDatHang="+GiaDatHang+"&GiamGia="+GiamGia+"&TongTien="+TongTien;
+        var asynchronous = true;
+        ajax.open(method, url, asynchronous);
+
+        //send
+        ajax.send();
+
+        //receive
+        ajax.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                var response = this.responseText;
+                alert(response);
+                // document.getElementById("txtAmount").innerHTML = response; 
+            }
+        }
+        return false;
+
+
+        // alert("MSHH: "+MSHH +
+        //     "so luong: "+count_value +
+        //     "size: " + size + 
+        //     "Gia dat hang: "+GiaDatHang +
+        //     "Giam gia "+GiamGia +
+        //     "TongTien: "+TongTien);
+
+    }
+
 </script>
 
 

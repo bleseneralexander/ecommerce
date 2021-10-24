@@ -12,8 +12,10 @@
         $query = mysqli_query($conn, $sql);
         $rows = mysqli_fetch_array($query);
     }
-
 ?>
+
+<input type="hidden" value="<?php echo $MSHH?>" id="MSHH">
+<input type="hidden" value="<?php echo $_SESSION['login']?>" id="username_client">
 
 <main class="main">
     <div class="row">
@@ -75,6 +77,11 @@
                 </div>
 
                 <div class="product-button">
+                    <?php
+                        if(!isset($_SESSION['login'])){
+                            header('location: ./modules_client/header/loginForm.php');
+                        }
+                    ?>
                     <button type="button" class="btn-cart" onclick="add_cart()" >Thêm vào giỏ hàng
                         <span><i class="fas fa-shopping-cart"></i></span>
                     </button>
@@ -86,9 +93,6 @@
         </div>
     </div>
 </main>
-
-<input type="hidden" value="<?php echo $MSHH?>" id="MSHH">
-<input type="hidden" value="<?php echo $_SESSION['login']?>" id="username_client">
 
 
 <script type="text/javascript">

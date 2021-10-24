@@ -4,10 +4,8 @@
         $username = $_GET['username'];
 
         $sql_order = "SELECT d.SoDonDH, d.NgayDH, d.NgayGH, d.TrangThaiDH 
-        FROM dathang d JOIN khachhang k ON d.MSKH=k.MSKH	WHERE k.UserName='$username'";
+        FROM dathang d JOIN khachhang k ON d.MSKH=k.MSKH WHERE k.UserName='$username'";
         $query_order = mysqli_query($conn, $sql_order);
-        $row_order = mysqli_fetch_array($query_order);
-        $SoDonDH = $row_order['SoDonDH'];
     }
 ?>
 
@@ -17,6 +15,8 @@
             <h1>Danh sách đơn hàng</h1>
             <?php
                 if(mysqli_num_rows($query_order)>0){
+                    while($row_order = mysqli_fetch_array($query_order)){
+                        $SoDonDH = $row_order['SoDonDH'];
             ?>
             <div class="order">
                 <div class="info_order">
@@ -61,7 +61,8 @@
                     <?php } ?>
                 </table>
             </div>
-            <?php } else {?>
+            <?php }
+                } else {?>
                 <div> <p style="text-align: center">Bạn chưa có đơn hàng nào trước đây.</p> </div>
             <?php } ?>
 

@@ -77,12 +77,15 @@
                         $sql_get_address = "SELECT d.MaDC, d.DiaChi FROM diachikh d JOIN khachhang k ON d.MSKH=k.MSKH WHERE k.UserName = '$username'";
                         $query_get_address = mysqli_query($conn, $sql_get_address);
                     ?>
-                    <label for="">Địa chỉ giao hàng</label>
-                    <select name="" id="">
-                        <?php while($row_get_address = mysqli_fetch_array($query_get_address)){ ?>
-                        <option value="<?php echo $row_get_address['MaDC'] ?>"><?php echo $row_get_address['DiaChi'] ?></option>
-                        <?php } ?>
-                    </select>
+                    <form method="GET">
+                        <label>Địa chỉ giao hàng</label>
+                        <select name="MaDiaChi" onchange="getComboA(this)">
+                            <option value="">---Chọn địa chỉ---</option>
+                            <?php while($row_get_address = mysqli_fetch_array($query_get_address)){ ?>
+                            <option value="<?php echo $row_get_address['MaDC'] ?>"><?php echo $row_get_address['DiaChi'] ?></option>
+                            <?php } ?>
+                        </select>
+                    </form>
                 </div>
                 <div class="money_order">
                     <div>
@@ -91,7 +94,7 @@
                     </div>
                     <p class="money"><?php echo $row_get_TongSoTien['TongSoTien']  ?>₫</p>
                 </div>
-                <a href="./modules_client/cart/purchase.php?username=<?php echo $username ?>" class="buy">Mua Hàng</a>
+                <a id="link" class="buy">Mua Hàng</a>
             </div>
         </div>
         <?php } else {?>
@@ -129,6 +132,11 @@
 
     function mouseLeave() { clearTimeout(timeout); } 
 
-    
+    //Lay MaDiaChi trong select-option
+    function getComboA(selectObject) {
+		var value = selectObject.value;
+		var x = document.getElementById("link");
+		x.href = "./modules_client/cart/purchase.php?username=<?php echo $username ?>&MaDiaChi=" + value ;
+	}
 
 </script>

@@ -14,6 +14,12 @@
     }
 ?>
 
+<?php
+    if(!isset($_SESSION['login'])){
+        header('location: ./modules_client/header/loginForm.php');
+    }
+?>
+
 <input type="hidden" value="<?php echo $MSHH?>" id="MSHH">
 <input type="hidden" value="<?php echo $_SESSION['login']?>" id="username_client">
 
@@ -77,11 +83,6 @@
                 </div>
 
                 <div class="product-button">
-                    <?php
-                        if(!isset($_SESSION['login'])){
-                            header('location: ./modules_client/header/loginForm.php');
-                        }
-                    ?>
                     <button type="button" class="btn-cart" onclick="add_cart()" >Thêm vào giỏ hàng
                         <span><i class="fas fa-shopping-cart"></i></span>
                     </button>

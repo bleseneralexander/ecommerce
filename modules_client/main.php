@@ -8,6 +8,9 @@
             case 'detail': //chi tiết từng hàng hóa
                 include './modules_client/product/detail_product.php';
                 break;
+            case 'search': //Tìm kiếm sản phẩm
+                include './modules_client/product/search.php';
+                break;  
             case 'profile': //Xem thông tin cơ bản của khách hàng
                 include './modules_client/profile/profile.php';
                 break;

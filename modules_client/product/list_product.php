@@ -2,9 +2,17 @@
     include './admin/modules_admin/config.php';
     
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <div class = "products">
     <div class = "container">
+        <div class="search">
+            <div class="input-field search-field">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search" name="search" placeholder="Nhập sản phẩm muốn tìm kiếm"/>
+            </div>
+            <a href="#" id="search_btn">Tìm kiếm</a>
+        </div>
         <div class = "product-items">
             <!-- single product sale -->
             <?php
@@ -59,3 +67,12 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $("#search_btn").on('click', function() {
+        var txt_search = document.getElementById("search").value;;
+        // alert(txt_search);
+        window.location = "index.php?page_layout=search&title="+txt_search;
+    });
+</script>

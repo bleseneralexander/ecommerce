@@ -7,11 +7,11 @@
         $SoDienThoai = $_POST["phoneNumber_client"];
         $SoFax = $_POST["fax_client"];
 
-        echo $UserName.'<br/>';
-        echo $HoTenKH.'<br/>';
-        echo $TenCongTy.'<br/>';
-        echo $SoDienThoai.'<br/>';
-        echo $SoFax.'<br/>';
+        // echo $UserName.'<br/>';
+        // echo $HoTenKH.'<br/>';
+        // echo $TenCongTy.'<br/>';
+        // echo $SoDienThoai.'<br/>';
+        // echo $SoFax.'<br/>';
 
         $sql_modify_profile = "UPDATE `khachhang` SET `HoTenKH`='$HoTenKH',`TenCongTy`='$TenCongTy',`SoDienThoai`='$SoDienThoai',`SoFax`='$SoFax' WHERE UserName='$UserName'";
         $query_modify_profile = mysqli_query($conn, $sql_modify_profile);

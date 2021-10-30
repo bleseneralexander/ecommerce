@@ -7,7 +7,7 @@
             <h5 class="name-shoe">GIÀY BÓNG ĐÁ PREDATOR FREAK.3 FIRM GROUND</h5>
             <p class="description-shoe">Đôi giày bóng đá nâng đỡ giúp bạn làm chủ thế trận trên sân cỏ tự nhiên.</p>
             <p class="price-shoe">2.400.000₫</p>
-            <a href="index.php?page_layout=product">Xem thêm</a>
+            <a href="index.php?page_layout=detail&MSHH=13" id="link">Xem thêm</a>
         </div>
         <div class="imgBox">
             <img src="./modules_client/photo/poster_img1.png" class="starbucks">
@@ -15,17 +15,20 @@
     </div>
     <ul class="thumb">
         <li><img src="./modules_client/photo/thumbnail_img1.png" 
-            onclick="imgSlider('./modules_client/photo/poster_img1.png'); 
+            onclick=" set_href('13');
+                    imgSlider('./modules_client/photo/poster_img1.png'); 
                     changeColor('#9c9c9c'); 
                     changeContent('GIÀY BÓNG ĐÁ PREDATOR FREAK.3 FIRM GROUND', 'Đôi giày bóng đá nâng đỡ giúp bạn làm chủ thế trận trên sân cỏ tự nhiên.', '2.400.000₫') ">
         </li>
         <li><img src="./modules_client/photo/thumbnail_img2.png" 
-            onclick="imgSlider('./modules_client/photo/poster_img2.png'); 
+            onclick="set_href('2');
+                    imgSlider('./modules_client/photo/poster_img2.png'); 
                     changeColor('#ad4541'); 
                     changeContent('GIÀY BÓNG ĐÁ SÂN CỎ TỰ NHIÊN PREDATOR FREAK.3', 'Đôi giày bóng đá cổ thấp giúp bạn làm chủ trận đấu trên sân cỏ tự nhiên.', '1.900.000₫')">
         </li>
         <li><img src="./modules_client/photo/thumbnail_img3.png" 
-            onclick="imgSlider('./modules_client/photo/poster_img3.png'); 
+            onclick="set_href('32');
+                    imgSlider('./modules_client/photo/poster_img3.png'); 
                     changeColor('#ded1c0'); 
                     changeContent('GIÀY ĐÁ BÓNG X GHOSTED.1 FIRM GROUND', 'Đôi giày bóng đá siêu nhẹ cho những đường bóng tốc độ ánh sáng.', '3.150.000₫')">
         </li>
@@ -70,5 +73,10 @@
         var navigation = document.querySelector('.navigation');
         menuToggle.classList.toggle('active');
         navigation.classList.toggle('active');
+    }
+
+    function set_href(MSHH){
+        var x = document.getElementById("link");
+		x.href = "index.php?page_layout=detail&MSHH=" + MSHH ;
     }
 </script>

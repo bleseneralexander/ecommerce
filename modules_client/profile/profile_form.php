@@ -36,22 +36,23 @@
 </div>
 
 <div class="form-profile">
-  <!-- Đang phát triển -->
   <?php
-    $sql_get_diachi = "SELECT dia.DiaChi FROM diachikh dia JOIN khachhang k ON dia.MSKH=k.MSKH WHERE k.UserName='$username'";
+    $sql_get_diachi = "SELECT dia.DiaChi, dia.MaDC FROM diachikh dia JOIN khachhang k ON dia.MSKH=k.MSKH WHERE k.UserName='$username'";
     $query_get_diachi = mysqli_query($conn, $sql_get_diachi);
   ?>
   <form action="" class="sign-in-form" method="POST">
       <h2 class="title">Địa Chỉ</h2>
       <input type="hidden" name="username" value="<?php echo $username?>"/>
       <?php while($rows_get_diachi = mysqli_fetch_array($query_get_diachi)){ ?>
-      <div class="input-field">
-        <i class="fas fa-map-marker-alt"></i>
-        <input type="text" name="name_client" placeholder="Họ và tên" value="<?php echo $rows_get_diachi['DiaChi'] ?>" required/>
+      <div class="input-container">
+        <div class="input-field">
+          <i class="fas fa-map-marker-alt"></i>
+          <input type="text" placeholder="Địa chỉ" value="<?php echo $rows_get_diachi['DiaChi'] ?>" disabled/>
+        </div>
+        <div class="delete-area"><a href="./modules_client/profile/delete_address.php?id_address=<?php echo $rows_get_diachi['MaDC']?>&username=<?php echo $username?>">Xóa</a></div>
       </div>
       <?php } ?>
-      <input type="button" value="Thêm địa chỉ" class="btn solid modal" id="modal-btn" name="btn_modify_profile" />
-      <p>Đang phát triển</p>
+      <input type="button" value="Thêm địa chỉ mới" class="btn solid modal" id="modal-address" name="btn_modify_profile" />
     </form>
 </div>
 
@@ -82,26 +83,31 @@
 <script type="text/javascript" src='./modules_client/profile/profile_script.js'></script>
 
 
-<!-- <div class="modal-bg" style="z-index: 10; cursor: pointer;">
-  <div class="modal">
-    <label><b><?php echo $_SESSION['login']; ?></b></label>
-    <a href="./index.php?page_layout=profile&username=<?php echo $_SESSION['login']; ?>">địa chỉ</a>
-    <a href="./index.php?page_layout=order&username=<?php echo $_SESSION['login']; ?>">Đơn mua</a>
-    <a href="./index.php?logout=logoutclient">Đăng xuất</a>
-    <span class="modal-close">X</spsan>
+<div class="modal-bg-address" style="z-index: 10">
+  <div class="modal-address">
+    <label><b>Thêm địa chỉ</b></label>
+    <form action="./modules_client/profile/add_address.php" class="sign-in-form" method="GET">
+      <input type="hidden" name="username" value="<?php echo $username?>"/>
+      <div class="input-field">
+        <i class="fas fa-map-marker-alt"></i>
+        <input type="text" name="address_txt" placeholder="Địa chỉ" required/>
+      </div>
+      <input type="submit" value="Thêm địa chỉ" class="btn solid modal" name="btn_add_address" />
+    </form>
+    <span class="modal-close-address">X</spsan>
   </div>
 </div>
 
 <script type="text/javascript">
-  var modalBtn = document.querySelector('.modal'); //sua ten
-  var modalBg = document.querySelector('.modal-bg');
-  var modalClose = document.querySelector('.modal-close');
+  var modalBtn_address = document.getElementById('modal-address'); //sua ten
+  var modalBg_address = document.querySelector('.modal-bg-address');
+  var modalClose_address = document.querySelector('.modal-close-address');
 
-  modalBtn.addEventListener('click', function(){
-    modalBg.classList.add('bg-active');
+  modalBtn_address.addEventListener('click', function(){
+    modalBg_address.classList.add('bg-active-address');
   });
   
-  modalClose.addEventListener('click', function(){
-    modalBg.classList.remove('bg-active');
+  modalClose_address.addEventListener('click', function(){
+    modalBg_address.classList.remove('bg-active-address');
   });
-</script> -->
+</script>

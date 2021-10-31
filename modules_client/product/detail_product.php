@@ -86,9 +86,9 @@
                     <button type="button" class="btn-cart" onclick="add_cart()" >Thêm vào giỏ hàng
                         <span><i class="fas fa-shopping-cart"></i></span>
                     </button>
-                    <!-- <button type="button" class="btn-buy" onclick="window.location.href='./index.php?page_layout=cart'"> Mua ngay
+                    <button type="button" class="btn-buy" onclick="buy_now()"> Mua ngay
                         <span><i class="fas fa-plus"></i></span>
-                    </button> -->
+                    </button>
                 </div>
             </div>
         </div>
@@ -164,7 +164,7 @@
 
     function mouseLeave() { clearTimeout(timeout); } 
 
-    //lay thong tin hang hoa
+    //Them hang hoa vao gio hang nhung ko chuyen trang
     function add_cart(){
         //===CHƯA LÀM ĐƯỢC KIỂM TRA CHỌN SIZE MỚI BẤM NÚT THÊM HÀNG HÓA===
 
@@ -201,11 +201,45 @@
         ajax.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
                 var response = this.responseText;
+                alert(response);
+                // window.location.href='./index.php?page_layout=cart';
+            }
+        }
+        return false;
+    }
+
+    //Them hang hoa vao gio hang vao chuyen trang sang trang gio hang
+    function buy_now(){
+        //===CHƯA LÀM ĐƯỢC KIỂM TRA CHỌN SIZE MỚI BẤM NÚT THÊM HÀNG HÓA===
+
+        username_client = document.getElementById('username_client').value;
+        MSHH = document.getElementById('MSHH').value;
+        count_value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
+        size = document.querySelector(".active").innerHTML;
+        GiaDatHang = document.getElementById("price-title").innerHTML;
+        GiamGia = document.getElementById("sale").innerHTML;
+        GiaSauGiam = document.getElementById("price-title-sale").innerHTML;
+
+        // alert(username_client+MSHH+count_value+size+GiaDatHang+GiamGia+GiaSauGiam);
+
+        //call ajax
+        var ajax = new XMLHttpRequest();
+        var method = "GET";
+        var url = "./modules_client/product/buy_now.php?username="+username_client+"&MSHH="+MSHH+"&SoLuong="+count_value+"&size="+size+"&GiaDatHang="+GiaDatHang+"&GiamGia="+GiamGia+"&GiaSauGiam="+GiaSauGiam;
+        var asynchronous = true;
+        ajax.open(method, url, asynchronous);
+
+        //send
+        ajax.send();
+        
+        //receive
+        ajax.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                // var response = this.responseText;
                 // alert(response);
                 window.location.href='./index.php?page_layout=cart';
             }
         }
-        return false;
     }
 
 </script>

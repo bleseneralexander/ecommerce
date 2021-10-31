@@ -321,3 +321,8 @@ main {
   overflow-y: auto;
   /* font-family: 'Roboto', sans-serif; */
 }
+
+.link-nav-pages a{
+  text-decoration: none;
+  color: #e65061;
+}

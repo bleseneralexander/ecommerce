@@ -8,6 +8,10 @@
 <main>
     <div class="container-fluid">
         <div class="card-container">
+            <div class="link-nav-pages">
+                <a href="./index.php?page_layout=client_management">Quản Lý Khách Hàng</a> /
+                <a href="">Chi Tiết Khách Hàng</a>
+            </div>
             <div class="card-header">
             <h2><?php 
                 $sql_get_nameKH="SELECT * FROM khachhang WHERE MSKH = $id;";
@@ -71,6 +75,7 @@
                     </tbody>
                 </table>
                 <p><b><?php echo 'Số lượng hàng hóa đã mua: '. $count_client ?></b></p>
+                <!-- <button onclick="changeColor()">abc</button> -->
             </div>
         </div>
     </div>
@@ -78,17 +83,14 @@
 
 
 <!-- Thay đổi màu trạng thái đơn hàng -> chưa làm được  -->
-<script>
-    function changeColor(status){
-        const status_color = document.getElementById("status_color");
+<!-- <script>
+    function changeColor(){
+        var status_color_status = document.getElementById("status_color").innerHTML;
+        alert(status_color_status);
+        // document.getElementById("status_color").style.color = 'red';
         
-        if(status == "Chưa duyệt")
-            status_color.style.color = 'red';
-        }else if (status == "Đã duyệt") {
-            status_color.style.color = 'green';
-        }else if (status == "Đã giao") {
-            status_color.style.color = 'blue';
-        } else {
-            status_color.style.color = 'yellow';
-        }
-</script>
+        // if(status_color_status == "Chưa duyệt")
+        //     alert("ok");
+        // }
+    }
+</script> -->

@@ -2,6 +2,9 @@
 <main>
     <div class="container-fluid">
         <div class="card-container">
+            <div class="link-nav-pages">
+                <a href="">Quản Lý Đơn Hàng</a>
+            </div>
             <div class="card-header">
                 <h2>Danh sách đơn hàng</h2>
             </div>

@@ -1,6 +1,9 @@
 <main>
     <div class="container-fluid">
         <div class="card-container">
+            <div class="link-nav-pages">
+                <a href="">Quản Lý Khách Hàng</a>
+            </div>
             <div class="card-header">
                 <h2>Danh sách khách hàng</h2>
             </div>
@@ -13,7 +16,6 @@
                             <th>Tên công ty</th>
                             <th>Số điện thoại</th>
                             <th>Số fax</th>
-                            <th>Địa chỉ</th>
                             <th>Lịch sử mua hàng</th>
                         </tr>
                     </thead>
@@ -21,7 +23,7 @@
                         <tr>
                             <?php 
                                 include './modules_admin/config.php';
-                                $sql = "SELECT * FROM khachhang k JOIN diachikh d ON k.MSKH=d.MSKH";
+                                $sql = "SELECT * FROM khachhang";
                                 $query = mysqli_query($conn, $sql);
                                 $count_client=0;
                                 while($rows = mysqli_fetch_array($query)){ ?>
@@ -31,7 +33,6 @@
                                     <td><?php echo $rows["TenCongTy"] ?></td>
                                     <td><?php echo $rows["SoDienThoai"] ?></td>
                                     <td><?php echo $rows["SoFax"] ?></td>
-                                    <td><?php echo $rows["DiaChi"] ?></td>
                                     <?php $count_client++ ?>
                                     <td>
                                         <!-- <button type="button" class="btn btn-success editbtn">Xem</button> -->

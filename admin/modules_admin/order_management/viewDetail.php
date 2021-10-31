@@ -28,6 +28,10 @@
 <main>
     <div class="container-fluid">
         <div class="jumbotron">
+            <div class="link-nav-pages">
+                <a href="./index.php?page_layout=order_management">Quản Lý Đơn Hàng</a> /
+                <a href="">Chi Tiết Đơn Hàng</a>
+            </div>
             <!-- Neu trang thai don hang la Chua Duyet se ko co ten nhan vien trong CSDL. Nguoc lai se co  -->
             <?php $status = $rows_get_statusOrder["TrangThaiDH"]; if($status == 'Chưa duyệt'){ ?>
                 <div>

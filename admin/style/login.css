@@ -124,6 +124,7 @@ a{
     padding: 14px 15px;
     font-weight: 500;
     transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .login-form button:hover{

@@ -43,29 +43,29 @@
         </form>
 
         <!-- Đăng ký -->
-        <form action="./signin.php" class="sign-up-form" method="POST">
+        <form class="sign-up-form">
           <h2 class="title">Đăng ký</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" name="name_client" placeholder="Họ và tên" required/>
+            <input type="text" id="name_client" placeholder="Họ và tên" required/>
           </div>
           <div class="input-field">
             <i class="fas fa-phone"></i>
-            <input type="text" name="phoneNumber_client" placeholder="Số điện thoại" required/>
+            <input type="text" id="phoneNumber_client" placeholder="Số điện thoại" required/>
           </div>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" name="username_client" placeholder="Tên đăng nhập" required/>
+            <input type="text" id="username_client" placeholder="Tên đăng nhập" required/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" name="password_client" id="password_client" placeholder="Mật khẩu" required/>
+            <input type="password" id="password_client" placeholder="Mật khẩu" required/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" name="passwordAgain_client" id="passwordAgain_client" placeholder="Nhập lại mật khẩu" required/>
+            <input type="password" id="passwordAgain_client" placeholder="Nhập lại mật khẩu" required/>
           </div>
-          <input type="submit" class="btn" value="Đăng ký" name="btn_signin"/>
+          <input type="button" class="btn" value="Đăng ký" onclick="check()"/>
           <p class="social-text">Đăng ký bằng phương thức khác</p>
           <div class="social-media">
             <a href="#" class="social-icon">

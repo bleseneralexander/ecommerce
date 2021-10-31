@@ -9,6 +9,10 @@
 
         $sql_modify_password = "UPDATE khachhang SET password = '$newpassword' WHERE UserName='$UserName'";
         $query_modify_password = mysqli_query($conn, $sql_modify_password);
-        // echo 'Đã đổi mật khẩu thành công';
+        if($query_modify_password){
+            echo 'True'; //Them vao CSDL thanh cong
+        } else {
+            echo 'False'; //Them vao CSDL ko thanh cong
+        }
     }
 ?>

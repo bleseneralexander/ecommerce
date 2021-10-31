@@ -57,27 +57,22 @@
 </div>
 
 <div class="form-profile">
-  <?php
-    $sql_get_password = "SELECT `password` FROM `khachhang` WHERE UserName='$username'";
-    $query_get_password = mysqli_query($conn, $sql_get_password);
-    $rows_get_password = mysqli_fetch_array($query_get_password);
-  ?>
-  <form action="" class="sign-in-form" method="POST">
+  <form class="sign-in-form">
     <h2 class="title">Đổi Mật Khẩu</h2>
-    <input type="hidden" name="username" id="username" value="<?php echo $username?>"/>
+    <input type="hidden" id="username" value="<?php echo $username?>"/>
     <div class="input-field">
       <i class="fas fa-lock"></i>
-      <input type="password" name="password_old" id="password_old" placeholder="Mật khẩu cũ" required/>
+      <input type="password" id="password_old" placeholder="Mật khẩu cũ" required/>
     </div>
     <div class="input-field">
       <i class="fas fa-lock"></i>
-      <input type="password" name="password_new" id="password_new" placeholder="Mật khẩu mới" required/>
+      <input type="password" id="password_new" placeholder="Mật khẩu mới" required/>
     </div>
     <div class="input-field">
       <i class="fas fa-lock"></i>
-      <input type="password" name="passwordAgain_new" id="passwordAgain_new" placeholder="Nhập lại mật khẩu mới" required/>
+      <input type="password" id="passwordAgain_new" placeholder="Nhập lại mật khẩu mới" required/>
     </div>
-    <input type="submit" value="Lưu" class="btn solid" name="btn_modify_password" onclick="check()"/>
+    <input type="button" value="Lưu" class="btn solid" name="btn_modify_password" onclick="check()"/>
   </form>
 </div>
 <script type="text/javascript" src='./modules_client/profile/profile_script.js'></script>

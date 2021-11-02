@@ -24,8 +24,12 @@
             case 'product_management':
                 include './modules_admin/product_management/list.php';
                 break;
+            
+            case 'modifyOfProduct': //chinh sua thong tin hang hoa
+                include './modules_admin/product_management/modify.php';
+                break;
 
-            case 'quantityOfProduct':
+            case 'quantityOfProduct': //Nhap them so luong hang hoa
                 include './modules_admin/product_management/quantity.php';
                 break; 
                     

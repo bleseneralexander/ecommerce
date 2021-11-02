@@ -6,6 +6,9 @@
 <main>
     <div class="container-fluid">
         <div class="card-container">
+            <div class="link-nav-pages">
+                <a href="">Quản Lý Khách Hàng</a>
+            </div>
             <div class="card-header">
                 <h2>Danh sách hàng hóa</h2>
             </div>
@@ -72,7 +75,11 @@
                                         ?>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn_modify">Sửa</button>
+                                        <!-- <button type="button" class="btn_modify">Sửa</button> -->
+                                        <a href="./index.php?page_layout=modifyOfProduct&id= <?php echo $rows['MSHH']?>"
+                                        style="background-color: rgb(255, 187, 0);color: white;padding: 8px 15px;text-align: center;text-decoration: none;display: inline-block;border-radius: 5px;">
+                                            Sửa
+                                        </a>
                                     </td>
                                     <td>
                                         <a onclick="return confirm_Del('<?php echo $rows['TenHH'] ?>')" 
@@ -368,7 +375,7 @@
 
 <!-- ############################# Modal Sửa nhân viên ######################################## -->
 
-<div class="modal-bg-modify">
+<!-- <div class="modal-bg-modify">
   <div class="modal-modify">
     <h2>Chỉnh sửa thông tin nhân viên</h2>
     <form action="./staff_management/staff.php?page_staff=modify" method="POST"> 
@@ -403,9 +410,9 @@
     </form>       
     <span class="modal-close-modify">X</spsan>
   </div>
-</div>
+</div> -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   var modalBtn_modify = document.querySelector('.btn_modify'); //sua ten
   var modalBg_modify = document.querySelector('.modal-bg-modify');
   var modalClose_modify = document.querySelector('.modal-close-modify');
@@ -417,4 +424,4 @@
   modalClose_modify.addEventListener('click', function(){
     modalBg_modify.classList.remove('bg-active-modify');
   });
-</script>
+</script> -->

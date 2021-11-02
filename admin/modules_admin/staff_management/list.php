@@ -40,12 +40,13 @@
                                     <td><?php echo $rows["SoDienThoai"] ?></td>
                                     <?php $count_nhanvien++ ?>
                                     <td>
-                                        <button type="button" class="btn_modify">Sửa</button>
+                                        <!-- <button type="button" class="btn_modify">Sửa</button> -->
 
                                         <!-- <button type="button" class="btn btn-warning modifybtn">Sửa</button> -->
-                                        <!-- <a href="./staff_management/staff.php?page_staff=modify&id= <?php echo $rows["MSNV"] ?>">
+                                        <a href="./index.php?page_layout=modifyStaff&id= <?php echo $rows["MSNV"] ?>" 
+                                            style="background-color: rgb(255, 187, 0);color: white;padding: 8px 15px;text-align: center;text-decoration: none;display: inline-block;border-radius: 5px;">
                                             Sửa
-                                        </a> -->
+                                        </a>
                                     </td>
                                     <td>
                                         <a onclick="return confirm_Del('<?php echo $rows['HoTenNV'] ?>')" 

@@ -13,6 +13,10 @@
                 include './modules_admin/staff_management/list.php';
                 break;
 
+            case 'modifyStaff': //Chinh sua thong tin nhan vien
+                include './modules_admin/staff_management/modify.php';
+                break;
+
             case 'client_management':
                 include './modules_admin/client_management/list.php';
                 break;

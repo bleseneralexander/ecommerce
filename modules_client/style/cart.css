@@ -90,6 +90,7 @@
     font-size: 1.1rem;
     transition: .5s;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .buy:hover{
@@ -125,3 +126,6 @@
     font-weight: 600;
 }
 
+.address_cart{
+    padding: 0;
+}

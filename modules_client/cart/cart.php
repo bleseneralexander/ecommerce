@@ -46,12 +46,13 @@
                         <td class="titleProduct" style="text-align: left;"><?php echo $row_order['TenHH'] ?></td>
                         <td><?php echo $row_order['Size'] ?></td>
                         <td><?php echo $row_order['GiaDatHang'] ?></td>
-                        <td>
-                            <div class="count-content">
+                        <td class="bg-counter">
+                        <?php echo $row_order['SoLuong'] ?>
+                            <!-- <div class="count-content">
                                 <span onmousedown="mouseDown_dec()" onmouseup="mouseUp()" onmouseleave="mouseLeave()" class="btn-adjust-amount">-</span>
                                 <input id="input-amount" value="<?php echo $row_order['SoLuong'] ?>" class="input-amount" readonly>	
                                 <span onmousedown="mouseDown_inc()" onmouseup="mouseUp()" onmouseleave="mouseLeave()" class="btn-adjust-amount">+</span>
-                            </div>
+                            </div> -->
                         </td>
                         <td><?php echo $row_order['GiamGia']*100 ?>%</td>
                         <td><?php echo $row_order['TongTien'] ?></td>
@@ -77,10 +78,10 @@
                         $sql_get_address = "SELECT d.MaDC, d.DiaChi FROM diachikh d JOIN khachhang k ON d.MSKH=k.MSKH WHERE k.UserName = '$username'";
                         $query_get_address = mysqli_query($conn, $sql_get_address);
                     ?>
-                    <form method="GET">
+                    <form class="address_cart" method="GET">
                         <label>Địa chỉ giao hàng</label>
-                        <select name="MaDiaChi" onchange="getComboA(this)">
-                            <option value="">---Chọn địa chỉ---</option>
+                        <select name="MaDiaChi" id="MaDiaChi">
+                            <option value="0">---Chọn địa chỉ---</option>
                             <?php while($row_get_address = mysqli_fetch_array($query_get_address)){ ?>
                             <option value="<?php echo $row_get_address['MaDC'] ?>"><?php echo $row_get_address['DiaChi'] ?></option>
                             <?php } ?>
@@ -94,7 +95,9 @@
                     </div>
                     <p class="money"><?php echo $row_get_TongSoTien['TongSoTien']  ?>₫</p>
                 </div>
-                <a id="link" class="buy">Mua Hàng</a>
+                
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <a href="#" id="myHref" class="buy">Mua Hàng</a>
             </div>
         </div>
         <?php } else {?>
@@ -132,11 +135,17 @@
 
     function mouseLeave() { clearTimeout(timeout); } 
 
-    //Lay MaDiaChi trong select-option
-    function getComboA(selectObject) {
-		var value = selectObject.value;
-		var x = document.getElementById("link");
-		x.href = "./modules_client/cart/purchase.php?username=<?php echo $username ?>&MaDiaChi=" + value ;
-	}
 
+    //Chuc nang nut Mua Hang
+    $("#myHref").on('click', function() {
+        let e = document.getElementById('MaDiaChi');
+        let giaTri = e.value;
+        // let giaTri = e.options[e.selectedIndex].text;
+        if(giaTri == 0){
+            alert('Vui lòng chọn địa chỉ trước khi đặt hàng.');
+        } else {
+            window.location = "./modules_client/cart/purchase.php?username=<?php echo $username ?>&MaDiaChi="+giaTri; 
+        }
+
+    });
 </script>

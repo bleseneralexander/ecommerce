@@ -83,6 +83,7 @@
                 </div>
 
                 <div class="product-button">
+                    <input type="hidden" value="abc" id="check_size"> <!-- Kiểm tra xem đã bấm chọn size chưa -->
                     <button type="button" class="btn-cart" onclick="add_cart()" >Thêm vào giỏ hàng
                         <span><i class="fas fa-shopping-cart"></i></span>
                     </button>
@@ -100,6 +101,7 @@
     //Choose size
     const sizes = document.querySelectorAll('.size-total');
     const hint = document.getElementById('txtHint');
+
     function changeSize(){
         sizes.forEach(size => size.classList.remove('active'));
         this.classList.add('active');
@@ -107,7 +109,7 @@
         //show hint: số lượng sản phẩm theo size
         hint.classList.add('active');
         showAmountOfSize();
-    }   
+    }
     sizes.forEach(size => size.addEventListener('click', changeSize));
     // window.addEventListener('resize', changeHeight);
 
@@ -132,6 +134,7 @@
             if(this.readyState == 4 && this.status == 200){
                 response_amount = this.responseText;
                 document.getElementById("txtAmount").innerHTML = response_amount; 
+                document.getElementById("check_size").value = response_amount;
             }
         }
         return false;
@@ -166,80 +169,78 @@
 
     //Them hang hoa vao gio hang nhung ko chuyen trang
     function add_cart(){
-        //===CHƯA LÀM ĐƯỢC KIỂM TRA CHỌN SIZE MỚI BẤM NÚT THÊM HÀNG HÓA===
-
-        // var hint ="";
-        // hint = document.getElementById("txtHint").innerHTML;
-        // size = document.querySelector(".active").innerHTML;
-        // alert(hint);
-
-        // if(hint != ""){
-        //     alert("co size");
-        // } else {
-        //     alert("ko co size");
-        // }
-
-        username_client = document.getElementById('username_client').value;
-        MSHH = document.getElementById('MSHH').value;
-        count_value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
-        size = document.querySelector(".active").innerHTML;
-        GiaDatHang = document.getElementById("price-title").innerHTML;
-        GiamGia = document.getElementById("sale").innerHTML;
-        GiaSauGiam = document.getElementById("price-title-sale").innerHTML;
-
-        //call ajax
-        var ajax = new XMLHttpRequest();
-        var method = "GET";
-        var url = "./modules_client/product/add_cart.php?username="+username_client+"&MSHH="+MSHH+"&SoLuong="+count_value+"&size="+size+"&GiaDatHang="+GiaDatHang+"&GiamGia="+GiamGia+"&GiaSauGiam="+GiaSauGiam;
-        var asynchronous = true;
-        ajax.open(method, url, asynchronous);
-
-        //send
-        ajax.send();
+        var x = document.getElementById("check_size").value;
         
-        //receive
-        ajax.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status == 200){
-                var response = this.responseText;
-                alert(response);
-                // window.location.href='./index.php?page_layout=cart';
+        //===Kiểm tra chọn size===
+        if(x == 'abc'){
+            alert('Vui lòng chọn size');
+        } else {
+            username_client = document.getElementById('username_client').value;
+            MSHH = document.getElementById('MSHH').value;
+            count_value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
+            size = document.querySelector(".active").innerHTML;
+            GiaDatHang = document.getElementById("price-title").innerHTML;
+            GiamGia = document.getElementById("sale").innerHTML;
+            GiaSauGiam = document.getElementById("price-title-sale").innerHTML;
+
+            //call ajax
+            var ajax = new XMLHttpRequest();
+            var method = "GET";
+            var url = "./modules_client/product/add_cart.php?username="+username_client+"&MSHH="+MSHH+"&SoLuong="+count_value+"&size="+size+"&GiaDatHang="+GiaDatHang+"&GiamGia="+GiamGia+"&GiaSauGiam="+GiaSauGiam;
+            var asynchronous = true;
+            ajax.open(method, url, asynchronous);
+
+            //send
+            ajax.send();
+            
+            //receive
+            ajax.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    var response = this.responseText;
+                    alert(response);
+                    // window.location.href='./index.php?page_layout=cart';
+                }
             }
         }
-        return false;
     }
 
     //Them hang hoa vao gio hang vao chuyen trang sang trang gio hang
     function buy_now(){
-        //===CHƯA LÀM ĐƯỢC KIỂM TRA CHỌN SIZE MỚI BẤM NÚT THÊM HÀNG HÓA===
+        var x = document.getElementById("check_size").value;
 
-        username_client = document.getElementById('username_client').value;
-        MSHH = document.getElementById('MSHH').value;
-        count_value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
-        size = document.querySelector(".active").innerHTML;
-        GiaDatHang = document.getElementById("price-title").innerHTML;
-        GiamGia = document.getElementById("sale").innerHTML;
-        GiaSauGiam = document.getElementById("price-title-sale").innerHTML;
+        //===Kiểm tra chọn size===
+        if(x == 'abc'){
+            alert('Vui lòng chọn size');
+        } else {
+            username_client = document.getElementById('username_client').value;
+            MSHH = document.getElementById('MSHH').value;
+            count_value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
+            size = document.querySelector(".active").innerHTML;
+            GiaDatHang = document.getElementById("price-title").innerHTML;
+            GiamGia = document.getElementById("sale").innerHTML;
+            GiaSauGiam = document.getElementById("price-title-sale").innerHTML;
 
-        // alert(username_client+MSHH+count_value+size+GiaDatHang+GiamGia+GiaSauGiam);
+            // alert(username_client+MSHH+count_value+size+GiaDatHang+GiamGia+GiaSauGiam);
 
-        //call ajax
-        var ajax = new XMLHttpRequest();
-        var method = "GET";
-        var url = "./modules_client/product/buy_now.php?username="+username_client+"&MSHH="+MSHH+"&SoLuong="+count_value+"&size="+size+"&GiaDatHang="+GiaDatHang+"&GiamGia="+GiamGia+"&GiaSauGiam="+GiaSauGiam;
-        var asynchronous = true;
-        ajax.open(method, url, asynchronous);
+            //call ajax
+            var ajax = new XMLHttpRequest();
+            var method = "GET";
+            var url = "./modules_client/product/buy_now.php?username="+username_client+"&MSHH="+MSHH+"&SoLuong="+count_value+"&size="+size+"&GiaDatHang="+GiaDatHang+"&GiamGia="+GiamGia+"&GiaSauGiam="+GiaSauGiam;
+            var asynchronous = true;
+            ajax.open(method, url, asynchronous);
 
-        //send
-        ajax.send();
-        
-        //receive
-        ajax.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status == 200){
-                // var response = this.responseText;
-                // alert(response);
-                window.location.href='./index.php?page_layout=cart';
+            //send
+            ajax.send();
+            
+            //receive
+            ajax.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    // var response = this.responseText;
+                    // alert(response);
+                    window.location.href='./index.php?page_layout=cart';
+                }
             }
-        }
+        }        
     }
 
 </script>

@@ -30,7 +30,7 @@
                                         FROM khachhang k 
                                             JOIN dathang d ON d.MSKH=k.MSKH
                                             JOIN diachikh dia ON d.MaDC=dia.MaDC
-                                            ORDER BY d.SoDonDH ASC;";
+                                            ORDER BY d.SoDonDH DESC;";
                                 $count_order=0;
                                 $query = mysqli_query($conn, $sql);
                                 while($rows = mysqli_fetch_array($query)){ ?>

@@ -4,7 +4,7 @@
         $username = $_GET['username'];
 
         $sql_order = "SELECT d.SoDonDH, d.NgayDH, d.NgayGH, d.TrangThaiDH 
-        FROM dathang d JOIN khachhang k ON d.MSKH=k.MSKH WHERE k.UserName='$username'";
+        FROM dathang d JOIN khachhang k ON d.MSKH=k.MSKH WHERE k.UserName='$username' ORDER BY d.SoDonDH DESC";
         $query_order = mysqli_query($conn, $sql_order);
     }
 ?>
@@ -65,51 +65,6 @@
                 } else {?>
                 <div> <p style="text-align: center">Bạn chưa có đơn hàng nào trước đây.</p> </div>
             <?php } ?>
-
-                <!-- <div class="order">
-                    <div class="info_order">
-                        <div class="title_order">
-                            <h4>Đơn hàng: #111</h4>
-                            <h4>Tình trạng: Chưa duyệt</h4>
-                        </div>
-                        <div class="date_order">
-                            <h4>Ngày đặt: 11-10-2021</h4>
-                            <h4>Dự kiến nhận: 15-10-2021</h4>
-                        </div>
-                    </div>
-                    <table>
-                        <tr>
-                            <th>STT</th>
-                            <th colspan="2" class="colspan_titleProduct">Sản phẩm</th>
-                            <th>Size</th>
-                            <th>Đơn giá</th>
-                            <th>Số lượng</th>
-                            <th>Giảm giá</th>
-                            <th>Số tiền</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td class="image"><img src="./../../admin/photo/giay_11.png" alt=""></td>
-                            <td class="titleProduct" style="text-align: left;">Giày Converse Chuck Taylor Red High Tops
-                            </td>
-                            <td>45</td>
-                            <td>1000000</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>1000000</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="image"><img src="./../../admin/photo/giay_10.png" alt=""></td>
-                            <td class="titleProduct" style="text-align: left;">Giày Nike Air Force 1</td>
-                            <td>45</td>
-                            <td>2000000</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>2000000</td>
-                        </tr>
-                    </table>
-                </div> -->
         </div>
     </div>
 </div>

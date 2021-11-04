@@ -7,7 +7,6 @@
         //Lay so luong hang them vao
         $SoLuong_availableProduct = $_POST['SoLuong_availableProduct'];
 
-
         //Lay so luong hang hien co trong CSDL
         $sql_SoLuongHangHoa = "SELECT SoLuongHang FROM `size` WHERE MaSize='$Size_availableProduct' AND MSHH=$MSHH_availableProduct";
         $query_SoLuongHangHoa = mysqli_query($conn, $sql_SoLuongHangHoa);

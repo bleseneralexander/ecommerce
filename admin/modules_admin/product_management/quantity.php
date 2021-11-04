@@ -8,7 +8,11 @@
 
 <main>
     <div class="container-fluid">
-        <div class="card">
+        <div class="card-quantity">
+            <div class="link-nav-pages">
+                <a href="./index.php?page_layout=product_management">Quản Lý Khách Hàng</a> / 
+                <a href="">Số Lượng Hàng Hóa Theo Size</a>
+            </div>
             <div class="card-header">
                 <h2>THÔNG TIN SỐ LƯỢNG HÀNG HÓA THEO SIZE</h2>
             </div>
@@ -19,8 +23,8 @@
                         $query_get_TenHangHoa = mysqli_query($conn, $sql_get_TenHangHoa);
                         $rows_get_TenHangHoa = mysqli_fetch_array($query_get_TenHangHoa);
                     ?>
-                    <h6>MSHH: <?php echo $id ?></h6>
-                    <h6>Tên hàng: <?php echo $rows_get_TenHangHoa["TenHH"] ?></h6>
+                    <h4>MSHH: <?php echo $id ?></h4>
+                    <h4>Tên hàng: <?php echo $rows_get_TenHangHoa["TenHH"] ?></h4>
                 </div>
                 <table class="table">
                     <thead class="thead-light">
@@ -60,8 +64,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">THÔNG TIN HÀNG HÓA</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa số lượng</h5>
             </div>
             <form action="./modules_admin/product_management/add_availableProduct.php" method="POST"> 
                 <div class="modal-body">
@@ -79,7 +82,6 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                     <button type="submit" class="btn btn-primary" name="btn_add_availableProduct">Xác nhận</button>
                 </div>
             </form>

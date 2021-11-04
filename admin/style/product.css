@@ -98,6 +98,10 @@
 
   /* QUANTITY */
   /* ================= MODAL ADD ================= */
+.card-quantity{
+  min-height: 50vh;
+}
+
 .modal-bg-availableProduct-product{
     position: fixed;
     width: 100%;
@@ -139,12 +143,12 @@
   }
 
 #editmodal_availableProduct{
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     margin: 0 5vw;
 }
 
 .modal-content{
-    background-color: aqua;
+    /* background-color: aqua; */
     margin: 0 4vw;
 }
 

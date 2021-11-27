@@ -77,8 +77,17 @@
             <!-- PRICE -->
             <div class="price-footer">
                 <div class="price">
+                    <input type="hidden" id="sale_percent" value="<?php echo $rows['GiamGia'] ?>">
+                    <input type="hidden" id="origin_price" value="<?php echo $rows['Gia'] ?>">
+                    <input type="hidden" id="sale_price" value="<?php echo $GiamGia=$rows["Gia"]-($rows["Gia"]*$rows["GiamGia"]) ?>">
+                    <?php
+                        if(!$rows['GiamGia']*100 == 0){
+                    ?>
                     <p class="sale">Giảm <span id="sale"><?php echo $rows['GiamGia']*100 ?></span>%</p>
                     <p class="price-title"><span id="price-title"><?php echo $rows['Gia'] ?></span>₫</p>
+                    <?php
+                        }
+                    ?>
                     <p class="price-title-sale"><span id="price-title-sale"><?php echo $GiamGia=$rows["Gia"]-($rows["Gia"]*$rows["GiamGia"]) ?></span>₫</p>
                 </div>
 
@@ -179,9 +188,9 @@
             MSHH = document.getElementById('MSHH').value;
             count_value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
             size = document.querySelector(".active").innerHTML;
-            GiaDatHang = document.getElementById("price-title").innerHTML;
-            GiamGia = document.getElementById("sale").innerHTML;
-            GiaSauGiam = document.getElementById("price-title-sale").innerHTML;
+            GiaDatHang = document.getElementById("origin_price").value;
+            GiamGia = document.getElementById("sale_percent").value;
+            GiaSauGiam = document.getElementById("sale_price").value;
 
             //call ajax
             var ajax = new XMLHttpRequest();
@@ -216,9 +225,9 @@
             MSHH = document.getElementById('MSHH').value;
             count_value = isNaN(parseInt(document.getElementById('input-amount').value)) ? 0 : parseInt(document.getElementById('input-amount').value);
             size = document.querySelector(".active").innerHTML;
-            GiaDatHang = document.getElementById("price-title").innerHTML;
-            GiamGia = document.getElementById("sale").innerHTML;
-            GiaSauGiam = document.getElementById("price-title-sale").innerHTML;
+            GiaDatHang = document.getElementById("origin_price").value;
+            GiamGia = document.getElementById("sale_percent").value;
+            GiaSauGiam = document.getElementById("sale_price").value;
 
             // alert(username_client+MSHH+count_value+size+GiaDatHang+GiamGia+GiaSauGiam);
 

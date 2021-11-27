@@ -1,6 +1,6 @@
 :root {
     --white: #fff;
-    --black: #e9d419;
+    --yellow: #e9d419;
     --primary: #000000;
   }
   
@@ -43,9 +43,9 @@ main {
     position: relative;
     width: 25rem;
     height: 25rem;
-    /* background-color: var(--black); */
+    /* background-color: var(--yellow); */
     border-radius: 50%;
-    background: radial-gradient(circle at center, var(--black), #e9d419);
+    background: radial-gradient(circle at center, var(--yellow), #e9d419);
   }
   
   /* .shoe-figure::before {
@@ -56,7 +56,7 @@ main {
     transform: translate(-50%, 0);
     width: 85%;
     height: 85%;
-    background-color: var(--black);
+    background-color: var(--yellow);
     border-radius: 50%;
   } */
   
@@ -225,13 +225,13 @@ main {
     color: white;
 }
 .btn-cart:hover{
-    background: var(--black);
+    background: var(--yellow);
 }
 .btn-buy{
     background: white;
 }
 .btn-buy:hover{
-    background: var(--black);
+    background: var(--yellow);
 }
   
 @media only screen and (max-width: 1200px) {
